@@ -94,55 +94,15 @@
 </div>
 <!-- Three columns of text below the carousel -->
 <div class="row">
+@foreach ($categories as $category)
   <div class="col-lg-4">
-    <svg class="bd-placeholder-img " width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
-
-    <h2>Heading</h2>
+    <img src="https://source.unsplash.com/500x500?{{ $category->name }}" class="rounded-circle" alt="{{ $category->name }}" width="140" height="140" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/>
+    <h2>{{ $category->name }}</h2>
     <p>Desc Service</p>
     <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
   </div>
-  <div class="col-lg-4">
-    <svg class="bd-placeholder-img" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
-
-    <h2>Heading</h2>
-    <p>Desc Service</p>
-    <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
-  </div>
-  <div class="col-lg-4">
-    <svg class="bd-placeholder-img" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
-
-    <h2>Heading</h2>
-    <p>Desc Service</p>
-    <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
-  </div>
+  @endforeach
 </div>
-
-<div class="row">
-  <div class="col-lg-4">
-    <svg class="bd-placeholder-img " width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
-
-    <h2>Heading</h2>
-    <p>Desc Service</p>
-    <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
-  </div>
-  <div class="col-lg-4">
-    <svg class="bd-placeholder-img" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
-
-    <h2>Heading</h2>
-    <p>Desc Service</p>
-    <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
-  </div>
-  <div class="col-lg-4">
-    <svg class="bd-placeholder-img" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
-
-    <h2>Heading</h2>
-    <p>Desc Service</p>
-    <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
-  </div>
-</div>
-
-
-
     <!-- START THE FEATURETTES -->
     <div class="title mb-4">
     <h1>Testimonials</h1>
