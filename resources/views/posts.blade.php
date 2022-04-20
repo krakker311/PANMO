@@ -40,7 +40,7 @@
             </p>
             <p class="card-text">{{ $posts[0]->excerpt }}</p>
 
-            <a href="/posts/{{ $posts[0]->slug }}" class="text-decoration-none btn btn-primary">Read more</a>
+            <a href="/posts/{{ $posts[0]->user_id }}" class="text-decoration-none btn btn-primary">Read more</a>
 
             </div>
         </div>
@@ -70,7 +70,7 @@
                         </small>
                         </p>
                       <p class="card-text">{{ $post->excerpt }}</p>
-                      <a href="/posts/{{ $post->slug }}" class="btn btn-primary">Read more</a>
+                      <a href="/posts/{{ $post->user_id }}" class="btn btn-primary">Read more</a>
                     </div>
                   </div>
             </div>

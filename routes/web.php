@@ -29,7 +29,7 @@ Route::get('/posts',[PostController::class, 'index']);
 
 //halaman single posts
 
-Route::get('posts/{post:slug}',[PostController::class, 'show']);
+Route::get('posts/{post:user_id}',[PostController::class, 'show']);
 
 Route::get('/categories', function(){
     return view('categories', [
