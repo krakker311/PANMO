@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Category;
+use App\Models\Favorite;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\LoginController;
@@ -45,8 +46,8 @@ Route::get('/categories', function(){
 Route::get('/favorites', function(){
     return view('favlist', [
         'title' => 'Favorite List',
-        // 'active' => 'favlist'
-        // 'favorites' => Favorite::all()
+        'active' => 'favlist',
+        'favorites' => Favorite::all()
     ]);
 });
 
