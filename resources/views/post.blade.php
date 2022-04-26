@@ -9,19 +9,19 @@
         <div class="card">
           <div class="rounded-top text-white d-flex flex-row" style="background-color: #000; height:200px;">
             <div class="ms-4 mt-5 d-flex flex-column" style="width: 150px;">
-              <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp" alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2" style="width: 150px; z-index: 1">
+              <img src="{{ asset('storage/' . $post->image) }}" alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2" style="width: 150px; z-index: 1">
               <button type="button" class="btn btn-outline-primary" style="z-index: 1;">
-                Order Now
+                Book Now
               </button>
             </div>
             <div class="ms-3" style="margin-top: 130px;">
-              <h5>{{ $post->author->name }}</h5>
+              <h5>{{ $post->name }}</h5>
               <p>New York</p>
             </div>
           </div>
           <div class="p-4 text-black" style="background-color: #f8f9fa;">
             <div class="d-flex justify-content-end text-center py-1">
-              <div>
+              {{-- <div>
                 <p class="mb-1 h5">253</p>
                 <p class="small text-muted mb-0">Photos</p>
               </div>
@@ -32,36 +32,25 @@
               <div>
                 <p class="mb-1 h5">478</p>
                 <p class="small text-muted mb-0">Following</p>
-              </div>
+              </div> --}}
             </div>
           </div>
           <div class="card-body p-4 text-black">
             <div class="mb-5">
-              <p class="lead fw-normal mb-1">Job Desc: </p>
+              <p class="lead fw-normal mb-1 mt-4">About Me</p>
               <div class="p-4" style="background-color: #f8f9fa;">
-                <p class="font-italic mb-1">{!!$post->body!!}</p>
+                <p class="font-italic mb-1"></p>
               </div>
             </div>
             <div class="d-flex justify-content-between align-items-center mb-4">
-              <p class="lead fw-normal mb-0">Recent photos</p>
-              <p class="mb-0"><a href="#!" class="text-muted">Show all</a></p>
+              <p class="lead fw-normal mb-0">Portofolio</p>
             </div>
             <div class="row g-2">
-              <div class="col mb-2">
-                <img src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(112).webp" alt="image 1" class="w-100 rounded-3">
-              </div>
-              <div class="col mb-2">
-                <img src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(107).webp" alt="image 1" class="w-100 rounded-3">
-              </div>
+                <div style="max-height: 350px; overflow:hidden;">
+                  <img src=""  class="img-fluid"> 
+                </div>
             </div>
-            <div class="row g-2">
-              <div class="col">
-                <img src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(108).webp" alt="image 1" class="w-100 rounded-3">
-              </div>
-              <div class="col">
-                <img src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(114).webp" alt="image 1" class="w-100 rounded-3">
-              </div>
-            </div>
+
           </div>
         </div>
       </div>

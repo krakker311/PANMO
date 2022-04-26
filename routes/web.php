@@ -31,6 +31,9 @@ Route::get('/posts',[PostController::class, 'index']);
 
 Route::get('posts/{post:user_id}',[PostController::class, 'show']);
 
+Route::get('profile/{user:id}', [PostController::class, 'show']);
+
+
 Route::get('/categories', function(){
     return view('categories', [
         'title' => 'Post Categories',

@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'verdy',
             'username' => 'verdy',
             'email' => 'verdy@binus.ac.id',
-            'password' => bcrypt('12345')
+            'password' => bcrypt('12345')        
         ]);
 
         User::factory(3)->create();
@@ -37,10 +37,6 @@ class DatabaseSeeder extends Seeder
         Category::create([
             'name'=> 'Mature Model',
             'slug' => 'mature-model'
-        ]);
-        Category::create([
-            'name'=> 'Fashion Model',
-            'slug' => 'fashion-model'
         ]);
 
         Post::factory(20)->create();

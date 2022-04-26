@@ -20,18 +20,18 @@ class PostController extends Controller
             $title = ' by ' . $author->name;
         }
         return view ('posts', [
-        "title" => "All Posts" . $title,
+        "title" => "Our Models" . $title,
         "active" => 'posts',
-        "posts" => Post::latest()->filter(request(['search', 'category', 'author']))->paginate(7)->withQueryString()
+        "posts" => User::latest()->paginate(7)->withQueryString()
         ]);
     }
 
-    public function show(Post $post){
+    public function show($id){
 
         return view('post', [
-            "title" => 'single post',
+            "title" => 'Profile',
             "active" => 'posts',
-            "post" => $post
+            "post" => User::findOrFail($id)
         ]);
     }
 

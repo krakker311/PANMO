@@ -37,6 +37,7 @@
                         @endforeach 
                       </select>
                 </div>
+
                 <div class="mb-3">
                     <label for="image" class="form-label">Post Image</label>
                     <img class="img-preview img-fluid mb-3 col-sm-5">
@@ -45,8 +46,9 @@
                     <div class="invalid-feedback">
                         {{ $message }}
                     </div>
-                    @enderror
-                  </div>
+                    @enderror  
+                </div>
+
                 <div class="mb-3">
                     <label for="body" class="form-label">Body</label>
                     @error('body')

@@ -6,7 +6,7 @@
     
     <main class="form-registration">
       <h1 class="h3 mb-3 fw-normal text-center">Registration Form</h1>
-        <form action="/register" method="post">
+        <form action="/register" method="post" enctype="multipart/form-data">
             @csrf
             <div class="form-floating">
                 <input type="name" name="name" class="form-control rounded-top @error('name')is-invalid @enderror" id="name" placeholder="Name" required value="{{ old('name') }}">
@@ -47,6 +47,17 @@
               </div>
               @enderror
           </div>
+          
+          <div class="mb-3">
+              <label for="image" class="form-label">Profile Picture</label>
+              <img class="img-preview img-fluid mb-3 col-sm-5">
+              <input class="form-control  @error('image') is-invalid @enderror" type="file" name="image" id="image" onchange="previewImage()" enctype="multipart/form-data">
+              @error('image')
+              <div class="invalid-feedback">
+                  {{ $message }}
+              </div>
+              @enderror
+          </div>
       
           <button class="w-100 btn btn-lg btn-primary mt-3" type="submit">Register</button>
 
@@ -55,5 +66,19 @@
       </main>
   </div>
 </div>
-  
+
+  <script>
+        function previewImage(){
+            const image = document.querySelector('#imageProfile');
+            const imgPreview = document.querySelector('.img-preview');
+            imgPreview.style.display = 'block';
+
+            const oFReader = new FileReader();
+            oFReader.readAsDataURL(image.files[0]);
+
+            oFReader.onload = function(oFREvent){
+                imgPreview.src = oFREvent.target.result;
+            }
+        }
+  </script>
 @endsection

@@ -89,19 +89,25 @@
 
 <div class="service text-center">
 
-<div class="title mb-4">
+<div class="title mb-4 mt-4">
     <h1>Our Service</h1>
 </div>
 <!-- Three columns of text below the carousel -->
-<div class="row">
-@foreach ($categories as $category)
-  <div class="col-lg-4">
-    <img src="https://source.unsplash.com/500x500?{{ $category->name }}" class="rounded-circle" alt="{{ $category->name }}" width="140" height="140" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/>
-    <h2>{{ $category->name }}</h2>
-    <p>Desc Service</p>
-    <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+<div class="container">
+  <div class="row">
+      @foreach ($categories as $category)
+          <div class="col-md-4 mb-5">
+              <a href="/posts?category={{ $category->slug }}">
+              <div class="card bg-dark text-white">
+                  <img src="https://source.unsplash.com/500x500?{{ $category->name }}" class="card-img" alt="{{ $category->name }}">
+                  <div class="card-img-overlay d-flex align-items-center p-0">
+                  <h5 class="card-title text-center flex-fill p-4 fs-3" style="background-color: rgba(0, 0, 0, 0.7)">{{ $category->name }}</h5>
+                  </div>
+              </div>
+              </a> 
+          </div>
+      @endforeach
   </div>
-  @endforeach
 </div>
     <!-- START THE FEATURETTES -->
     <div class="title mb-4">
