@@ -35,6 +35,12 @@
               </div> --}}
             </div>
           </div>
+          <label for="id-of-input" class="form-check">
+            <input type="checkbox" id="id-of-input">
+            <i class="glyphicon glyphicon-star-empty"></i>
+            <i class="glyphicon glyphicon-star"></i>
+            <span>Favorite</span>
+          </label>
           <div class="card-body p-4 text-black">
             <div class="mb-5">
               <p class="lead fw-normal mb-1 mt-4">About Me</p>
