@@ -34,5 +34,16 @@ class PostController extends Controller
             "post" => User::findOrFail($id)
         ]);
     }
+    
+    public function favorite(Post $post)
+    {
+        Auth::user()->favorites()->attach($post->id);
+        return back();
+    }
 
+    public function unfavorite(Post $post)
+    {
+        Auth::user()->favorites()->detach($post->id);
+        return back();
+    }
 }

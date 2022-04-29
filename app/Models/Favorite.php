@@ -11,11 +11,7 @@ class Favorite extends Model
 
     protected $guarded = ['id'];
 
-    public function model(){
-        return $this->belongsTo(User::class, 'model_id');
-    }
-
-    public function user(){
-        return $this->belongsTo(User::class, 'user_id');
+    public function favorites(){
+        return $this->belongsTo(User::class, 'model_id','user_id');
     }
 }
