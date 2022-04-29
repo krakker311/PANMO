@@ -5,7 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
-
+use Illuminate\Support\Facades\Auth;
+use App\Models\Favorite;
 
 class Post extends Model
 {
@@ -25,6 +26,14 @@ class Post extends Model
     public function getRouteKeyName(){
         return 'slug';
     }
+
+    public function favorited()
+    {
+        return (bool) Favorite::where('user_id', Auth::id())
+                            ->where('post_id', $this->id)
+                            ->first();
+    }
+
     public function sluggable(): array
     {
         return [

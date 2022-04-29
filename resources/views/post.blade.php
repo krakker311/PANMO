@@ -35,13 +35,10 @@
               </div> --}}
             </div>
           </div>
-          <label for="id-of-input" class="form-check">
-            <input type="checkbox" id="id-of-input">
-            <i class="glyphicon glyphicon-star-empty"></i>
-            <i class="glyphicon glyphicon-star"></i>
-            <span>Favorite</span>
-          </label>
           <div class="card-body p-4 text-black">
+          <div class="card-footer text-muted">
+          <favorite :post={{ $post->id }} :favorited={{ $post->favorited() ? 'true' : 'false' }}></favorite>
+          </div>
             <div class="mb-5">
               <p class="lead fw-normal mb-1 mt-4">About Me</p>
               <div class="p-4" style="background-color: #f8f9fa;">
@@ -67,40 +64,3 @@
    
 
 @endsection
-
-
-<script>
-    export default {
-        props: ['post', 'favorited'],
-
-        data: function() {
-            return {
-                isFavorited: '',
-            }
-        },
-
-        mounted() {
-            this.isFavorited = this.isFavorite ? true : false;
-        },
-
-        computed: {
-            isFavorite() {
-                return this.favorited;
-            },
-        },
-
-        methods: {
-            favorite(post) {
-                axios.post('/favorite/'+post)
-                    .then(response => this.isFavorited = true)
-                    .catch(response => console.log(response.data));
-            },
-
-            unFavorite(post) {
-                axios.post('/unfavorite/'+post)
-                    .then(response => this.isFavorited = false)
-                    .catch(response => console.log(response.data));
-            }
-        }
-    }
-</script>
