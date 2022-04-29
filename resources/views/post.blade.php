@@ -2,6 +2,7 @@
 
 @section('container')
 
+<div id="app">
 <section class="h-100">
   <div class="container py-4 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
@@ -37,7 +38,8 @@
           </div>
           <div class="card-body p-4 text-black">
           <div class="card-footer text-muted">
-          <favorite :post={{ $post->id }} :favorited={{ $post->favorited() ? 'true' : 'false' }}></favorite>
+            <div id="app">
+          <favorite :post={{ $post->id }} :favorited={{ $post->favorited() ? 'true' : 'false' }}></favorite></div>
           </div>
             <div class="mb-5">
               <p class="lead fw-normal mb-1 mt-4">About Me</p>
@@ -60,7 +62,8 @@
     </div>
   </div>
 </section>
+</div>
 
-   
+<script src="{{ asset('js/app.js')}}"></script>
 
 @endsection
