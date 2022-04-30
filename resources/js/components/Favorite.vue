@@ -1,9 +1,10 @@
 <template>
     <span>
-        <a href="#" v-if="isFavorited" @click.prevent="unFavorite(post)">
+        <a href="#" v-if="isFavorited" @click.prevent="unFavorite(model)">
+            
             <i class="bi bi-bookmark-fill" style="font-size: 1.5em;"></i>
         </a>
-        <a href="#" v-else @click.prevent="favorite(post)">
+        <a href="#" v-else @click.prevent="favorite(model)">
            <i class="bi bi-bookmark" style="font-size: 1.5em;"></i>
         </a>
     </span>
@@ -11,7 +12,7 @@
 
 <script>
     export default {
-        props: ['post', 'favorited'],
+        props: ['model', 'favorited'],
 
         data: function() {
             return {
@@ -30,14 +31,14 @@
         },
 
         methods: {
-            favorite(post) {
-                axios.post('/favorite/'+post)
+            favorite(model) {
+                axios.post('/favorite/'+model)
                     .then(response => this.isFavorited = true)
                     .catch(response => console.log(response.data));
             },
 
-            unFavorite(post) {
-                axios.post('/unfavorite/'+post)
+            unFavorite(model) {
+                axios.post('/unfavorite/'+model)
                     .then(response => this.isFavorited = false)
                     .catch(response => console.log(response.data));
             }

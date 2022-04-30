@@ -10,13 +10,13 @@
         <div class="card">
           <div class="rounded-top text-white d-flex flex-row" style="background-color: #000; height:200px;">
             <div class="ms-4 mt-5 d-flex flex-column" style="width: 150px;">
-              <img src="{{ asset('storage/' . $post->image) }}" alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2" style="width: 150px; z-index: 1">
+              <img src="{{ asset('storage/' . $model->image) }}" alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2" style="width: 150px; z-index: 1">
               <button type="button" class="btn btn-outline-primary" style="z-index: 1;">
                 Book Now
               </button>
             </div>
             <div class="ms-3" style="margin-top: 130px;">
-              <h5>{{ $post->name }}</h5>
+              <h5>{{ $model->name }}</h5>
               <p>New York</p>
             </div>
           </div>
@@ -37,10 +37,13 @@
             </div>
           </div>
           <div class="card-body p-4 text-black">
+          @if (Auth::check())
           <div class="card-footer text-muted">
             <div id="app">
-          <favorite :post={{ $post->id }} :favorited={{ $post->favorited() ? 'true' : 'false' }}></favorite></div>
+            {{ $model->id }}
+          <favorite :model={{ $model->id }} :favorited={{ $model->favorited() ? 'true' : 'false' }}></favorite></div>
           </div>
+          @endif
             <div class="mb-5">
               <p class="lead fw-normal mb-1 mt-4">About Me</p>
               <div class="p-4" style="background-color: #f8f9fa;">

@@ -20,18 +20,9 @@ class Post extends Model
         return $this->belongsTo(Category::class);
     }
 
-    public function author(){
-        return $this->belongsTo(User::class, 'user_id');
-    }
+    
     public function getRouteKeyName(){
         return 'slug';
-    }
-
-    public function favorited()
-    {
-        return (bool) Favorite::where('user_id', Auth::id())
-                            ->where('post_id', $this->id)
-                            ->first();
     }
 
     public function sluggable(): array

@@ -44,18 +44,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function posts(){
-        return $this->hasMany(Post::class);
-    }
-
-    public function favorites(){
-        return $this->hasMany(favorites::class);
-    }
-
-    public function favorited()
+    public function favorites()
     {
-        return (bool) Favorite::where('user_id', Auth::id())
-                            ->where('user_id', $this->id)
-                            ->first();
+        return $this->belongsToMany(ModelUser::class, 'favorites', 'user_id', 'model_id')->withTimeStamps();
     }
 }

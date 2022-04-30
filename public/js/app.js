@@ -5414,8 +5414,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['post', 'favorited'],
+  props: ['model', 'favorited'],
   data: function data() {
     return {
       isFavorited: ''
@@ -5430,19 +5431,19 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   methods: {
-    favorite: function favorite(post) {
+    favorite: function favorite(model) {
       var _this = this;
 
-      axios.post('/favorite/' + post).then(function (response) {
+      axios.post('/favorite/' + model).then(function (response) {
         return _this.isFavorited = true;
       })["catch"](function (response) {
         return console.log(response.data);
       });
     },
-    unFavorite: function unFavorite(post) {
+    unFavorite: function unFavorite(model) {
       var _this2 = this;
 
-      axios.post('/unfavorite/' + post).then(function (response) {
+      axios.post('/unfavorite/' + model).then(function (response) {
         return _this2.isFavorited = false;
       })["catch"](function (response) {
         return console.log(response.data);
@@ -28190,7 +28191,7 @@ var render = function () {
             on: {
               click: function ($event) {
                 $event.preventDefault()
-                return _vm.unFavorite(_vm.post)
+                return _vm.unFavorite(_vm.model)
               },
             },
           },
@@ -28208,7 +28209,7 @@ var render = function () {
             on: {
               click: function ($event) {
                 $event.preventDefault()
-                return _vm.favorite(_vm.post)
+                return _vm.favorite(_vm.model)
               },
             },
           },

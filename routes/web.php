@@ -27,14 +27,14 @@ Route::get('/about', function () {
 });
 
 Route::get('/posts',[PostController::class, 'index']);
-Route::post('favorite/{post}', [PostController::class, 'favorite']);
-Route::post('unfavorite/{post}', [PostController::class, 'unfavorite']);
 
 //halaman single posts
 
 Route::get('posts/{post:user_id}',[PostController::class, 'show']);
 
 Route::get('profile/{user:id}', [PostController::class, 'show']);
+Route::post('favorite/{model}', [PostController::class, 'favorite']);
+Route::post('unfavorite/{model}', [PostController::class, 'unfavorite']);
 
 
 Route::get('/categories', function(){
