@@ -30,7 +30,11 @@
                     <div class="card-body">
                         <h5 class="card-title">{{ $post->name }}</h5>
                         <div style="max-height: 400px; overflow:hidden;">
-                            <img src="{{ asset('storage/' . $post->image) }}" class="img-fluid">
+                            @if($post->image)
+                                <img src="{{ asset('storage/' . $post->image) }}" class="img-fluid">
+                            @else
+                                <img src="{{ asset('storage/profile/default.jpg') }}" class="img-fluid">
+                            @endif
                         </div>
                       <a href="/profile/{{ $post->id }}" class="btn btn-primary">Read more</a>
                     </div>

@@ -7,6 +7,7 @@ use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\ModelUser;
 
 class DatabaseSeeder extends Seeder
 {
@@ -25,7 +26,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         User::factory(3)->create();
-
+        ModelUser::factory(3)->create();
         Category::create([
             'name'=> 'Make-up Model',
             'slug' => 'make-up-model'

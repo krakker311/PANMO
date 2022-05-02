@@ -16,7 +16,11 @@
 					<div class="col-12 col-sm-auto mb-3">
 					<div class="mx-auto" style="width: 140px;">
 						<div class="d-flex justify-content-center align-items-center rounded" style="height: 140px; background-color: rgb(233, 236, 239);">
-						<img src="{{ auth()->user()->image }}" alt="img-fluid">
+							@if(Auth::user()->image)
+								<img src="{{asset('/storage/post-images/'. Auth::user()->image)}}" alt="img-fluid" width="140px">
+							@else
+								<img src="{{asset('/storage/profile/default.jpg')}}" alt="img-fluid" width="140px" >
+							@endif
 						</div>
 					</div>
 					</div>
@@ -26,10 +30,11 @@
 						<p class="mb-0">{{ auth()->user()->username }}</p>
 						<div class="text-muted"><small>Last seen 2 hours ago</small></div>
 						<div class="mt-2">
-						<button class="btn btn-primary" type="button">
-							<i class="fa fa-fw fa-camera"></i>
-							<span>Change Photo</span>
-						</button>
+						<a href="/">
+							<button class="btn btn-primary" type="button" >
+								Edit Profile
+							</button>
+						</a>
 						</div>
 					</div>
 					<div class="text-center text-sm-right">
@@ -44,6 +49,7 @@
 				<div class="tab-content pt-3">
 					<div class="tab-pane active">
 					<form class="form" novalidate="">
+						@csrf
 						<div class="row">
 						<div class="col">
 							<div class="row">

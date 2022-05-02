@@ -98,3 +98,39 @@ body {
   border-color: transparent;
   box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
 }
+
+label {
+  /* Presentation */
+  font-size: 48px
+}
+
+/* Required Styling */
+
+label input[type="checkbox"] {
+  display: none;
+}
+
+.form-check .glyphicon {
+  color: gold;
+  position: absolute;
+  top: 0.4em;
+  left: -1.25em;
+  font-size: 0.75em;
+}
+
+.form-check .glyphicon-star-empty {
+  color: gray;
+}
+
+.form-check .glyphicon-star {
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.form-check:hover .glyphicon-star{
+  opacity: 0.5;
+}
+
+.form-check input[type="checkbox"]:checked ~ .glyphicon-star {
+  opacity: 1;
+}

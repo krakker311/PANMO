@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Hugo 0.88.1">
-    <title>Panmo| Dashboard</title>
+    <title>Panmo | Dashboard</title>
 
     
 
@@ -15,7 +15,7 @@
     <!-- Custom styles for this template -->
     <link href="/css/dashboard.css" rel="stylesheet">
     <link href="/css/dashboardProfile.css" rel="stylesheet">
-
+  
     <link rel="stylesheet" type="text/css" href="/css/trix.css">
     <script type="text/javascript" src="/js/trix.js"></script>
 

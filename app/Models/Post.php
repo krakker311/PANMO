@@ -5,7 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
-
+use Illuminate\Support\Facades\Auth;
+use App\Models\Favorite;
 
 class Post extends Model
 {
@@ -19,12 +20,11 @@ class Post extends Model
         return $this->belongsTo(Category::class);
     }
 
-    public function author(){
-        return $this->belongsTo(User::class, 'user_id');
-    }
+    
     public function getRouteKeyName(){
         return 'slug';
     }
+
     public function sluggable(): array
     {
         return [
@@ -52,10 +52,5 @@ class Post extends Model
                 $query->where('username', $author)
             )
          );
-            
-         
-
-    } 
-  
-
+    }
 }
