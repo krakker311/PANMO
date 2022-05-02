@@ -24,7 +24,7 @@ class PostController extends Controller
         return view ('posts', [
         "title" => "Our Models" . $title,
         "active" => 'posts',
-        "posts" => ModelUser::latest()->paginate(7)->withQueryString()
+        "posts" => User::latest()->paginate(6)->withQueryString()
         ]);
     }
 

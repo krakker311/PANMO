@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BookingOrderController;
 use App\Models\Category;
 use App\Models\Favorite;
 use Illuminate\Support\Facades\Route;
@@ -30,12 +31,11 @@ Route::get('/posts',[PostController::class, 'index']);
 
 //halaman single posts
 
-Route::get('posts/{post:user_id}',[PostController::class, 'show']);
-
 Route::get('profile/{user:id}', [PostController::class, 'show']);
 Route::post('favorite/{model}', [PostController::class, 'favorite']);
 Route::post('unfavorite/{model}', [PostController::class, 'unfavorite']);
 
+Route::get('booking', [BookingOrderController::class, 'index']);
 
 Route::get('/categories', function(){
     return view('categories', [

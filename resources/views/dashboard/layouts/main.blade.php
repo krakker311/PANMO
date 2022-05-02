@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Hugo 0.88.1">
-    <title>Panmo| Dashboard</title>
+    <title>Panmo | Dashboard</title>
 
     
 

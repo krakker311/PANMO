@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Support\Str;
+use App\Models\User;
 
 
 class DashboardPostController extends Controller
@@ -19,7 +20,6 @@ class DashboardPostController extends Controller
      */
     public function index()
     {
-    
         return view('dashboard.posts.index', [
             'posts' => Post::where('user_id', auth()->user()->id)->get()
         ]);
@@ -153,4 +153,5 @@ class DashboardPostController extends Controller
         $slug = SlugService::createSlug(Post::class, 'slug', $request->title);
         return response()->json(['slug' => $slug]);
     }
+    
 }

@@ -1,1 +1,2 @@
-alert("Hello Verdy");
+// Data Picker Initialization
+$('.datepicker').pickadate();
