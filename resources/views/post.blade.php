@@ -42,7 +42,6 @@
           @if (Auth::check())
           <div class="card-footer text-muted">
             <div id="app">
-            {{ $model->id }}
           <favorite :model={{ $model->id }} :favorited={{ $model->favorited() ? 'true' : 'false' }}></favorite></div>
           </div>
           @endif

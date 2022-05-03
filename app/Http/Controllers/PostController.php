@@ -24,7 +24,7 @@ class PostController extends Controller
         return view ('posts', [
         "title" => "Our Models" . $title,
         "active" => 'posts',
-        "posts" => User::latest()->paginate(6)->withQueryString()
+        "posts" => ModelUser::latest()->paginate(6)->withQueryString()
         ]);
     }
 
@@ -47,5 +47,14 @@ class PostController extends Controller
     {
         Auth::user()->favorites()->detach($model->id);
         return back();
+    }
+
+    public function favorites()
+    {
+        return view('favlist', [
+            "title" => 'Profile',
+            "active" => 'posts',
+            "posts" => Auth::user()->favorites
+        ]);
     }
 }
