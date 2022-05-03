@@ -45,13 +45,7 @@ Route::get('/categories', function(){
     ]);
 });
 
-Route::get('/favorites', function(){
-    return view('favlist', [
-        'title' => 'Favorite List',
-        'active' => 'favlist',
-        'favorites' => Favorite::all()
-    ]);
-});
+Route::get('/favorites', [PostController::class, 'favorites']);
 
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
