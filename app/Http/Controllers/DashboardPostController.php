@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UpdateProfileRequest;
 use App\Models\Post;
 use App\Models\Category;
 use Illuminate\Support\Facades\Storage;
@@ -87,10 +88,25 @@ class DashboardPostController extends Controller
      */
     public function edit(Post $post)
     {
-        return view('dashboard.posts.edit', [
+        return view('dashboard.profile.edit', [
             'post' => $post,
             'categories' => Category::all()
         ]);
+    }
+
+    public function editProfile(Request $request)
+    {
+        return view('dashboard.profile.edit', [
+            'user' => $request->user()
+        ]);
+    }
+    public function updateProfile(UpdateProfileRequest $request)
+    {
+    $request->user()->update(
+        $request->all()
+    );
+
+    return redirect()->route('dashboard.profile.index');
     }
 
     /**

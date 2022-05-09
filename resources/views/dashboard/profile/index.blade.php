@@ -30,7 +30,7 @@
 						<p class="mb-0">{{ auth()->user()->username }}</p>
 						<div class="text-muted"><small>Last seen 2 hours ago</small></div>
 						<div class="mt-2">
-						<a href="/">
+						<a href="/dashboard/edit">
 							<button class="btn btn-primary" type="button" >
 								Edit Profile
 							</button>
@@ -84,64 +84,7 @@
 							</div>
 						</div>
 						</div>
-						<div class="row">
-						<div class="col-12 col-sm-6 mb-3">
-							<div class="mb-2"><b>About Me</div>
-								<div class="row">
-									<div class="col">
-										<div class="form-group">
-										<label>Height</label>
-										<input class="form-control" type="height" >
-									</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col">
-									<div class="form-group">
-										<label>Weight</label>
-										<input class="form-control" type="weight" >
-									</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col">
-									<div class="form-group">
-										<label>Hair Color</label>
-										<input class="form-control" type="hair" >
-									</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col">
-									<div class="form-group">
-										<label>Waist</label>
-										<input class="form-control" type="weight" >
-									</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col">
-									<div class="form-group">
-										<label>Bust</label>
-										<input class="form-control" type="weight" >
-									</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col">
-									<div class="form-group">
-										<label>Hips</label>
-										<input class="form-control" type="weight" >
-									</div>
-								</div>
-							</div>
-						</div>
 
-						<div class="row">
-						<div class="col d-flex justify-content-end">
-							<button class="btn btn-primary" type="submit">Save Changes</button>
-						</div>
-						</div>
 					</form>
 
 					</div>

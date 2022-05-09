@@ -28197,7 +28197,7 @@ var render = function () {
           },
           [
             _c("i", {
-              staticClass: "bi bi-bookmark-fill",
+              staticClass: "bi bi-heart-fill",
               staticStyle: { "font-size": "1.5em" },
             }),
           ]
@@ -28215,7 +28215,7 @@ var render = function () {
           },
           [
             _c("i", {
-              staticClass: "bi bi-bookmark",
+              staticClass: "bi bi-heart",
               staticStyle: { "font-size": "1.5em" },
             }),
           ]
