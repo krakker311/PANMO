@@ -39,7 +39,6 @@ class UpdateProfileRequest extends FormRequest
             ],
             'height' =>[
                 'integer'
-                
             ],
             'weight' => [
                 'integer'
@@ -52,7 +51,7 @@ class UpdateProfileRequest extends FormRequest
             ],
             'hips' => [
                 'integer'
-            ]
+            ],
         ];
     }
 }

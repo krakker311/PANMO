@@ -100,13 +100,15 @@ class DashboardPostController extends Controller
             'user' => $request->user()
         ]);
     }
+    
     public function updateProfile(UpdateProfileRequest $request)
     {
+
     $request->user()->update(
         $request->all()
     );
 
-    return redirect()->route('dashboard.profile.index');
+    return back()->with('message', 'Profile Successfully Updated!');
     }
 
     /**

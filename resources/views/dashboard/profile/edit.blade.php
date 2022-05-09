@@ -4,6 +4,9 @@
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">Welcome Back, {{ auth()->user()->name }}</h1>
     </div>    
+	@if(Session::has('message'))
+	<p class="alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('message') }}</p>
+	@endif
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 	<div class="container">
 	<div class="col">
@@ -47,8 +50,9 @@
 				<div class="tab-content pt-3">
 					<div class="tab-pane active">
 					<form class="form" method="POST" action="{{ route('dashboard.update')}}">
-                        @method('patch')
 						@csrf
+                        @method('patch')
+						
 						<div class="row">
 						<div class="col">
 							<div class="row">
@@ -69,7 +73,7 @@
 							<div class="col">
 								<div class="form-group">
 								<label>Email</label>
-								<input class="form-control" type="text" value="{{ auth()->user()->email }}">
+								<input id="email" type="email" class="form-control" name="email" value="{{ auth()->user()->email  }}">
 								</div>
 							</div>
 							</div>
