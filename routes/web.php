@@ -55,8 +55,18 @@ Route::get('/register', [RegisterController::class, 'index'])->middleware('guest
 Route::post('/register', [RegisterController::class, 'store']);
 
 Route::get('/dashboard', function(){
-    return view('dashboard.index');
+    return view('dashboard.profile.index');
 })->middleware('auth');
+
+Route::group(['middleware' => 'auth'], function () {
+
+    Route::get('dashboard/edit', [DashboardPostController::class , 'editProfile'])
+        ->name('dashboard.edit');
+
+    Route::patch('dashboard/edit', [DashboardPostController::class, 'updateProfile'])
+        ->name('dashboard.update');
+});
+
 
 Route::get('/dashboard/posts/checkSlug', [DashboardPostController::class, 'checkSlug'])->middleware('auth');
 
