@@ -53,7 +53,7 @@ class PostController extends Controller
     {
         return view('favlist', [
             "title" => 'Profile',
-            "active" => 'posts',
+            "active" => 'favorite',
             "posts" => Auth::user()->favorites
         ]);
     }

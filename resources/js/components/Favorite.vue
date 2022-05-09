@@ -2,10 +2,10 @@
     <span>
         <a href="#" v-if="isFavorited" @click.prevent="unFavorite(model)">
             
-            <i class="bi bi-bookmark-fill" style="font-size: 1.5em;"></i>
+            <i class="bi bi-heart-fill" style="font-size: 1.5em;"></i>
         </a>
         <a href="#" v-else @click.prevent="favorite(model)">
-           <i class="bi bi-bookmark" style="font-size: 1.5em;"></i>
+           <i class="bi bi-heart" style="font-size: 1.5em;"></i>
         </a>
     </span>
 </template>
