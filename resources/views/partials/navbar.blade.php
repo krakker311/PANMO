@@ -16,10 +16,7 @@
             <a class="nav-link {{ $active === "posts" ? 'active' :'' }}" href="/posts">Browse</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link {{ $active === "categories" ? 'active' :'' }}" href="/categories">Categories</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link {{ $active === "favorites" ? 'active' :'' }}" href="/favorites">Favorite List</a>
+            <a class="nav-link {{ $active === "favorite" ? 'active' :'' }}" href="/favorites">Favorite List</a>
           </li>
         </ul>
         

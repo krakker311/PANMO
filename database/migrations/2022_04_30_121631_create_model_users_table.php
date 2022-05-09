@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('username')->unique();
             $table->string('email')->unique();
             $table->string('domicile')->nullable();
-            $table->string('hair')->nullable();
             $table->integer('height')->nullable();
             $table->integer('weight')->nullable();
             $table->integer('bust')->nullable();

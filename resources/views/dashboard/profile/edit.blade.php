@@ -4,6 +4,9 @@
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">Welcome Back, {{ auth()->user()->name }}</h1>
     </div>    
+	@if(Session::has('message'))
+	<p class="alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('message') }}</p>
+	@endif
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 	<div class="container">
 	<div class="col">
@@ -30,11 +33,9 @@
 						<p class="mb-0">{{ auth()->user()->username }}</p>
 						<div class="text-muted"><small>Last seen 2 hours ago</small></div>
 						<div class="mt-2">
-						<a href="/">
 							<button class="btn btn-primary" type="button" >
-								Edit Profile
+								Change Profile Picture
 							</button>
-						</a>
 						</div>
 					</div>
 					<div class="text-center text-sm-right">
@@ -48,8 +49,10 @@
 				</ul>
 				<div class="tab-content pt-3">
 					<div class="tab-pane active">
-					<form class="form" novalidate="">
+					<form class="form" method="POST" action="{{ route('dashboard.update')}}">
 						@csrf
+                        @method('patch')
+						
 						<div class="row">
 						<div class="col">
 							<div class="row">
@@ -70,7 +73,7 @@
 							<div class="col">
 								<div class="form-group">
 								<label>Email</label>
-								<input class="form-control" type="text" value="{{ auth()->user()->email }}">
+								<input id="email" type="email" class="form-control" name="email" value="{{ auth()->user()->email  }}">
 								</div>
 							</div>
 							</div>
