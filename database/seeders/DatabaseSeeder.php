@@ -7,6 +7,7 @@ use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\Province;
 use App\Models\ModelUser;
 
 class DatabaseSeeder extends Seeder
@@ -38,6 +39,12 @@ class DatabaseSeeder extends Seeder
         Category::create([
             'name'=> 'Mature Model',
             'slug' => 'mature-model'
+        ]);
+        Province::create([
+            'name'=> 'DKI Jakarta'
+        ]);
+        Province::create([
+            'name'=> 'Jawa Barat'
         ]);
 
         Post::factory(20)->create();

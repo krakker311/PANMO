@@ -13,6 +13,12 @@
             My Post
           </a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link {{ Request::is('dashboard/jobs*') ? 'active' : '' }}" href="/dashboard/jobs">
+            <span data-feather="briefcase"></span>
+            My Job
+          </a>
+        </li>
       </ul>
 
     </div>
