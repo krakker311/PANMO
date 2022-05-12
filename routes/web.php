@@ -8,6 +8,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardPostController;
+use App\Http\Controllers\JobController;
 
 Route::get('/', function () {
     return view ('home', [
@@ -71,3 +72,7 @@ Route::group(['middleware' => 'auth'], function () {
 Route::get('/dashboard/posts/checkSlug', [DashboardPostController::class, 'checkSlug'])->middleware('auth');
 
 Route::resource('/dashboard/posts', DashboardPostController::class)->middleware('auth');
+
+Route::get('/dashboard/jobs', [JobController::class, 'index'])->middleware('auth');
+
+Route::resource('/dashboard/jobs', JobController::class)->middleware('auth');

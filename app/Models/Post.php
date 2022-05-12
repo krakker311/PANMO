@@ -14,7 +14,7 @@ class Post extends Model
 
     // protected $fillable = ['title', 'excerpt', 'body'];
     protected $guarded = ['id'];
-    protected $with = ['category', 'author'];
+    protected $with = ['category', 'user'];
 
     public function category(){
         return $this->belongsTo(Category::class);
@@ -47,10 +47,13 @@ class Post extends Model
             });
          });
 
-         $query->when($filters['author'] ?? false, fn($query, $author)=>
-            $query->whereHas('author', fn($query) => 
-                $query->where('username', $author)
+         $query->when($filters['user'] ?? false, fn($query, $user)=>
+            $query->whereHas('user', fn($query) => 
+                $query->where('username', $user)
             )
          );
+    }
+    public function user(){
+        return $this->belongsTo(User::class, 'model_id');
     }
 }
