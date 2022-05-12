@@ -41,7 +41,19 @@ class JobController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'job_title' => 'required|max:100',
+            'job_desc' => 'required|max:500',
+            'category_id' => 'required',
+            'province_id' => 'required',
+            'price' => 'required|integer',
+        ]);
+
+        $validatedData['model_id'] = auth()->user()->id;
+
+        Job::create($validatedData);
+
+        return redirect('dashboard/jobs')->with('success', 'New job has been added!');
     }
 
     
@@ -61,9 +73,13 @@ class JobController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(job $job)
     {
-        //
+        return view('dashboard.jobs.edit', [
+            'job' => $job,
+            'categories' => Category::all(),
+            'provinces' => Province::all()
+        ]);
     }
 
     
@@ -73,9 +89,22 @@ class JobController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Job $job)
     {
-        //
+        $rules = [
+            'job_title' => 'required|max:100',
+            'job_desc' => 'required|max:500',
+            'category_id' => 'required',
+            'province_id' => 'required',
+            'price' => 'required|integer',
+        ];
+
+        $validatedData = $request->validate($rules);
+        $validatedData['model_id'] = auth()->user()->id;
+
+        Job::where('id', $job->id)->update($validatedData);
+
+        return redirect('dashboard/jobs')->with('success', 'job has been updated!');
     }
 
     
@@ -84,8 +113,10 @@ class JobController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Job $job)
     {
-        //
+    
+        Job::destroy($job->id);
+        return redirect('dashboard/jobs')->with('success', 'jobs has been deleted!');
     }
 }

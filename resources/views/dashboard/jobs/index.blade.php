@@ -33,9 +33,9 @@
                     <td>{{ $job->price }}</td>
                     <td>{{ $job->province->name }}</td>
                     <td>
-                        <a href="/dashboard/posts/{{ $post->id }}" class="badge bg-info"><span data-feather="eye"></span></a>
-                        <a href="/dashboard/posts/{{ $post->id }}/edit" class="badge bg-warning"><span data-feather="edit"></span> </a>
-                        <form action="/dashboard/posts/{{ $post->id }}" method="post" class="d-inline">
+                        <a href="/dashboard/jobs/{{ $job->id }}" class="badge bg-info"><span data-feather="eye"></span></a>
+                        <a href="/dashboard/jobs/{{ $job->id }}/edit" class="badge bg-warning"><span data-feather="edit"></span> </a>
+                        <form action="/dashboard/jobs/{{ $job->id }}" method="post" class="d-inline">
                           @method('delete')
                           @csrf
                           <button class="badge bg-danger border-0" onclick="return confirm('Are you sure?')"><span data-feather="x-circle"></span></button>

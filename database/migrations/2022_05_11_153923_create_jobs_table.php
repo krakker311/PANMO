@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('model_id');
             $table->foreignId('province_id');
+            $table->foreignId('category_id');
             $table->string('job_title');
             $table->string('job_desc');
             $table->integer('price');
