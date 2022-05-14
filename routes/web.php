@@ -36,7 +36,7 @@ Route::get('profile/{user:id}', [PostController::class, 'show']);
 Route::post('favorite/{model}', [PostController::class, 'favorite']);
 Route::post('unfavorite/{model}', [PostController::class, 'unfavorite']);
 
-Route::get('booking', [BookingOrderController::class, 'index']);
+
 
 Route::get('/categories', function(){
     return view('categories', [
@@ -76,3 +76,8 @@ Route::resource('/dashboard/posts', DashboardPostController::class)->middleware(
 Route::get('/dashboard/jobs', [JobController::class, 'index'])->middleware('auth');
 
 Route::resource('/dashboard/jobs', JobController::class)->middleware('auth');
+
+
+Route::get('/booking', [BookingOrderController::class, 'create'])->middleware('auth');
+
+Route::resource('/booking', BookingOrderController::class)->middleware('auth');

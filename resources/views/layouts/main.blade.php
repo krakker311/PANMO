@@ -13,6 +13,7 @@
     {{-- My Style --}}
     <link rel="stylesheet" href="/css/style.css">
     <link href="css/carousel.css" rel="stylesheet">
+    
 
   </head>
   <body>
@@ -24,6 +25,9 @@
         @yield('container')
     </div>
     <script src="{{ asset('js/app.js')}}"></script>
+    <script src="assets/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/timepicker.js"></script> 
   
   </body>
 </html>

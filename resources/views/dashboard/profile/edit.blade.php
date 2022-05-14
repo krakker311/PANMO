@@ -52,7 +52,6 @@
 					<form class="form" method="POST" action="{{ route('dashboard.update')}}">
 						@csrf
                         @method('patch')
-						
 						<div class="row">
 						<div class="col">
 							<div class="row">

@@ -14,4 +14,8 @@ class Province extends Model
     public function jobs(){
         return $this->hasMany(Job::class);
     }
+
+    public function orders(){
+        return $this->hasMany(Orders::class);
+    }
 }
