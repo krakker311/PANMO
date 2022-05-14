@@ -50,6 +50,7 @@ class BookingOrderController extends Controller
             'phone' => 'required', 
             'date' => 'required|date',
             'time' => 'required|time',
+            'city' => 'required',
             'address' => 'required|max:200', 
             'category_id' => 'required',
             'province_id' => 'required',

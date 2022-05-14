@@ -19,8 +19,8 @@
             <div class="col-12">
               <label class="order-form-label">Name</label>
             </div>
-            <div class="col-12 col-sm-6">
-              <input class="order-form-input">
+            <div class="col-12 col-sm-6" >
+              <input type="text" class="form-control @error('name') is-invalid @enderror"  id="name" name="name" required autofocus value="{{ old('name') }}">
             </div>
           </div>
 
@@ -29,7 +29,7 @@
               <label class="order-form-label">Phone Number</label>
             </div>
             <div class="col-12">
-              <input class="order-form-input">
+              <input type="text" class="form-control @error('phone') is-invalid @enderror"  id="phone" name="phone" required autofocus value="{{ old('phone') }}">
             </div>
           </div>
 
@@ -39,7 +39,7 @@
             </div>
             <div class="col-12">
               <input class="order-form-input datepicker" placeholder="Selected date" type="date"
-                id="date-picker-example">
+                id="date" name="date" required autofocus value="{{ old('date') }}">
             </div>
           </div>
 
@@ -49,7 +49,7 @@
             </div>
             <div class="col-12">
               <input class="order-form-input datepicker" placeholder="Selected date" type="time">
-                <div class="input-group-addon">
+                <div class="input-group-addon" >
                   <span class="glyphicon glyphicon-time"></span>
            </div>
             </div>
@@ -60,7 +60,7 @@
               <label class="order-form-label">Address</label>
             </div>
             <div class="col-12">
-              <input class="order-form-input" placeholder="Street Address">
+              <input type="text" class="form-control @error('address') is-invalid @enderror"  id="address" name="address" required autofocus value="{{ old('address') }}">
             </div>
             <div class="col-sm-6 mt-2">
               <select class="form-select" name="province_id" placeholder="Province"> 
@@ -74,7 +74,7 @@
               </select>
             </div>
             <div class="col-12 mt-2">
-              <input class="order-form-input" placeholder="City">
+              <input type="text" class="form-control @error('city') is-invalid @enderror"  id="city" name="city" required autofocus value="{{ old('city') }}">
             </div>
           </div>
 
@@ -96,7 +96,7 @@
 
           <div class="row mt-3">
             <div class="col-12">
-              <button type="submit" id="btnSubmit" class="btn btn-dark d-block mx-auto btn-submit">Next</button>
+              <button type="button" id="btnSubmit" class="btn btn-dark d-block mx-auto btn-submit">Next</button>
             </div>
           </div>
 
