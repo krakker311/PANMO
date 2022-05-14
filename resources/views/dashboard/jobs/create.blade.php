@@ -37,7 +37,20 @@
                     </div>
                     @enderror
                   </div>
-                  <label for="price" class="form-label-inline">Price</label>
+
+                <div class="mb-3">
+                    <label for="category" class="form-label">Category</label>
+                    <select class="form-select" name="category_id">
+                        @foreach ($categories as $category)
+                            @if(old('category_id') == $category->id)
+                                <option value="{{ $category->id }}" selected>{{ $category->name }}</option>
+                            @else
+                                <option value="{{ $category->id }}" >{{ $category->name }}</option>
+                            @endif
+                        @endforeach 
+                      </select>
+                </div>
+                  <label for="title" class="form-label-inline">Price</label>
                   <div class="input-group mb-3">
                     <span class="input-group-text">Rp</span>
                     <input type="text" class="form-control @error('price') is-invalid @enderror"  id="price" name="price" required autofocus value="{{ old('price') }}">
@@ -62,6 +75,7 @@
                 </div>
 
                 <button type="submit" class="btn btn-primary">Create New Job</button>
+                
               </form>
     </div>
 @endsection

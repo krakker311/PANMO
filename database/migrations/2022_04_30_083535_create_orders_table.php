@@ -16,8 +16,12 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
+            $table->foreignId('province_id');
+            $table->foreignId('category_id');
             $table->string('address');
+            $table->string('phone');
             $table->date('date');
+            $table->time('time');
             $table->timestamps();
         });
     }

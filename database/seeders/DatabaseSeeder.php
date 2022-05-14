@@ -9,6 +9,7 @@ use App\Models\Category;
 use App\Models\Post;
 use App\Models\Province;
 use App\Models\ModelUser;
+use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
@@ -40,12 +41,44 @@ class DatabaseSeeder extends Seeder
             'name'=> 'Mature Model',
             'slug' => 'mature-model'
         ]);
-        Province::create([
-            'name'=> 'DKI Jakarta'
+
+    
+        
+
+        DB::table('provinces')->insert([
+            ['name'=>'Sulawesi Utara'],
+            ['name'=>'Sulawesi Barat'],
+            ['name'=>'Sulawesi Tenggara'],
+            ['name'=>'Sulawesi Tengah'],
+            ['name'=>'Sulawesi Selatan'],
+            ['name'=> 'Aceh'],
+            ['name'=> 'Bali'],
+            ['name'=> 'Banten'],
+            ['name'=> 'Bengkulu'],
+            ['name'=> 'DI Yogyakarta'],
+            ['name'=> 'Gorontalo'],
+            ['name'=> 'DKI Jakarta'],
+            ['name'=> 'Jambi'],
+            ['name'=> 'Jawa Barat'],
+            ['name'=> 'Jawa Tengah'],
+            ['name'=> 'Jawa Timur'],
+            ['name'=> 'Kalimantan Tengah'],
+            ['name'=> 'Kalimantan Utara'],
+            ['name'=> 'Kalimantan Barat'],
+            ['name'=> 'Kalimantan Selatan'],
+            ['name'=> 'Kalimantan Timur'],
+            ['name'=> 'Kepulauan Bangka Belitung'],
+            ['name'=> 'Kepulauan Riau'],
+            ['name'=> 'Maluku'],
+            ['name'=> 'Maluku Utara'],
+            ['name'=> 'Papua'],
+            ['name'=> 'Papua Barat'],
+            ['name'=> 'Riau'],
+            ['name'=> 'Sumatera Selatan'],
+            ['name'=> 'Sumatera Barat'],
+            ['name'=> 'Sumater Utara'],
         ]);
-        Province::create([
-            'name'=> 'Jawa Barat'
-        ]);
+
 
         Post::factory(20)->create();
     }
