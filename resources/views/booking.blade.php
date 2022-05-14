@@ -48,7 +48,8 @@
               <label class="order-form-label" for="date-picker-example">Time</label>
             </div>
             <div class="col-12">
-              <input class="order-form-input datepicker" placeholder="Selected date" type="time">
+              <input class="order-form-input datepicker" placeholder="Selected date" type="time"
+              id="time" name="time" required autofocus value="{{ old('time') }}">
                 <div class="input-group-addon" >
                   <span class="glyphicon glyphicon-time"></span>
            </div>
@@ -96,7 +97,7 @@
 
           <div class="row mt-3">
             <div class="col-12">
-              <button type="button" id="btnSubmit" class="btn btn-dark d-block mx-auto btn-submit">Next</button>
+              <button type="submit" id="btnSubmit" class="btn btn-dark d-block mx-auto btn-submit">Next</button>
             </div>
           </div>
 

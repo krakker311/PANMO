@@ -9,7 +9,7 @@ class Job extends Model
 {
     use HasFactory;
 
-    // protected $fillable = ['title', 'excerpt', 'body'];
+    
     protected $guarded = ['id'];
     protected $with = ['category', 'province','modeluser'];
 
