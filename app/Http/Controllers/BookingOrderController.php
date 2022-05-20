@@ -58,10 +58,10 @@ class BookingOrderController extends Controller
             'phone' => 'required', 
             'date' => 'required|date',
             'time' => 'required',
-            'city' => 'required',
             'address' => 'required|max:200', 
             'category_id' => 'required',
             'province_id' => 'required',
+            'city_id' => 'required',
         ]);
 
         $validatedData['model_id'] = auth()->user()->id;

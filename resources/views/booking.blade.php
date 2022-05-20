@@ -71,7 +71,7 @@
             </div>
             <div class="col-12">
             <label class="order-form-label">City</label>
-              <select class="form-select" id="city">
+              <select class="form-select" id="city" name="city_id">
               </select>
             </div>
             <div class="col-12">

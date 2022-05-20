@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('province_id');
             $table->foreignId('category_id');
+            $table->foreignId('city_id');
             $table->String('name');
-            $table->string('city');
             $table->string('address');
             $table->string('phone');
             $table->date('date');
