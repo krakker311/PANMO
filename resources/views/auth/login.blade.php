@@ -1,3 +1,7 @@
+@extends('layouts.main')
+
+@section('container')
+
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
@@ -37,7 +41,11 @@
                     <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
                         {{ __('Forgot your password?') }}
                     </a>
+                    <br>
+                    <a  class="underline text-sm text-gray-600 hover:text-gray-900" href="/register">{{ __('Register') }}
+                    </a>
                 @endif
+                    
 
                 <x-jet-button class="ml-4">
                     {{ __('Log in') }}
@@ -46,3 +54,5 @@
         </form>
     </x-jet-authentication-card>
 </x-guest-layout>
+
+@endsection

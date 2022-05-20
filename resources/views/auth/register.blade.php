@@ -1,3 +1,6 @@
+@extends('layouts.main')
+
+@section('container')
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
@@ -12,6 +15,11 @@
             <div>
                 <x-jet-label for="name" value="{{ __('Name') }}" />
                 <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+            </div>
+
+            <div>
+                <x-jet-label for="username" value="{{ __('Username') }}" />
+                <x-jet-input id="username" class="block mt-1 w-full" type="text" name="username" :value="old('username')" required autofocus autocomplete="username" />
             </div>
 
             <div class="mt-4">
@@ -58,3 +66,5 @@
         </form>
     </x-jet-authentication-card>
 </x-guest-layout>
+
+@endsection
