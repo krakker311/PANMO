@@ -42,9 +42,6 @@ class DatabaseSeeder extends Seeder
             'slug' => 'mature-model'
         ]);
 
-    
-        
-
         DB::table('provinces')->insert([
             ['name'=>'Sulawesi Utara'],
             ['name'=>'Sulawesi Barat'],
