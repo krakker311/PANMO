@@ -57,14 +57,9 @@
           </div>
 
           <div class="row mt-3 mx-4">
-            <div class="col-12">
-              <label class="order-form-label">Address</label>
-            </div>
-            <div class="col-12">
-              <input type="text" class="form-control @error('address') is-invalid @enderror"  id="address" name="address" required autofocus value="{{ old('address') }}">
-            </div>
-            <div class="col-sm-6 mt-2">
-              <select class="form-select" name="province_id" placeholder="Province"> 
+          <div class="col-sm-6 mt-2">
+              <label class="order-form-label">Province</label>
+              <select class="form-select" name="province_id" placeholder="Province" id="province"> 
                 @foreach ($provinces as $province)
                     @if(old('province_id') == $province->id)
                         <option value="{{ $province->id }}" selected>{{ $province->name }}</option>
@@ -74,15 +69,19 @@
                 @endforeach 
               </select>
             </div>
-            <div class="col-12 mt-2">
-              <input type="text" class="form-control @error('city') is-invalid @enderror"  id="city" name="city" required autofocus value="{{ old('city') }}">
+            <div class="col-12">
+            <label class="order-form-label">City</label>
+              <select class="form-select" id="city">
+              </select>
             </div>
-          </div>
-
-          
+            <div class="col-12">
+              <label class="order-form-label">Address</label>
+              <input type="text" class="form-control @error('address') is-invalid @enderror"  id="address" name="address" required autofocus value="{{ old('address') }}">
+            </div>  
+          </div>     
         <div class="row mt-3 mx-4">
             <div class="col-12 col-sm-6">
-              <label for="category" class="form-label">Category</label>
+              <label for="category" class="order-form-label">Category</label>
               <select class="form-select" name="category_id">
                   @foreach ($categories as $category)
                       @if(old('category_id') == $category->id)
@@ -107,11 +106,31 @@
       </div>
     </div>
   </section>
-@endsection
-
 <script>
-  // Data Picker Initialization
+
+  $(document).ready(function() {
+    $('#province').on('change', function() {
+      var province_id = this.value;
+      $("#city").html('');
+      $.ajax({
+        url:"{{url('get_cities')}}",
+        type: "POST",
+        data: {
+          province_id: province_id,
+          _token: '{{csrf_token()}}'
+        },
+        dataType : 'json',
+        success: function(result){
+          console.log(result)
+          $('#city').html('<option value="">Select City</option>'); 
+          $.each(result,function(key,value){
+            $("#city").append('<option value="'+value.id+'">'+value.name+'</option>');
+          });
+        }
+      });
+    });
+  });
   $('.datepicker').pickadate();
 </script>
 
-
+@endsection
