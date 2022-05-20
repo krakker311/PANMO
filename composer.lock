@@ -1832,9 +1832,6 @@
                 "laravel",
                 "ui"
             ],
-            "support": {
-                "source": "https://github.com/laravel/ui/tree/v3.4.5"
-            },
             "time": "2022-02-21T14:59:16+00:00"
         },
         {
@@ -8576,5 +8573,5 @@
         "php": "^8.0.2"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.0.0"
+    "plugin-api-version": "1.1.0"
 }

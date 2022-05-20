@@ -102,3 +102,6 @@ Route::resource('/dashboard/jobs', JobController::class)->middleware('auth');
 Route::get('/booking', [BookingOrderController::class, 'create'])->middleware('auth');
 
 Route::resource('/booking', BookingOrderController::class)->middleware('auth');
+
+Route::post('get_cities', [BookingOrderController::class, 'getCities'])->middleware('auth');
+

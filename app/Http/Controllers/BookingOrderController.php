@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Order;
 use App\Models\Province;
+use App\Models\City;
 use Illuminate\Http\Request;
 
 class BookingOrderController extends Controller
@@ -22,6 +23,13 @@ class BookingOrderController extends Controller
             'provinces' => Province::all()
         ]);
     }
+
+    public function getCities(Request $request)
+    {
+        $city = City::where('province_id', $request->province_id)->get();    
+            return response()->json($city);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
