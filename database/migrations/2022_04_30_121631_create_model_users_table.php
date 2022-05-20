@@ -24,6 +24,7 @@ return new class extends Migration
             $table->integer('bust')->nullable();
             $table->integer('waist')->nullable();
             $table->integer('hips')->nullable();
+            $table->integer('jobs_done')->nullable();
             $table->string('image')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
