@@ -23,23 +23,28 @@ class DatabaseSeeder extends Seeder
    
 
         User::factory(3)->create();
+
         ModelUser::factory(3)->create();
         
         Category::create([
             'name'=> 'Make-up Model',
-            'slug' => 'make-up-model'
-        ]);
-        Category::create([
-            'name'=> 'Commercial Model',
-            'slug' => 'commercial-model'
-        ]);
-        Category::create([
-            'name'=> 'Mature Model',
-            'slug' => 'mature-model'
+            'slug'=> 'make-up-model'
         ]);
 
-    
-        
+        Category::create([
+            'name'=> 'Commercial Model',
+            'slug'=> 'commercial-model'
+        ]);
+
+        Category::create([
+            'name'=> 'Mature Model',
+            'slug'=> 'mature-model'
+        ]);
+
+        DB::table('roles')->insert([
+            ['name'=> 'User'],
+            ['name'=> 'Model']
+        ]);
 
         DB::table('provinces')->insert([
             ['name'=> 'Bali'],

@@ -23,7 +23,8 @@ class RegisterController extends Controller
             'username' => ['required', ' min:3', 'max:255', 'unique:users'],
             'email' => 'required|email:dns|unique:users',
             'password' => 'required|min:5|max:255',
-            'image' => 'image|file|max:2048'
+            'image' => 'image|file|max:2048',
+            'role_id' => 'required'
         ]);
 
         

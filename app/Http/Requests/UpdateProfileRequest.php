@@ -37,21 +37,6 @@ class UpdateProfileRequest extends FormRequest
                 'required', 'email', 'max:255',
                 Rule::unique('users', 'email')->ignore(Auth::user()->id)
             ],
-            'height' =>[
-                'integer'
-            ],
-            'weight' => [
-                'integer'
-            ],
-            'bust' => [
-                'integer'
-            ],
-            'waist' => [
-                'integer'
-            ],
-            'hips' => [
-                'integer'
-            ],
         ];
     }
 }

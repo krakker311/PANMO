@@ -49,9 +49,9 @@
 				</ul>
 				<div class="tab-content pt-3">
 					<div class="tab-pane active">
-					<form class="form" method="POST" action="{{ route('dashboard.update')}}">
+					<form class="form" method="POST" action="{{ route('dashboard.create.model')}}">
 						@csrf
-                        @method('patch')
+                        @method('post')
 						<div class="row">
 						<div class="col">
 							<div class="row">
@@ -61,23 +61,70 @@
 								<input class="form-control" type="text" name="name" value="{{ auth()->user()->name }}">
 								</div>
 							</div>
-							<div class="col">
+							<input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
+							<div class="row">
+							<div class="col mb-3">
 								<div class="form-group">
-								<label>Username</label>
-								<input class="form-control" type="text" name="username" value="{{ auth()->user()->username }}">
+								<label>About</label>
+								<textarea class="form-control" rows="5" placeholder="My Bio" name="about"></textarea>
 								</div>
 							</div>
+							</div>
+						</div>
+						</div>
+						<div class="row">
+						<div class="col-12 col-sm-6 mb-3">
+							<div class="mb-2"><b>About Me</div>
+								<div class="row">
+									<div class="col">
+										<div class="form-group">
+										<label>Height</label>
+										<input class="form-control" type="text" name="height" >
+									</div>
+								</div>
 							</div>
 							<div class="row">
-							<div class="col">
-								<div class="form-group">
-								<label>Email</label>
-								<input id="email" type="email" class="form-control" name="email" value="{{ auth()->user()->email  }}">
+								<div class="col">
+									<div class="form-group">
+										<label>Weight</label>
+										<input class="form-control" type="text" name="weight" >
+									</div>
 								</div>
 							</div>
+							<div class="row">
+								<div class="col">
+									<div class="form-group">
+										<label>Hair Color</label>
+										<input class="form-control" type="text" name="hair_color" >
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col">
+									<div class="form-group">
+										<label>Waist</label>
+										<input class="form-control" type="text" name="waist" >
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col">
+									<div class="form-group">
+										<label>Bust</label>
+										<input class="form-control" type="text" name="bust">
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col">
+									<div class="form-group">
+										<label>Hips</label>
+										<input class="form-control" type="text" name="hip" >
+									</div>
+								</div>
 							</div>
 						</div>
-						</div>
+
 						<div class="row">
 						<div class="col d-flex justify-content-end">
 							<button class="btn btn-primary" type="submit">Save Changes</button>

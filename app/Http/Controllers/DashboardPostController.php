@@ -110,7 +110,7 @@ class DashboardPostController extends Controller
 
     return back()->with('message', 'Profile Successfully Updated!');
     }
-
+    
     /**
      * Update the specified resource in storage.
      *

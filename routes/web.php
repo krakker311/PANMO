@@ -9,7 +9,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardPostController;
 use App\Http\Controllers\JobController;
-
+use App\Http\Controllers\ModelController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -87,7 +87,14 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::patch('dashboard/edit', [DashboardPostController::class, 'updateProfile'])
         ->name('dashboard.update');
+
+    Route::get('dashboard/regismodel', [ModelController::class , 'index'])
+        ->name('dashboard.regis.model');
+
+    Route::post('dashboard/regismodel', [ModelController::class , 'store'])
+        ->name('dashboard.create.model');
 });
+
 
 
 Route::get('/dashboard/posts/checkSlug', [DashboardPostController::class, 'checkSlug'])->middleware('auth');

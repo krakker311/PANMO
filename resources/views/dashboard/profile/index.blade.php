@@ -36,6 +36,15 @@
 							</button>
 						</a>
 						</div>
+						@if(Auth::user()->role_id == 1)
+						<div class="mt-2">
+						<a href="/dashboard/regismodel">
+							<button class="btn btn-primary" type="button" >
+								Register as Model
+							</button>
+						</a>
+						</div>
+						@endif
 					</div>
 					<div class="text-center text-sm-right">
 						<span class="badge badge-secondary">administrator</span>

@@ -48,4 +48,13 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(ModelUser::class, 'favorites', 'user_id', 'model_id')->withTimeStamps();
     }
+
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class);
+    }
+
+    public function Model(){
+        return $this->hasOne(ModelUser::class);
+    }
 }

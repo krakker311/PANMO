@@ -23,4 +23,8 @@ class ModelUser extends Model
                             ->where('model_id', $this->id)
                             ->first();
     }
+
+    public function User(){
+        return $this->belongsTo(User::class);
+    }
 }
