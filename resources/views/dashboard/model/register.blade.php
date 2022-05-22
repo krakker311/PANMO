@@ -79,7 +79,7 @@
 									<div class="col">
 										<div class="form-group">
 										<label>Height</label>
-										<input class="form-control" type="text" name="Height" >
+										<input class="form-control" type="text" name="height" >
 									</div>
 								</div>
 							</div>
@@ -87,7 +87,7 @@
 								<div class="col">
 									<div class="form-group">
 										<label>Weight</label>
-										<input class="form-control" type="text" name="Weight" >
+										<input class="form-control" type="text" name="weight" >
 									</div>
 								</div>
 							</div>
@@ -95,7 +95,7 @@
 								<div class="col">
 									<div class="form-group">
 										<label>Hair Color</label>
-										<input class="form-control" type="hair" >
+										<input class="form-control" type="text" name="hair_color" >
 									</div>
 								</div>
 							</div>
@@ -103,7 +103,7 @@
 								<div class="col">
 									<div class="form-group">
 										<label>Waist</label>
-										<input class="form-control" type="weight" >
+										<input class="form-control" type="text" name="waist" >
 									</div>
 								</div>
 							</div>
@@ -111,7 +111,7 @@
 								<div class="col">
 									<div class="form-group">
 										<label>Bust</label>
-										<input class="form-control" type="weight" >
+										<input class="form-control" type="text" name="bust">
 									</div>
 								</div>
 							</div>
@@ -119,7 +119,7 @@
 								<div class="col">
 									<div class="form-group">
 										<label>Hips</label>
-										<input class="form-control" type="weight" >
+										<input class="form-control" type="text" name="hip" >
 									</div>
 								</div>
 							</div>

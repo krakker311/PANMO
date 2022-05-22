@@ -91,7 +91,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('dashboard/regismodel', [ModelController::class , 'index'])
         ->name('dashboard.regis.model');
 
-    Route::post('dashboard/regismodel', [ModelController::class , 'createModel'])
+    Route::post('dashboard/regismodel', [ModelController::class , 'store'])
         ->name('dashboard.create.model');
 });
 

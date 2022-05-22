@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
+use App\Models\ModelUser;
 
 class ModelController extends Controller
 {
@@ -17,24 +19,6 @@ class ModelController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        $validatedData = $request->validate([
-            'name' => 'required|max:255',
-            'user_id' => 'required',
-            'about' => 'required',
-            'height' => 'required',
-            'about' => 'required',
-            'about' => 'required',
-            'about' => 'required',
-        ]);
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -42,7 +26,22 @@ class ModelController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required|max:255',
+            'user_id' => 'required',
+            'about' => 'required',
+            'height' => 'required',
+            'weight' => 'required',
+            'hair_color' => 'required',
+            'waist' => 'required',
+            'bust' => 'required',
+            'hip' => 'required',
+        ]);
+
+        $new_role_id = 2;
+        User::where('id',$request->user_id)->update(array('role_id'=> $new_role_id));
+        ModelUser::create($validatedData);
+        return back()->with('message', 'Profile Successfully Updated!');
     }
 
     /**
