@@ -21,7 +21,7 @@ class JobController extends Controller
             'jobs' => Job::where('model_id', auth()->user()->id)->get()
         ]);
     }
-
+   
     /* Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response

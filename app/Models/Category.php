@@ -20,6 +20,6 @@ class Category extends Model
     }
 
     public function orders(){
-        return $this->belongsTo(Prder::class);
+        return $this->hasMany(Order::class);
     }
 }

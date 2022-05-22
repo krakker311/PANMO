@@ -36,6 +36,13 @@
 							</button>
 						</a>
 						</div>
+						<div class="mt-2">
+						<a href="/dashboard/regismodel">
+							<button class="btn btn-primary" type="button" >
+								Register as Model
+							</button>
+						</a>
+						</div>
 					</div>
 					<div class="text-center text-sm-right">
 						<span class="badge badge-secondary">administrator</span>
