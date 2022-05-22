@@ -17,7 +17,7 @@
                 <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
             </div>
 
-            <div>
+            <div class="mt-4">
                 <x-jet-label for="username" value="{{ __('Username') }}" />
                 <x-jet-input id="username" class="block mt-1 w-full" type="text" name="username" :value="old('username')" required autofocus autocomplete="username" />
             </div>
@@ -66,5 +66,6 @@
         </form>
     </x-jet-authentication-card>
 </x-guest-layout>
+
 
 @endsection

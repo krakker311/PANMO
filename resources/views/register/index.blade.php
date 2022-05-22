@@ -6,52 +6,61 @@
     
     <main class="form-registration">
       <h1 class="h3 mb-3 fw-normal text-center">Registration Form</h1>
-        <form action="/register" method="post">
-            @csrf
-            <div class="form-floating">
-                <input type="name" name="name" class="form-control rounded-top @error('name')is-invalid @enderror" id="name" placeholder="Name" required value="{{ old('name') }}">
-                <label for="name">Name</label>
-                  @error('name')
-                  <div class="invalid-feedback">
-                    {{ $message }}
-                  </div>
-                  @enderror
+      <form method="POST" action="{{ route('register') }}">
+        @csrf
+
+        <div>
+            <x-jet-label for="name" value="{{ __('Name') }}" />
+            <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+        </div>
+
+        <div>
+            <x-jet-label for="username" value="{{ __('Username') }}" />
+            <x-jet-input id="username" class="block mt-1 w-full" type="text" name="username" :value="old('username')" required autofocus autocomplete="username" />
+        </div>
+
+        <div class="mt-4">
+            <x-jet-label for="email" value="{{ __('Email') }}" />
+            <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
+        </div>
+
+        <div class="mt-4">
+            <x-jet-label for="password" value="{{ __('Password') }}" />
+            <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
+        </div>
+
+        <div class="mt-4">
+            <x-jet-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
+            <x-jet-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
+        </div>
+
+        @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
+            <div class="mt-4">
+                <x-jet-label for="terms">
+                    <div class="flex items-center">
+                        <x-jet-checkbox name="terms" id="terms"/>
+
+                        <div class="ml-2">
+                            {!! __('I agree to the :terms_of_service and :privacy_policy', [
+                                    'terms_of_service' => '<a target="_blank" href="'.route('terms.show').'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Terms of Service').'</a>',
+                                    'privacy_policy' => '<a target="_blank" href="'.route('policy.show').'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Privacy Policy').'</a>',
+                            ]) !!}
+                        </div>
+                    </div>
+                </x-jet-label>
             </div>
+        @endif
 
-            <div class="form-floating">
-                <input type="username" name="username" class="form-control  @error('username')is-invalid @enderror" id="username" placeholder="Username" required value="{{ old('username') }}">
-                <label for="username">Username</label>
-                  @error('username')
-                  <div class="invalid-feedback">
-                    {{ $message }}
-                  </div>
-                  @enderror
-            </div>
+        <div class="flex items-center justify-end mt-4">
+            <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
+                {{ __('Already registered?') }}
+            </a>
 
-          <div class="form-floating">
-            <input type="email" name="email" class="form-control  @error('email')is-invalid @enderror" id="email" placeholder="name@example.com" required value="{{ old('email') }}">
-            <label for="email">Email address</label>
-              @error('email')
-              <div class="invalid-feedback">
-                {{ $message }}
-              </div>
-              @enderror
-          </div>
-
-          <div class="form-floating">
-            <input type="password" name="password" class="form-control rounded-bottom  @error('password')is-invalid @enderror" id="password" placeholder="Password">
-            <label for="password">Password</label>
-              @error('password')
-              <div class="invalid-feedback">
-                {{ $message }}
-              </div>
-              @enderror
-          </div>
-        
-      
-          <button class="w-100 btn btn-lg btn-primary mt-3" type="submit">Register</button>
-
-        </form>
+            <x-jet-button class="ml-4">
+                {{ __('Register') }}
+            </x-jet-button>
+        </div>
+    </form>
         <small class="d-block text-center mt-3">Already registered? <a href="/login">Login now</a></small>
       </main>
   </div>
