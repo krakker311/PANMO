@@ -6,7 +6,11 @@ use App\Models\Category;
 use App\Models\Order;
 use App\Models\Province;
 use App\Models\City;
+use App\Models\User;
+use App\Notifications\EmailNotification;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Notification;
+
 
 class BookingOrderController extends Controller
 {
@@ -67,6 +71,18 @@ class BookingOrderController extends Controller
         $validatedData['model_id'] = auth()->user()->id;
 
         Order::create($validatedData);
+
+        $user = User::find(auth()->user()->id);
+  
+        $order = [
+            'greeting' => 'Hi '.$user->name.',',
+            'body' => 'There are order for you .',
+            'actionText' => 'View Order',
+            'actionURL' => url('/viewOrder'),
+            'id' => 57
+        ];
+  
+        Notification::send($user, new EmailNotification($order));
 
         return redirect('/')->with('success', 'Your Order Created');
     }

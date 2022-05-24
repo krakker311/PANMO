@@ -111,4 +111,3 @@ Route::get('/booking', [BookingOrderController::class, 'create'])->middleware('a
 Route::resource('/booking', BookingOrderController::class)->middleware('auth');
 
 Route::post('get_cities', [BookingOrderController::class, 'getCities'])->middleware('auth');
-
