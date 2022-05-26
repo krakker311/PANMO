@@ -48,7 +48,7 @@
 					</div>
 					<div class="text-center text-sm-right">
 						<span class="badge badge-secondary">administrator</span>
-						<div class="text-muted"><small>Joined 09 Dec 2017</small></div>
+						<div class="text-muted"><small>Joined {{isset(Auth::user()->created_at) ? Auth::user()->created_at->format('m/d/Y') : Auth::user()->email}}</small></div>
 					</div>
 					</div>
 				</div>

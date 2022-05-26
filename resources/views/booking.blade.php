@@ -60,6 +60,7 @@
           <div class="col-sm-6 mt-2">
               <label class="order-form-label">Province</label>
               <select class="form-select" name="province_id" placeholder="Province" id="province"> 
+                <option value="">Select Province</option>
                 @foreach ($provinces as $province)
                     @if(old('province_id') == $province->id)
                         <option value="{{ $province->id }}" selected>{{ $province->name }}</option>
@@ -68,7 +69,7 @@
                     @endif
                 @endforeach 
               </select>
-            </div>
+          </div>
             <div class="col-12">
             <label class="order-form-label">City</label>
               <select class="form-select" id="city" name="city_id">
@@ -106,6 +107,7 @@
       </div>
     </div>
   </section>
+  
 <script>
 
   $(document).ready(function() {

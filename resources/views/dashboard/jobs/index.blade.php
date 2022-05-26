@@ -20,7 +20,6 @@
               <th scope="col">Job Title</th>
               <th scope="col">Job Desc</th>
               <th scope="col">Price</th>
-              <th scope="col">Province</th>
             </tr>
           </thead>
           <tbody>
@@ -29,9 +28,7 @@
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $job->job_title }}</td>
                     <td>{{ $job->job_desc }}</td>
-                    <td>{{ $job->job_desc }}</td>
                     <td>{{ $job->price }}</td>
-                    <td>{{ $job->province->name }}</td>
                     <td>
                         <a href="/dashboard/jobs/{{ $job->id }}" class="badge bg-info"><span data-feather="eye"></span></a>
                         <a href="/dashboard/jobs/{{ $job->id }}/edit" class="badge bg-warning"><span data-feather="edit"></span> </a>

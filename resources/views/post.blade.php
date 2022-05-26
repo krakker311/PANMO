@@ -17,9 +17,10 @@
               @endif
                 <a href="/booking" class="btn btn-primary" style="z-index: 1;"> Book now</a>
             </div>
-            <div class="ms-3" style="margin-top: 130px;">
+            <div class="ms-3" style="margin-top: 90px;">
               <h5>{{ $model->name }}</h5>
-              <p>New York</p>
+              <p>{{ $model->province->name }}</p> 
+              <p>{{ $model->city->name }}</p> 
             </div>
           </div>
           <div class="p-4 text-black" style="background-color: #f8f9fa;">
@@ -52,6 +53,24 @@
               </div>
             </div>
             <div class="d-flex justify-content-between align-items-center mb-4">
+              <p class="lead fw-normal mb-0">Service</p>
+            </div>
+            <table class="table table-striped table-sm">
+              <tbody>
+                @foreach ($jobs as $job)
+                    <tr>
+                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ $job->job_title }}</td>
+                        <td>{{ $job->job_desc }}</td>
+                        <td>{{ $job->price }}</td>
+                    </tr>
+                @endforeach
+               
+              </tbody>
+              </table>
+            
+            
+            <div class="d-flex justify-content-between align-items-center mb-4">
               <p class="lead fw-normal mb-0">Portofolio</p>
             </div>
             <div class="row g-2">
@@ -59,6 +78,7 @@
                   <img src=""  class="img-fluid"> 
                 </div>
             </div>
+
           </div>
         </div>
       </div>

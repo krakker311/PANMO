@@ -18,4 +18,10 @@ class Province extends Model
     public function orders(){
         return $this->hasMany(Orders::class);
     }
+    public function cities(){
+        return $this->hasMany(City::class);
+    }
+    public function model(){
+        return $this->hasMany(Model::class);
+    }
 }

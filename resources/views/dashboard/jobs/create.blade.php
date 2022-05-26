@@ -37,19 +37,6 @@
                     </div>
                     @enderror
                   </div>
-
-                <div class="mb-3">
-                    <label for="category" class="form-label">Category</label>
-                    <select class="form-select" name="category_id">
-                        @foreach ($categories as $category)
-                            @if(old('category_id') == $category->id)
-                                <option value="{{ $category->id }}" selected>{{ $category->name }}</option>
-                            @else
-                                <option value="{{ $category->id }}" >{{ $category->name }}</option>
-                            @endif
-                        @endforeach 
-                      </select>
-                </div>
                   <label for="title" class="form-label-inline">Price</label>
                   <div class="input-group mb-3">
                     <span class="input-group-text">Rp</span>
@@ -60,18 +47,7 @@
                     </div>
                     @enderror
                   </div>
-                  <div class="mb-3">
-                    <label for="province" class="form-label">Province</label>
-                    <select class="form-select" name="province_id">
-                        @foreach ($provinces as $province)
-                            @if(old('province_id') == $province->id)
-                                <option value="{{ $province->id }}" selected>{{ $province->name }}</option>
-                            @else
-                                <option value="{{ $province->id }}" >{{ $province->name }}</option>
-                            @endif
-                        @endforeach 
-                      </select>
-                </div>
+                 
                 </div>
 
                 <button type="submit" class="btn btn-primary">Create New Job</button>

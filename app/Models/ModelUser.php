@@ -27,4 +27,13 @@ class ModelUser extends Model
     public function User(){
         return $this->belongsTo(User::class);
     }
+    public function province(){
+        return $this->belongsTo(Province::class);
+    }
+    public function city(){
+        return $this->belongsTo(City::class);
+    }
+    public function category(){
+        return $this->belongsTo(Category::class);
+    }
 }

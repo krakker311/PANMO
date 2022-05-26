@@ -31,7 +31,6 @@
 					<div class="text-center text-sm-left mb-2 mb-sm-0">
 						<h4 class="pt-sm-2 pb-1 mb-0 text-nowrap">{{ auth()->user()->name }}</h4>
 						<p class="mb-0">{{ auth()->user()->username }}</p>
-						<div class="text-muted"><small>Last seen 2 hours ago</small></div>
 						<div class="mt-2">
 							<button class="btn btn-primary" type="button" >
 								Change Profile Picture
@@ -40,7 +39,6 @@
 					</div>
 					<div class="text-center text-sm-right">
 						<span class="badge badge-secondary">administrator</span>
-						<div class="text-muted"><small>Joined 09 Dec 2017</small></div>
 					</div>
 					</div>
 				</div>
@@ -66,7 +64,12 @@
 							<div class="col mb-3">
 								<div class="form-group">
 								<label>About</label>
-								<textarea class="form-control" rows="5" placeholder="My Bio" name="about"></textarea>
+								<textarea class="form-control @error('description') is-invalid @enderror" rows="5" placeholder="My Bio" name="description"></textarea>
+								@error('description')
+								<div class="invalid-feedback">
+									{{ $message }}
+								</div>
+								@enderror
 								</div>
 							</div>
 							</div>
@@ -75,11 +78,46 @@
 						<div class="row">
 						<div class="col-12 col-sm-6 mb-3">
 							<div class="mb-2"><b>About Me</div>
+
+								<div class="row">
+									<label class="order-form-label">Province</label>
+									<select class="form-select  @error('province_id') is-invalid @enderror" name="province_id" placeholder="Province" id="province"> 
+									  <option value="">Select Province</option>
+									  @foreach ($provinces as $province)
+										  @if(old('province_id') == $province->id)
+											  <option value="{{ $province->id }}" selected>{{ $province->name }}</option>
+										  @else
+											  <option value="{{ $province->id }}" >{{ $province->name }}</option>
+										  @endif
+									  @endforeach 
+									  @error('province_id')
+									  <div class="invalid-feedback">
+										  {{ $message }}
+									  </div>
+									  @enderror
+									</select>
+								</div>
+								  <div class="row">
+								  <label class="order-form-label">City</label>
+									<select class="form-select  @error('city_id') is-invalid @enderror" id="city" name="city_id">
+									</select>
+									@error('city_id')
+									<div class="invalid-feedback">
+										{{ $message }}
+									</div>
+									@enderror
+								</div>
+								
 								<div class="row">
 									<div class="col">
 										<div class="form-group">
 										<label>Height</label>
-										<input class="form-control" type="text" name="height" >
+										<input class="form-control @error('height') is-invalid @enderror" type="text" name="height" >
+										@error('height')
+										<div class="invalid-feedback">
+											{{ $message }}
+										</div>
+										@enderror
 									</div>
 								</div>
 							</div>
@@ -87,7 +125,12 @@
 								<div class="col">
 									<div class="form-group">
 										<label>Weight</label>
-										<input class="form-control" type="text" name="weight" >
+										<input class="form-control @error('weight') is-invalid @enderror" type="text" name="weight" >
+										@error('weight')
+										<div class="invalid-feedback">
+											{{ $message }}
+										</div>
+										@enderror
 									</div>
 								</div>
 							</div>
@@ -95,7 +138,12 @@
 								<div class="col">
 									<div class="form-group">
 										<label>Hair Color</label>
-										<input class="form-control" type="text" name="hair_color" >
+										<input class="form-control @error('hair_color') is-invalid @enderror" type="text" name="hair_color" >
+										@error('hair_color')
+										<div class="invalid-feedback">
+											{{ $message }}
+										</div>
+										@enderror
 									</div>
 								</div>
 							</div>
@@ -103,7 +151,12 @@
 								<div class="col">
 									<div class="form-group">
 										<label>Waist</label>
-										<input class="form-control" type="text" name="waist" >
+										<input class="form-control @error('waist') is-invalid @enderror" type="text" name="waist" >
+										@error('waist')
+										<div class="invalid-feedback">
+											{{ $message }}
+										</div>
+										@enderror
 									</div>
 								</div>
 							</div>
@@ -111,7 +164,12 @@
 								<div class="col">
 									<div class="form-group">
 										<label>Bust</label>
-										<input class="form-control" type="text" name="bust">
+										<input class="form-control @error('bust') is-invalid @enderror" type="text" name="bust">
+										@error('bust')
+										<div class="invalid-feedback">
+											{{ $message }}
+										</div>
+										@enderror
 									</div>
 								</div>
 							</div>
@@ -119,7 +177,12 @@
 								<div class="col">
 									<div class="form-group">
 										<label>Hips</label>
-										<input class="form-control" type="text" name="hip" >
+										<input class="form-control @error('hip') is-invalid @enderror" type="text" name="hip" >
+										@error('hip')
+										<div class="invalid-feedback">
+											{{ $message }}
+										</div>
+										@enderror
 									</div>
 								</div>
 							</div>
@@ -131,7 +194,6 @@
 						</div>
 						</div>
 					</form>
-
 					</div>
 				</div>
 				</div>
@@ -144,4 +206,28 @@
 	</div>
 	</div>
 	</div>
+	<script>
+		  $(document).ready(function() {
+			$('#province').on('change', function() {
+			var province_id = this.value;
+			$("#city").html('');
+			$.ajax({
+				url:"{{url('get_cities')}}",
+				type: "POST",
+				data: {
+				province_id: province_id,
+				_token: '{{csrf_token()}}'
+				},
+				dataType : 'json',
+				success: function(result){
+				console.log(result)
+				$('#city').html('<option value="">Select City</option>'); 
+				$.each(result,function(key,value){
+					$("#city").append('<option value="'+value.id+'">'+value.name+'</option>');
+				});
+				}
+			});
+			});
+		});
+	</script>
 @endsection

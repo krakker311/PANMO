@@ -17,7 +17,9 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->foreignId('user_id');
-            $table->string('domicile')->nullable();
+            $table->foreignId('province_id')->nullable();
+            $table->foreignId('city_id')->nullable();
+            $table->string('hair_color')->nullable();
             $table->integer('height')->nullable();
             $table->integer('weight')->nullable();
             $table->integer('bust')->nullable();
@@ -25,6 +27,7 @@ return new class extends Migration
             $table->integer('hips')->nullable();
             $table->integer('jobs_done')->nullable();
             $table->string('image')->nullable();
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }

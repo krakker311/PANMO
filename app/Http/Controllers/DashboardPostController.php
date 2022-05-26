@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\UpdateProfileRequest;
 use App\Models\Post;
 use App\Models\Category;
+use App\Models\Province;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
@@ -91,6 +92,7 @@ class DashboardPostController extends Controller
         return view('dashboard.profile.edit', [
             'post' => $post,
             'categories' => Category::all()
+      
         ]);
     }
 

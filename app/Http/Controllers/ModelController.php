@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\ModelUser;
+use App\Models\Province;
 
 class ModelController extends Controller
 {
@@ -15,7 +16,9 @@ class ModelController extends Controller
      */
     public function index()
     {
-        return view('dashboard.model.register');
+        return view('dashboard.model.register', [
+            'provinces' => Province::all()
+        ]);
     }
 
     /**
@@ -29,19 +32,20 @@ class ModelController extends Controller
         $validatedData = $request->validate([
             'name' => 'required|max:255',
             'user_id' => 'required',
-            'about' => 'required',
+            'province_id' => 'required',
+            'city_id' => 'required',
             'height' => 'required',
             'weight' => 'required',
             'hair_color' => 'required',
             'waist' => 'required',
             'bust' => 'required',
-            'hip' => 'required',
+            'hip' => 'required'
         ]);
 
         $new_role_id = 2;
         User::where('id',$request->user_id)->update(array('role_id'=> $new_role_id));
         ModelUser::create($validatedData);
-        return back()->with('message', 'Profile Successfully Updated!');
+        return redirect('dashboard')->with('message', 'Profile Successfully Updated!');
     }
 
     /**
