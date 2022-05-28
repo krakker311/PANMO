@@ -28,7 +28,7 @@ class ModelUser extends Model
         return $this->belongsTo(User::class);
     }
     public function province(){
-        return $this->belongsTo(Province::class);
+        return $this->belongsTo(Province::class,'province_id');
     }
     public function city(){
         return $this->belongsTo(City::class);

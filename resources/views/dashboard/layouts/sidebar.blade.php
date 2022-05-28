@@ -9,15 +9,15 @@
         </li>
         @if(Auth::user()->role_id == 2)
         <li class="nav-item">
-          <a class="nav-link {{ Request::is('dashboard/posts*') ? 'active' : '' }}" href="/dashboard/posts">
-            <span data-feather="file-text"></span>
-            My Post
-          </a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link {{ Request::is('dashboard/jobs*') ? 'active' : '' }}" href="/dashboard/jobs">
             <span data-feather="briefcase"></span>
             My Job
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {{ Request::is('dashboard/order*') ? 'active' : '' }}" href="/dashboard/orders">
+            <span data-feather="file-text"></span>
+            My Order
           </a>
         </li>
         @endif

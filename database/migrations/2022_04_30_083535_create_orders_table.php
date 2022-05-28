@@ -18,11 +18,14 @@ return new class extends Migration
             $table->foreignId('province_id');
             $table->foreignId('category_id');
             $table->foreignId('city_id');
+            $table->foreignId('model_id');
+            $table->foreignId('user_id');
             $table->String('name');
             $table->string('address');
             $table->string('phone');
             $table->date('date');
             $table->time('time');
+            $table->Boolean('isOrderAccepted');
             $table->timestamps();
         });
     }
