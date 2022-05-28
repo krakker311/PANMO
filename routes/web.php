@@ -10,6 +10,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardPostController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\ModelController;
+use App\Http\Controllers\OrderController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -105,9 +106,14 @@ Route::get('/dashboard/jobs', [JobController::class, 'index'])->middleware('auth
 
 Route::resource('/dashboard/jobs', JobController::class)->middleware('auth');
 
+Route:: get('dashboard/orders', [OrderController::class, 'index'])->middleware('auth')->name('viewAllOrders');
 
 Route::get('/booking', [BookingOrderController::class, 'create'])->middleware('auth');
 
 Route::resource('/booking', BookingOrderController::class)->middleware('auth');
 
 Route::post('get_cities', [BookingOrderController::class, 'getCities'])->middleware('auth');
+
+Route::get('/viewOrder/id={order:id}',[OrderController::class,'detail'])->middleware('auth');
+
+Route::get('/acceptOrder/id={order:id}',[OrderController::class,'acceptOrder'])->middleware('auth');

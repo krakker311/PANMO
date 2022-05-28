@@ -19,7 +19,9 @@ class ModelUserFactory extends Factory
         return [
             'name' => $this->faker->name(),
             'user_id' => $this->faker->unique()->numberBetween($min = 1, $max = 3),
-            'jobs_done' =>$this->faker->numberBetween($min = 1, $max = 10)
+            'jobs_done' =>$this->faker->numberBetween($min = 1, $max = 10),
+            'province_id' => $this->faker->numberBetween($min = 1, $max = 34),
+            'city_id' =>$this->faker->numberBetween($min = 1, $max = 8)
         ];
     }
 

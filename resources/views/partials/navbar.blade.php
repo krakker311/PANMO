@@ -44,7 +44,6 @@
                       </li>
                 @endauth
         </ul>
-      
       </div>
     </div>
   </nav>

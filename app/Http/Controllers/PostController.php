@@ -34,8 +34,8 @@ class PostController extends Controller
         return view('post', [
             "title" => 'Profile',
             "active" => 'posts',
-            "model" => ModelUser::where("id",$id)->first(),
-            'jobs' => Job::where('model_id', auth()->user()->id)->get()
+            "model" => ModelUser::where('id',$id)->first(),
+            'jobs' => Job::where('model_id', $id)->get()
         ]);
     }
     

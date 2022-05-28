@@ -7,6 +7,7 @@ use App\Models\Order;
 use App\Models\Province;
 use App\Models\City;
 use App\Models\User;
+use App\Models\ModelUser;
 use App\Notifications\EmailNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Notification;
@@ -24,7 +25,8 @@ class BookingOrderController extends Controller
             'title' => 'Booking',
             'active' => 'post',
             'categories' => Category::all(),
-            'provinces' => Province::all()
+            'provinces' => Province::all(),
+            'model' => ModelUser::where('user_id',auth()->user()->id)->first()
         ]);
     }
 
@@ -65,20 +67,21 @@ class BookingOrderController extends Controller
             'address' => 'required|max:200', 
             'category_id' => 'required',
             'province_id' => 'required',
+            'user_id' => 'required',
+            'model_id' => 'required',
             'city_id' => 'required',
+            'isOrderAccepted' => 'boolean'
         ]);
 
-        $validatedData['model_id'] = auth()->user()->id;
-
         Order::create($validatedData);
-
+        $orderid = Order::latest('created_at')->first();
         $user = User::find(auth()->user()->id);
-  
+        
         $order = [
             'greeting' => 'Hi '.$user->name.',',
             'body' => 'There are order for you .',
             'actionText' => 'View Order',
-            'actionURL' => url('/viewOrder'),
+            'actionURL' => url('/viewOrder/id='.$orderid->id),
             'id' => 57
         ];
   
