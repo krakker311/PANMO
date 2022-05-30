@@ -11,7 +11,7 @@ class Job extends Model
 
     
     protected $guarded = ['id'];
-    protected $with = ['category', 'province','modeluser'];
+    protected $with = ['category', 'province'];
 
     public function category(){
         return $this->belongsTo(Category::class);
@@ -21,7 +21,4 @@ class Job extends Model
         return $this->belongsTo(Province::class);
     }
 
-    public function modeluser(){
-        return $this->belongsTo(ModelUser::class);
-    }
 }

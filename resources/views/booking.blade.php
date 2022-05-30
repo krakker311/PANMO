@@ -79,24 +79,23 @@
               <label class="order-form-label">Address</label>
               <input type="text" class="form-control @error('address') is-invalid @enderror"  id="address" name="address" required autofocus value="{{ old('address') }}">
             </div>  
-          </div>     
+          </div> 
+
         <div class="row mt-3 mx-4">
             <div class="col-12 col-sm-6">
-              <label for="category" class="order-form-label">Category</label>
-              <select class="form-select" name="category_id">
-                  @foreach ($categories as $category)
-                      @if(old('category_id') == $category->id)
-                          <option value="{{ $category->id }}" selected>{{ $category->name }}</option>
-                      @else
-                          <option value="{{ $category->id }}" >{{ $category->name }}</option>
-                      @endif
+              <label for="job" class="order-form-label">Service</label>
+              <select class="form-select" name="job_id">
+                  @foreach ($jobs as $job)
+                      <option value="{{ $job->id }}" >{{ $job->job_title }}</option>
                   @endforeach 
                 </select>
             </div>
         </div>
+
         <input type="hidden" name="isOrderAccepted" value="0">
         <input type="hidden" name="model_id" value="{{$model->id}}">
         <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
+        <input type="hidden" name="email_id" value="{{ $model->user_id }}">
           <div class="row mt-3">
             <div class="col-12">
               <button type="submit" id="btnSubmit" class="btn btn-dark d-block mx-auto btn-submit">Next</button>

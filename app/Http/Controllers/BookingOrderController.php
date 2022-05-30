@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Order;
 use App\Models\Province;
 use App\Models\City;
+use App\Models\Job;
 use App\Models\User;
 use App\Models\ModelUser;
 use App\Notifications\EmailNotification;
@@ -20,13 +21,14 @@ class BookingOrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(){
+    public function index($id){
         return view('booking',[
             'title' => 'Booking',
             'active' => 'post',
             'categories' => Category::all(),
             'provinces' => Province::all(),
-            'model' => ModelUser::where('user_id',auth()->user()->id)->first()
+            'model' => ModelUser::where('id', $id)->first(),
+            'jobs' => Job::where('model_id' , $id)->get()
         ]);
     }
 
@@ -41,7 +43,7 @@ class BookingOrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
         return view('booking',[
             'title' => 'Booking',
@@ -65,7 +67,7 @@ class BookingOrderController extends Controller
             'date' => 'required|date',
             'time' => 'required',
             'address' => 'required|max:200', 
-            'category_id' => 'required',
+            'job_id' => 'required',
             'province_id' => 'required',
             'user_id' => 'required',
             'model_id' => 'required',
@@ -75,7 +77,7 @@ class BookingOrderController extends Controller
 
         Order::create($validatedData);
         $orderid = Order::latest('created_at')->first();
-        $user = User::find(auth()->user()->id);
+        $user = User::find($request->input('email_id'));
         
         $order = [
             'greeting' => 'Hi '.$user->name.',',
