@@ -15,7 +15,7 @@
               @else
                 <img src="{{ asset('storage/profile/default.jpg') }}" alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2" style="width: 150px; z-index: 1">
               @endif
-                <a href="/booking" class="btn btn-primary" style="z-index: 1;"> Book now</a>
+                <a href="/booking/{{ $model->id }}}" class="btn btn-primary" style="z-index: 1;"> Book now</a>
             </div>
             <div class="ms-3" style="margin-top: 90px;">
               <h5>{{ $model->name }}</h5>

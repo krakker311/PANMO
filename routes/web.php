@@ -54,7 +54,7 @@ Route::get('/posts',[PostController::class, 'index']);
 
 //halaman single posts
 
-Route::get('profile/{user:id}', [PostController::class, 'show']);
+Route::get('profile/{model:id}', [PostController::class, 'show']);
 Route::post('favorite/{model}', [PostController::class, 'favorite']);
 Route::post('unfavorite/{model}', [PostController::class, 'unfavorite']);
 
@@ -108,9 +108,9 @@ Route::resource('/dashboard/jobs', JobController::class)->middleware('auth');
 
 Route:: get('dashboard/orders', [OrderController::class, 'index'])->middleware('auth')->name('viewAllOrders');
 
-Route::get('/booking', [BookingOrderController::class, 'create'])->middleware('auth');
+Route::post('/booking', [BookingOrderController::class, 'store'])->middleware('auth');
 
-Route::resource('/booking', BookingOrderController::class)->middleware('auth');
+Route::get('/booking/{model:id}',  [BookingOrderController::class, 'index'])->middleware('auth');
 
 Route::post('get_cities', [BookingOrderController::class, 'getCities'])->middleware('auth');
 
