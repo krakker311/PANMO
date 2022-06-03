@@ -115,7 +115,7 @@
       var province_id = this.value;
       $("#city").html('');
       $.ajax({
-        url:"{{url('get_cities')}}",
+        url:'/get_cities',
         type: "POST",
         data: {
           province_id: province_id,

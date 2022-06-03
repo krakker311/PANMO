@@ -15,6 +15,7 @@ use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\ProfileController;
 use App\Models\Province;
 
+use App\Http\Controllers\PaymentCallbackController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -119,8 +120,10 @@ Route::post('/booking', [BookingOrderController::class, 'store'])->middleware('a
 
 Route::get('/booking/{model:id}',  [BookingOrderController::class, 'index'])->middleware('auth');
 
-Route::post('get_cities', [BookingOrderController::class, 'getCities'])->middleware('auth');
+Route::post('/get_cities', [BookingOrderController::class, 'getCities'])->middleware('auth');
 
 Route::get('/viewOrder/id={order:id}',[OrderController::class,'detail'])->middleware('auth');
 
 Route::get('/acceptOrder/id={order:id}',[OrderController::class,'acceptOrder'])->middleware('auth');
+
+Route::post('payments/midtrans-notification', [PaymentCallbackController::class, 'receive']);

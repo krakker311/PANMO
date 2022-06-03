@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Order;
+use App\Services\Midtrans\CreateSnapTokenService;
 
 class OrderController extends Controller
 {
@@ -18,8 +19,20 @@ class OrderController extends Controller
     }
 
     public function detail($id) {
+        $order =  Order::where('id',$id)->first();
+        $snapToken = $order->snap_token;
+        if (empty($snapToken)) {
+        // Jika snap token masih NULL, buat token snap dan simpan ke database
+
+            $midtrans = new CreateSnapTokenService($order);
+            $snapToken = $midtrans->getSnapToken();
+
+            $order->snap_token = $snapToken;
+            $order->save();
+        }     
         return view('dashboard.orders.detail',[
-            'order' => Order::where('id',$id)->first()           
+            'order' => Order::where('id',$id)->first(), 
+            'snapToken' => $snapToken
         ]);
     }
 

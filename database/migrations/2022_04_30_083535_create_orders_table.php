@@ -26,6 +26,8 @@ return new class extends Migration
             $table->date('date');
             $table->time('time');
             $table->Boolean('isOrderAccepted');
+            $table->enum('payment_status', ['1', '2', '3', '4']);
+            $table->string('snap_token', 36)->nullable();
             $table->timestamps();
         });
     }
