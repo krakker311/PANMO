@@ -11,6 +11,10 @@ use App\Http\Controllers\DashboardPostController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\ModelController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\PortfolioController;
+use App\Http\Controllers\ProfileController;
+use App\Models\Province;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -77,9 +81,7 @@ Route::post('/logout', [LoginController::class, 'logout']);
 Route::get('/register', [RegisterController::class, 'index'])->name('register')->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store']);
 
-Route::get('/dashboard', function(){
-    return view('dashboard.profile.index');
-})->middleware('auth');
+Route::get('/dashboard', [ProfileController::class, 'index'])->middleware('auth');
 
 Route::group(['middleware' => 'auth'], function () {
 
@@ -105,6 +107,11 @@ Route::resource('/dashboard/posts', DashboardPostController::class)->middleware(
 Route::get('/dashboard/jobs', [JobController::class, 'index'])->middleware('auth');
 
 Route::resource('/dashboard/jobs', JobController::class)->middleware('auth');
+
+Route::get('/dashboard/portfolio', [PortfolioController::class, 'index'])->middleware('auth');
+
+Route::resource('/dashboard/portfolio', PortfolioController::class)->middleware('auth');
+
 
 Route:: get('dashboard/orders', [OrderController::class, 'index'])->middleware('auth')->name('viewAllOrders');
 

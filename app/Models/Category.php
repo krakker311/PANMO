@@ -19,6 +19,10 @@ class Category extends Model
         return $this->hasMany(Job::class);
     }
 
+    public function portfolios(){
+        return $this->hasMany(Portfolio::class);
+    }
+
     public function orders(){
         return $this->hasMany(Order::class);
     }

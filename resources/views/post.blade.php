@@ -73,6 +73,72 @@
             <div class="d-flex justify-content-between align-items-center mb-4">
               <p class="lead fw-normal mb-0">Portofolio</p>
             </div>
+
+
+<!-- Carousel wrapper -->
+<div
+  id="carouselMultiItemExample"
+  class="carousel slide carousel-dark text-center"
+  data-mdb-ride="carousel"
+>
+  <!-- Controls -->
+  <div class="d-flex justify-content-center mb-4">
+    <button
+      class="carousel-control-prev position-relative"
+      type="button"
+      data-mdb-target="#carouselMultiItemExample"
+      data-mdb-slide="prev"
+    >
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button
+      class="carousel-control-next position-relative"
+      type="button"
+      data-mdb-target="#carouselMultiItemExample"
+      data-mdb-slide="next"
+    >
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  <!-- Inner -->
+  <div class="carousel-inner py-4">
+    <!-- Single item -->
+    <div class="carousel-item active">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4">
+            @foreach ($portfolios as $portfolio)
+              <div class="card">
+                <img
+                  src="https://mdbcdn.b-cdn.net/img/new/standard/nature/181.webp"
+                  class="card-img-top"
+                  alt="Waterfall"
+                />
+                {{-- <img src="{{ asset('storage/' . $portfolio->image) }}" alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2" style="width: 150px; z-index: 1"> --}}
+                <div class="card-body">
+                  <h5 class="card-title">{{ $portfolio->title }}</h5>
+                  <p class="card-text">
+                    {{ $portfolio->desc }}
+                  </p>
+                  <a href="#!" class="btn btn-primary">Button</a>
+                </div>
+              </div>
+            @endforeach
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- Inner -->
+</div>
+<!-- Carousel wrapper -->
+
+
             <div class="row g-2">
                 <div style="max-height: 350px; overflow:hidden;">
                   <img src=""  class="img-fluid"> 

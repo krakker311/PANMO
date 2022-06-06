@@ -177,8 +177,8 @@
 								<div class="col">
 									<div class="form-group">
 										<label>Hips</label>
-										<input class="form-control @error('hip') is-invalid @enderror" type="text" name="hip" >
-										@error('hip')
+										<input class="form-control @error('hips') is-invalid @enderror" type="text" name="hips" >
+										@error('hips')
 										<div class="invalid-feedback">
 											{{ $message }}
 										</div>
@@ -200,8 +200,6 @@
 			</div>
 			</div>
 		</div>
-
-
 
 	</div>
 	</div>
