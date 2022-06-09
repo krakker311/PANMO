@@ -21,15 +21,7 @@ class OrderController extends Controller
     public function detail($id) {
         $order =  Order::where('id',$id)->first();
         $snapToken = $order->snap_token;
-        if (empty($snapToken)) {
-        // Jika snap token masih NULL, buat token snap dan simpan ke database
-
-            $midtrans = new CreateSnapTokenService($order);
-            $snapToken = $midtrans->getSnapToken();
-
-            $order->snap_token = $snapToken;
-            $order->save();
-        }     
+         
         return view('dashboard.orders.detail',[
             'order' => Order::where('id',$id)->first(), 
             'snapToken' => $snapToken
@@ -39,6 +31,17 @@ class OrderController extends Controller
     public function acceptOrder($id) {
         Order::where('id',$id)
             ->update(['isOrderAccepted' => '1']);
+        $order =  Order::where('id',$id)->first();
+        $snapToken = $order->snap_token;
+        if (empty($snapToken)) {
+        // Jika snap token masih NULL, buat token snap dan simpan ke database
+
+            $midtrans = new CreateSnapTokenService($order);
+            $snapToken = $midtrans->getSnapToken();
+
+            $order->snap_token = $snapToken;
+            $order->save();
+        }    
         return redirect()->route('viewAllOrders');
     }
 }

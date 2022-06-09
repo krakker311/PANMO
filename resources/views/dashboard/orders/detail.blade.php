@@ -31,12 +31,15 @@
         </table>
       </div>
       <div class="mt-2">
+      @if($order->isOrderAccepted == 0)
 			<a href="/acceptOrder/id= {{$order->id}}">
 				<button class="btn btn-primary" type="button" >
 					accept Order
 		        </button>
 			</a>
+      @else
       <button class="btn btn-primary" id="pay-button">Bayar Sekarang</button>
+      @endif
 		</div>
     <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="{{ config('midtrans.client_key') }}"></script>
     <script>

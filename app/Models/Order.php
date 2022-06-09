@@ -19,5 +19,13 @@ class Order extends Model
     public function category(){
         return $this->belongsTo(Category::class);
     }
+
+    public function User(){
+        return $this->BelongsTo(User::Class);
+    }
+
+    public function Job(){
+        return $this->BelongsTo(Job::Class);
+    }
     
 }
