@@ -116,6 +116,8 @@ Route::resource('/dashboard/portfolio', PortfolioController::class)->middleware(
 
 Route:: get('dashboard/orders', [OrderController::class, 'index'])->middleware('auth')->name('viewAllOrders');
 
+Route:: get('dashboard/ordersUser', [OrderController::class, 'indexUser'])->middleware('auth')->name('viewAllOrdersUser');
+
 Route::post('/booking', [BookingOrderController::class, 'store'])->middleware('auth');
 
 Route::get('/booking/{model:id}',  [BookingOrderController::class, 'index'])->middleware('auth');
@@ -125,5 +127,7 @@ Route::post('/get_cities', [BookingOrderController::class, 'getCities'])->middle
 Route::get('/viewOrder/id={order:id}',[OrderController::class,'detail'])->middleware('auth');
 
 Route::get('/acceptOrder/id={order:id}',[OrderController::class,'acceptOrder'])->middleware('auth');
+
+Route::get('/declineOrder/id={order:id}',[OrderController::class,'declineOrder'])->middleware('auth');
 
 Route::post('payments/midtrans-notification', [PaymentCallbackController::class, 'receive']);

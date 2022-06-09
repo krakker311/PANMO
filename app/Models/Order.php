@@ -28,4 +28,7 @@ class Order extends Model
         return $this->BelongsTo(Job::Class);
     }
     
+    public function detail(){
+        return $this->HasOne(DetailOrder::Class);
+    }
 }

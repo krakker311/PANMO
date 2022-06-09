@@ -24,6 +24,11 @@
           <a class="nav-link {{ Request::is('dashboard/portfolio*') ? 'active' : '' }}" href="/dashboard/portfolio">
             <span data-feather="file-text"></span>
             My Portfolio
+        @else
+        <li class="nav-item">
+          <a class="nav-link {{ Request::is('dashboard/orderUser*') ? 'active' : '' }}" href="/dashboard/ordersUser">
+            <span data-feather="file-text"></span>
+            My Order
           </a>
         </li>
         @endif

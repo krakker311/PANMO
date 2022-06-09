@@ -31,13 +31,18 @@
         </table>
       </div>
       <div class="mt-2">
-      @if($order->isOrderAccepted == 0)
-			<a href="/acceptOrder/id= {{$order->id}}">
-				<button class="btn btn-primary" type="button" >
-					accept Order
-		        </button>
-			</a>
-      @else
+      @if($order->isOrderAccepted == 0 && Auth::user()->role_id == 2)
+      <a href="/acceptOrder/id= {{$order->id}}">
+        <button class="btn btn-primary" type="button" >
+          Accept Order
+            </button>
+      </a>
+      <a href="/declineOrder/id= {{$order->id}}">
+        <button class="btn btn-primary" type="button" >
+          Decline Order
+            </button>
+      </a>
+      @elseif($order->isOrderAccepted == 1 && $order->user_id == Auth::user()->id)
       <button class="btn btn-primary" id="pay-button">Bayar Sekarang</button>
       @endif
 		</div>

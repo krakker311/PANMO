@@ -46,13 +46,6 @@ class EmailNotification extends Notification
                     ->action($this->order['actionText'], $this->order['actionURL']);
     }
 
-    public function toDatabase($notifiable)
-    {
-        return [
-            'order_id' => $this->order['id']
-        ];
-    }
-
     /**
      * Get the array representation of the notification.
      *
