@@ -130,4 +130,4 @@ Route::get('/acceptOrder/id={order:id}',[OrderController::class,'acceptOrder'])-
 
 Route::get('/declineOrder/id={order:id}',[OrderController::class,'declineOrder'])->middleware('auth');
 
-Route::post('payments/midtrans-notification', [PaymentCallbackController::class, 'receive']);
+Route::post('/notification/handling', [PaymentCallbackController::class, 'receive']);

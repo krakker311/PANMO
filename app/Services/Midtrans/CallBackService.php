@@ -56,9 +56,9 @@ class CallbackService extends Midtrans
  
     protected function _createLocalSignatureKey()
     {
-        $orderId = $this->order->number;
+        $orderId = $this->order->id;
         $statusCode = $this->notification->status_code;
-        $grossAmount = $this->order->total_price;
+        $grossAmount = number_format((float)$this->order->job->price, 2, '.', '');
         $serverKey = $this->serverKey;
         $input = $orderId . $statusCode . $grossAmount . $serverKey;
         $signature = openssl_digest($input, 'sha512');
@@ -71,7 +71,7 @@ class CallbackService extends Midtrans
         $notification = new Notification();
  
         $orderNumber = $notification->order_id;
-        $order = Order::where('number', $orderNumber)->first();
+        $order = Order::where('id', $orderNumber)->first();
  
         $this->notification = $notification;
         $this->order = $order;
