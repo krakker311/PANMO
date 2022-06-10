@@ -26,6 +26,9 @@ class UpdateProfileRequest extends FormRequest
     public function rules()
     {
         return [
+            'user_id' => [
+                'required'
+            ],
             'name' => [
                 'required', 'string', 'max:255'
             ],
@@ -36,6 +39,30 @@ class UpdateProfileRequest extends FormRequest
             'email' => [
                 'required', 'email', 'max:255',
                 Rule::unique('users', 'email')->ignore(Auth::user()->id)
+            ],
+            'province_id' => [
+                'required'
+            ],
+            'city_id' => [
+                'required'
+            ],
+            'weight' => [
+                'required'
+            ],
+            'height' => [
+                'required'
+            ],
+            'waist' => [
+                'required'
+            ],
+            'bust' => [
+                'required'
+            ],
+            'hip' => [
+                'required'
+            ],
+            'hair_color' => [
+                'required'
             ],
         ];
     }

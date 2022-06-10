@@ -4,6 +4,9 @@
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">Welcome Back, {{ auth()->user()->name }}</h1>
     </div>    
+	@if(Session::has('message'))
+	<p class="alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('message') }}</p>
+	@endif
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 	<div class="container">
 	<div class="col">
@@ -96,8 +99,8 @@
 						<div class="mb-2"><b>About Me</div>
 							<div class="row">
 								<label class="order-form-label">Province</label>
-								<input class="form-control @error('height') is-invalid @enderror" type="text" name="height" value="{{ auth()->user()->model->province->name }}">
-								  @error('city_id')
+								<input class="form-control @error('province') is-invalid @enderror" type="text" name="province" value="{{ auth()->user()->model->province->name }}">
+								  @error('province')
 								  <div class="invalid-feedback">
 									  {{ $message }}
 								  </div>
@@ -106,8 +109,8 @@
 							  
 							<div class="row">
 							  <label class="order-form-label">City</label>
-							  <input class="form-control @error('height') is-invalid @enderror" type="text" name="height" value="{{ auth()->user()->model->city->name }}">
-								@error('city_id')
+							  <input class="form-control @error('city') is-invalid @enderror" type="text" name="city" value="{{ auth()->user()->model->city->name }}">
+								@error('city')
 								<div class="invalid-feedback">
 									{{ $message }}
 								</div>
@@ -126,74 +129,75 @@
 									@enderror
 								</div>
 							</div>
-						</div>
-						<div class="row">
-							<div class="col">
-								<div class="form-group">
-									<label>Weight</label>
-									<input class="form-control @error('weight') is-invalid @enderror" type="text" name="weight" value="{{ auth()->user()->model->weight }}">
-									@error('weight')
-									<div class="invalid-feedback">
-										{{ $message }}
+							<div class="row">
+								<div class="col">
+									<div class="form-group">
+										<label>Weight</label>
+										<input class="form-control @error('weight') is-invalid @enderror" type="text" name="weight" value="{{ auth()->user()->model->weight }}">
+										@error('weight')
+										<div class="invalid-feedback">
+											{{ $message }}
+										</div>
+										@enderror
 									</div>
-									@enderror
+								</div>
+							</div>
+							<div class="row">
+								<div class="col">
+									<div class="form-group">
+										<label>Hair Color</label>
+										<input class="form-control @error('hair_color') is-invalid @enderror" type="text" name="hair_color" value="{{ auth()->user()->model->hair_color }}">
+										@error('hair_color')
+										<div class="invalid-feedback">
+											{{ $message }}
+										</div>
+										@enderror
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col">
+									<div class="form-group">
+										<label>Waist</label>
+										<input class="form-control @error('waist') is-invalid @enderror" type="text" name="waist" value="{{ auth()->user()->model->waist }}">
+										@error('waist')
+										<div class="invalid-feedback">
+											{{ $message }}
+										</div>
+										@enderror
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col">
+									<div class="form-group">
+										<label>Bust</label>
+										<input class="form-control @error('bust') is-invalid @enderror" type="text" name="bust" value="{{ auth()->user()->model->bust }}">
+										@error('bust')
+										<div class="invalid-feedback">
+											{{ $message }}
+										</div>
+										@enderror
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col">
+									<div class="form-group">
+										<label>Hips</label>
+										<input class="form-control @error('hip') is-invalid @enderror" type="text" name="hip" value="{{ auth()->user()->model->hips }}">
+										@error('hip')
+										<div class="invalid-feedback">
+											{{ $message }}
+										</div>
+										@enderror
+									</div>
 								</div>
 							</div>
 						</div>
-						<div class="row">
-							<div class="col">
-								<div class="form-group">
-									<label>Hair Color</label>
-									<input class="form-control @error('hair_color') is-invalid @enderror" type="text" name="hair_color" value="{{ auth()->user()->model->hair_color }}">
-									@error('hair_color')
-									<div class="invalid-feedback">
-										{{ $message }}
-									</div>
-									@enderror
-								</div>
-							</div>
+						@endif
 						</div>
-						<div class="row">
-							<div class="col">
-								<div class="form-group">
-									<label>Waist</label>
-									<input class="form-control @error('waist') is-invalid @enderror" type="text" name="waist" value="{{ auth()->user()->model->waist }}">
-									@error('waist')
-									<div class="invalid-feedback">
-										{{ $message }}
-									</div>
-									@enderror
-								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col">
-								<div class="form-group">
-									<label>Bust</label>
-									<input class="form-control @error('bust') is-invalid @enderror" type="text" name="bust" value="{{ auth()->user()->model->bust }}">
-									@error('bust')
-									<div class="invalid-feedback">
-										{{ $message }}
-									</div>
-									@enderror
-								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col">
-								<div class="form-group">
-									<label>Hips</label>
-									<input class="form-control @error('hip') is-invalid @enderror" type="text" name="hip" value="{{ auth()->user()->model->hips }}">
-									@error('hip')
-									<div class="invalid-feedback">
-										{{ $message }}
-									</div>
-									@enderror
-								</div>
-							</div>
-						</div>
-					</div>
-					@endif
+						
 
 					</form>
 
