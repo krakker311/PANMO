@@ -18,7 +18,10 @@ class OrderController extends Controller
             'pending_orders' => Order::where('model_id',auth()->user()->id)
                                 ->where('isOrderAccepted','0')->get(),
             'accepted_orders' => Order::where('model_id',auth()->user()->id)
-                                ->where('isOrderAccepted','1')->get()                   
+                                ->where('isOrderAccepted','1')
+                                ->where('payment_status','!=','4')->get(),    
+            'done_orders' => Order::where('model_id',auth()->user()->id)
+                                ->where('payment_status','4')->get()               
         ]);
     }
 
@@ -27,7 +30,10 @@ class OrderController extends Controller
             'pending_orders' => Order::where('user_id',auth()->user()->id)
                                 ->where('isOrderAccepted','0')->get(),
             'accepted_orders' => Order::where('user_id',auth()->user()->id)
-                                ->where('isOrderAccepted','1')->get()                   
+                                ->where('isOrderAccepted','1')
+                                ->where('payment_status','!=','4')->get(),
+            'done_orders' => Order::where('model_id',auth()->user()->id)
+                                ->where('payment_status','1')->get()                   
         ]);
     }
 
@@ -85,6 +91,26 @@ class OrderController extends Controller
         Notification::send($user, new EmailNotification($order));
         Order::where('id',$id)
         ->delete();
+            
+        return redirect()->route('viewAllOrders');
+    }
+
+    public function orderDone($id) {
+        $orderid = Order::where('id',$id)->first();
+        $user = User::where('id',$orderid->user_id)->first();
+        $model = ModelUser::where('id',$orderid->model_id)->first();
+        $order = [
+            'greeting' => 'Hi '.$user->name.',',
+            'body' => 'Thank for using '.$model->name.' service, if you dont mind you can give your review by click button beloew',
+            'actionText' => 'Review Model',
+            'actionURL' => url('/review/id='.$orderid->model_id)
+        ];
+        
+        Notification::send($user, new EmailNotification($order));
+        $orderupdate = Order::where('id',$id)->update([
+            'payment_status' => 4,
+        ]);
+        
             
         return redirect()->route('viewAllOrders');
     }

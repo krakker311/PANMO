@@ -24,6 +24,10 @@ class Order extends Model
         return $this->BelongsTo(User::Class);
     }
 
+    public function Model(){
+        return $this->BelongsTo(ModelUser::Class);
+    }
+
     public function Job(){
         return $this->BelongsTo(Job::Class);
     }
