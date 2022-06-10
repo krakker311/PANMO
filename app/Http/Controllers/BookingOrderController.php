@@ -83,8 +83,7 @@ class BookingOrderController extends Controller
             'greeting' => 'Hi '.$user->name.',',
             'body' => 'There are order for you .',
             'actionText' => 'View Order',
-            'actionURL' => url('/viewOrder/id='.$orderid->id),
-            'id' => 57
+            'actionURL' => url('/viewOrder/id='.$orderid->id)
         ];
   
         Notification::send($user, new EmailNotification($order));

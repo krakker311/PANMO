@@ -15,6 +15,7 @@ use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\ProfileController;
 use App\Models\Province;
 
+use App\Http\Controllers\PaymentCallbackController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -115,12 +116,20 @@ Route::resource('/dashboard/portfolio', PortfolioController::class)->middleware(
 
 Route:: get('dashboard/orders', [OrderController::class, 'index'])->middleware('auth')->name('viewAllOrders');
 
+Route:: get('dashboard/ordersUser', [OrderController::class, 'indexUser'])->middleware('auth')->name('viewAllOrdersUser');
+
 Route::post('/booking', [BookingOrderController::class, 'store'])->middleware('auth');
 
 Route::get('/booking/{model:id}',  [BookingOrderController::class, 'index'])->middleware('auth');
 
-Route::post('get_cities', [BookingOrderController::class, 'getCities'])->middleware('auth');
+Route::post('/get_cities', [BookingOrderController::class, 'getCities'])->middleware('auth');
 
 Route::get('/viewOrder/id={order:id}',[OrderController::class,'detail'])->middleware('auth');
 
 Route::get('/acceptOrder/id={order:id}',[OrderController::class,'acceptOrder'])->middleware('auth');
+
+Route::get('/declineOrder/id={order:id}',[OrderController::class,'declineOrder'])->middleware('auth');
+
+Route::get('/orderDone/id={order:id}',[OrderController::class,'orderDone'])->middleware('auth');
+
+Route::post('/notification/handling', [PaymentCallbackController::class, 'receive']);
