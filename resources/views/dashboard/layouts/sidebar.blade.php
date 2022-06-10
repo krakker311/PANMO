@@ -20,6 +20,12 @@
             My Order
           </a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link {{ Request::is('dashboard/portfolio*') ? 'active' : '' }}" href="/dashboard/portfolio">
+            <span data-feather="file-text"></span>
+            My Portfolio
+          </a>
+        </li>
         @endif
       </ul>
         
