@@ -23,6 +23,9 @@
               <th scope="col">Order Time</th>
               <th scope="col">Order Job</th>
               <th scope="col">Order Price</th>
+              @if($order->isOrderAccepted == 1)
+              <th scope="col">Payment Status</th>
+              @endif
             </tr>
           </thead>
           <tbody>
@@ -36,6 +39,13 @@
                     <td>{{ $order->time }}</td>
                     <td>{{ $order->job->job_title }}</td>
                     <td>{{ $order->job->price }}</td>
+                    @if($order->isOrderAccepted == 1)
+                      @if($order->payment_status == 1)
+                      <td>not yet paid</td>
+                      @elseif($order->payment_status == 1)
+                      <td>already paid</td>
+                      @endif
+                    @endif
                 </tr>
 
            
@@ -61,6 +71,12 @@
       <a href="/orderDone/id={{$order->id}}">
         <button class="btn btn-primary" type="button" >
           Order Done
+            </button>
+      </a>
+      @elseif($order->isOrderAccepted == 1 && $order->user_id == Auth::user()->id && $order->payment_status == 4)
+      <a href="/review/id={{$order->model_id}}">
+        <button class="btn btn-primary" type="button" >
+          Add Review
             </button>
       </a>
       @endif

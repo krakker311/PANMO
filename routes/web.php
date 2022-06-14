@@ -13,6 +13,7 @@ use App\Http\Controllers\ModelController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ReviewController;
 use App\Models\Province;
 
 use App\Http\Controllers\PaymentCallbackController;
@@ -82,7 +83,7 @@ Route::post('/logout', [LoginController::class, 'logout']);
 Route::get('/register', [RegisterController::class, 'index'])->name('register')->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store']);
 
-Route::get('/dashboard', [ProfileController::class, 'index'])->middleware('auth');
+Route::get('/dashboard', [ProfileController::class, 'index'])->middleware('auth')->name('dashboard');
 
 Route::group(['middleware' => 'auth'], function () {
 
@@ -114,9 +115,9 @@ Route::get('/dashboard/portfolio', [PortfolioController::class, 'index'])->middl
 Route::resource('/dashboard/portfolio', PortfolioController::class)->middleware('auth');
 
 
-Route:: get('dashboard/orders', [OrderController::class, 'index'])->middleware('auth')->name('viewAllOrders');
+Route:: get('/dashboard/orders', [OrderController::class, 'index'])->middleware('auth')->name('viewAllOrders');
 
-Route:: get('dashboard/ordersUser', [OrderController::class, 'indexUser'])->middleware('auth')->name('viewAllOrdersUser');
+Route:: get('/dashboard/ordersUser', [OrderController::class, 'indexUser'])->middleware('auth')->name('viewAllOrdersUser');
 
 Route::post('/booking', [BookingOrderController::class, 'store'])->middleware('auth');
 
@@ -133,3 +134,9 @@ Route::get('/declineOrder/id={order:id}',[OrderController::class,'declineOrder']
 Route::get('/orderDone/id={order:id}',[OrderController::class,'orderDone'])->middleware('auth');
 
 Route::post('/notification/handling', [PaymentCallbackController::class, 'receive']);
+
+Route::get('/dashboard/reviews',[ReviewController::class,'index'])->name('viewAllReviews');
+
+Route::get('/review/id={model:id}',[ReviewController::class,'create']);
+
+Route::post('/review',[ReviewController::class, 'addReview']);

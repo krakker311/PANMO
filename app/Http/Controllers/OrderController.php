@@ -14,13 +14,15 @@ class OrderController extends Controller
 {
     //
     public function index() {
+        $model = ModelUser::where('user_id',auth()->user()->id)->first();
+
         return view('dashboard.orders.index',[
-            'pending_orders' => Order::where('model_id',auth()->user()->id)
+            'pending_orders' => Order::where('model_id',$model->id)
                                 ->where('isOrderAccepted','0')->get(),
-            'accepted_orders' => Order::where('model_id',auth()->user()->id)
+            'accepted_orders' => Order::where('model_id',$model->id)
                                 ->where('isOrderAccepted','1')
                                 ->where('payment_status','!=','4')->get(),    
-            'done_orders' => Order::where('model_id',auth()->user()->id)
+            'done_orders' => Order::where('model_id',$model->id)
                                 ->where('payment_status','4')->get()               
         ]);
     }
@@ -32,8 +34,8 @@ class OrderController extends Controller
             'accepted_orders' => Order::where('user_id',auth()->user()->id)
                                 ->where('isOrderAccepted','1')
                                 ->where('payment_status','!=','4')->get(),
-            'done_orders' => Order::where('model_id',auth()->user()->id)
-                                ->where('payment_status','1')->get()                   
+            'done_orders' => Order::where('user_id',auth()->user()->id)
+                                ->where('payment_status','4')->get()                   
         ]);
     }
 
