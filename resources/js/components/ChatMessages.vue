@@ -7,11 +7,11 @@
       <div class="clearfix">
         <div class="header">
           <strong>
-            {{ user.id }}
+            {{ message.user.name }}
           </strong>
         </div>
         <p>
-          {{ message.user_id }}
+          {{ message.message }}
         </p>
       </div>
     </li>
@@ -20,6 +20,6 @@
 
 <script>
 export default {
-  props: ["messages", "user_id"],
+  props: ["messages"],
 };
 </script>
