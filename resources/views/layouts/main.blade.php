@@ -26,7 +26,7 @@
     <div class="container mt-4">
         @yield('container')
     </div>
-    <script src="{{ asset('storage/js/app.js')}}"></script>
+    <script src="js/app.js"></script>
     <script src="assets/jquery.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/timepicker.js"></script> 

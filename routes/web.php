@@ -139,7 +139,6 @@ Route::get('/dashboard/reviews',[ReviewController::class,'index'])->name('viewAl
 
 Route::get('/review/id={model:id}',[ReviewController::class,'create']);
 
-Route::post('/review',[ReviewController::class, 'addReview']);
 Route::get('/chat', [ChatsController::class, 'index'])->middleware('auth');
 Route::get('/messages', [ChatsController::class , 'fetchMessages']);
 Route::post('/messages', [ChatsController::class, 'sendMessage']);
