@@ -8,6 +8,7 @@ use App\Models\Job;
 use App\Models\User;
 use App\Models\ModelUser;
 use App\Models\Portfolio;
+use App\Models\Review;
 use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
@@ -37,7 +38,8 @@ class PostController extends Controller
             "active" => 'posts',
             "model" => ModelUser::where('id',$id)->first(),
             'jobs' => Job::where('model_id', $id)->get(),
-            'portfolios' => Portfolio::where('model_id', $id)->get()
+            'portfolios' => Portfolio::where('model_id', $id)->get(),
+            'reviews' => Review::where('model_id',$id)->get()
         ]);
     }
     
