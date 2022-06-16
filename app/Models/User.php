@@ -57,4 +57,8 @@ class User extends Authenticatable
     public function Model(){
         return $this->hasOne(ModelUser::class);
     }
+
+    public function messages(){
+        return $this->hasMany(Message::class);
+    }
 }

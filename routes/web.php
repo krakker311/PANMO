@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BookingOrderController;
+use App\Http\Controllers\ChatsController;
 use App\Models\Category;
 use App\Models\Favorite;
 use Illuminate\Support\Facades\Route;
@@ -101,7 +102,6 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 
-
 Route::get('/dashboard/posts/checkSlug', [DashboardPostController::class, 'checkSlug'])->middleware('auth');
 
 Route::resource('/dashboard/posts', DashboardPostController::class)->middleware('auth');
@@ -140,3 +140,6 @@ Route::get('/dashboard/reviews',[ReviewController::class,'index'])->name('viewAl
 Route::get('/review/id={model:id}',[ReviewController::class,'create']);
 
 Route::post('/review',[ReviewController::class, 'addReview']);
+Route::get('/chat', [ChatsController::class, 'index'])->middleware('auth');
+Route::get('/messages', [ChatsController::class , 'fetchMessages']);
+Route::post('/messages', [ChatsController::class, 'sendMessage']);

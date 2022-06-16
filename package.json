@@ -29,6 +29,8 @@
         "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
-        "bootstrap-star-rating": "^4.1.2"
+        "bootstrap-star-rating": "^4.1.2",
+        "laravel-echo": "^1.11.7",
+        "pusher-js": "^7.1.1-beta"
     }
 }

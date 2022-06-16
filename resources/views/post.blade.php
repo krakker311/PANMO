@@ -8,14 +8,15 @@
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col col-xl-12 col-xl-7">
         <div class="card">
-          <div class="rounded-top text-white d-flex flex-row" style="background-color: #000; height:200px;">
+          <div class="rounded-top text-white d-flex flex-row" style="background-color: #000; height:250px;">
             <div class="ms-4 mt-5 d-flex flex-column" style="width: 150px;">
               @if($model->image)
                 <img src="{{ asset('storage/' . $model->image) }}" alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2" style="width: 150px; z-index: 1">
               @else
                 <img src="{{ asset('storage/profile/default.jpg') }}" alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2" style="width: 150px; z-index: 1">
               @endif
-                <a href="/booking/{{ $model->id }}" class="btn btn-primary" style="z-index: 1;"> Book now</a>
+                <a href="/booking/{{ $model->id }}}" class="btn btn-primary mb-3" style="z-index: 1;"> Book now</a>
+                <a href="/chat" class="btn btn-primary " style="z-index: 1;">Ask Availability</a>
             </div>
             <div class="ms-3" style="margin-top: 90px;">
               <h5>{{ $model->name }}</h5>

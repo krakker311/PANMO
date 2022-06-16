@@ -15,7 +15,7 @@
     {{-- My Style --}}
     <link rel="stylesheet" href="/css/style.css">
     <link href="css/carousel.css" rel="stylesheet">
-    
+
 
   </head>
   <body>
