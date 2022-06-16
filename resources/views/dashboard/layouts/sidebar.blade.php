@@ -26,6 +26,12 @@
             My Portfolio
           </a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link {{ Request::is('dashboard/review*') ? 'active' : '' }}" href="/dashboard/reviews">
+            <span data-feather="file-text"></span>
+            My Review
+          </a>
+        </li>
         @else
         <li class="nav-item">
           <a class="nav-link {{ Request::is('dashboard/orderUser*') ? 'active' : '' }}" href="/dashboard/ordersUser">

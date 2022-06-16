@@ -145,6 +145,65 @@
                 </div>
             </div>
 
+            <div class="d-flex justify-content-between align-items-center mb-4">
+              <p class="lead fw-normal mb-0">Review</p>
+            </div>
+            <!-- Carousel wrapper -->
+              <div
+                id="carouselMultiItemExample"
+                class="carousel slide carousel-dark text-center"
+                data-mdb-ride="carousel"
+              >
+                <!-- Controls -->
+                <div class="d-flex justify-content-center mb-4">
+                  <button
+                    class="carousel-control-prev position-relative"
+                    type="button"
+                    data-mdb-target="#carouselMultiItemExample"
+                    data-mdb-slide="prev"
+                  >
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button
+                    class="carousel-control-next position-relative"
+                    type="button"
+                    data-mdb-target="#carouselMultiItemExample"
+                    data-mdb-slide="next"
+                  >
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                  </button>
+                </div>
+                <!-- Inner -->
+                <div class="carousel-inner" >
+                  <!-- Single item -->
+                  <div class="carousel-item active">
+                    <div class="container">
+                          @foreach ($reviews as $review)
+                          <div class="card text-start">
+                            <div class="card-body">
+                              <h5 class="card-title">{{$review->user->name}}</h5>
+                              <p class="card-text"> 
+                                @while($review->rating>0)
+                                  @if($review->rating >0.5)
+                                      <i class="fa fa-star"></i>
+                                  @else
+                                      <i class="fa fa-star-half"></i>
+                                  @endif
+                                  @php $review->rating--; @endphp
+                                @endwhile</p>
+                              <p class="card-text">{{$review->comment}}</p> 
+                            </div>
+                          </div>
+                          @endforeach
+                        </div>
+                  </div>
+
+                </div>
+                <!-- Inner -->
+              </div>
+              <!-- Carousel wrapper -->
           </div>
         </div>
       </div>
