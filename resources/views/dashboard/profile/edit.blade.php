@@ -48,7 +48,11 @@
 				</ul>
 				<div class="tab-content pt-3">
 					<div class="tab-pane active">
+					@if(Auth::user()->role_id == 1)
+					<form class="form" method="POST" action="{{ route('dashboard.updateUser')}}">
+					@else
 					<form class="form" method="POST" action="{{ route('dashboard.update')}}">
+					@endif
 						@csrf
                         @method('patch')
 						<div class="row">

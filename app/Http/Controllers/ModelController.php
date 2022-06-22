@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\ModelUser;
 use App\Models\Province;
+use App\Models\Category;
+use App\Models\Job;
+use App\Models\Portfolio;
+use App\Models\Review;
+use Illuminate\Support\Facades\Auth;
 
 class ModelController extends Controller
 {
@@ -48,48 +53,53 @@ class ModelController extends Controller
         return redirect('dashboard')->with('message', 'Profile Successfully Updated!');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+    public function browse(){
+        $title ='';
+        if(request('category')){
+            $category = Category::firstWhere('slug', request('category'));
+            $title = ' in ' . $category->name;
+        }
+
+        if(request('author')){
+            $author = ModelUser::firstWhere('username', request('author'));
+            $title = ' by ' . $author->name;
+        }
+        return view ('models', [
+        "title" => "Our Models" . $title,
+        "active" => 'posts',
+        "posts" => ModelUser::latest()->paginate(6)->withQueryString()
+        ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function show($id){
+        return view('model', [
+            "title" => 'Profile',
+            "active" => 'posts',
+            "model" => ModelUser::where('id',$id)->first(),
+            'jobs' => Job::where('model_id', $id)->get(),
+            'portfolios' => Portfolio::where('model_id', $id)->get(),
+            'reviews' => Review::where('model_id',$id)->get()
+        ]);
+    }
+    
+    public function favorite(ModelUser $model)
     {
-        //
+        Auth::user()->favorites()->attach($model->id);
+        return back();
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    public function unfavorite(ModelUser $model)
     {
-        //
+        Auth::user()->favorites()->detach($model->id);
+        return back();
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+    public function favorites()
     {
-        //
+        return view('favlist', [
+            "title" => 'Profile',
+            "active" => 'favorite',
+            "posts" => Auth::user()->favorites
+        ]);
     }
 }
