@@ -36,7 +36,11 @@
                                 <img src="{{ asset('storage/profile/default.jpg') }}" class="img-fluid">
                             @endif
                         </div>
-                      <a href="/profile/{{ $post->id }}" class="btn btn-primary">Read more</a>
+                        <form id="form" action="/profile" method="POST">
+                        @csrf
+                        <input type="hidden" name="id" value="{{ $post->id }}">
+                        <button type="submit" id="btnSubmit" class="btn btn-primary">Read More</button>  
+                        </form>
                     </div>
                   </div>
             </div>

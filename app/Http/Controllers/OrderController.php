@@ -101,6 +101,7 @@ class OrderController extends Controller
         $orderid = Order::where('id',$id)->first();
         $user = User::where('id',$orderid->user_id)->first();
         $model = ModelUser::where('id',$orderid->model_id)->first();
+        $model->jobs_done = $model->jobs_done + 1;
         $order = [
             'greeting' => 'Hi '.$user->name.',',
             'body' => 'Thank for using '.$model->name.' service, if you dont mind you can give your review by click button beloew',
