@@ -57,15 +57,13 @@ Route::get('/about', function () {
     ]);
 });
 
-Route::get('/posts',[PostController::class, 'index']);
+Route::get('/posts',[ModelController::class, 'browse']);
 
 //halaman single posts
 
-Route::post('profile/', [PostController::class, 'show']);
-Route::post('favorite/{model}', [PostController::class, 'favorite']);
-Route::post('unfavorite/{model}', [PostController::class, 'unfavorite']);
-
-
+Route::get('profile/{model:id}', [ModelController::class, 'show']);
+Route::post('favorite/{model}', [ModelController::class, 'favorite']);
+Route::post('unfavorite/{model}', [ModelController::class, 'unfavorite']);
 
 Route::get('/categories', function(){
     return view('categories', [
@@ -75,7 +73,7 @@ Route::get('/categories', function(){
     ]);
 });
 
-Route::get('/favorites', [PostController::class, 'favorites']);
+Route::get('/favorites', [ModelController::class, 'favorites']);
 
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
@@ -88,11 +86,17 @@ Route::get('/dashboard', [ProfileController::class, 'index'])->middleware('auth'
 
 Route::group(['middleware' => 'auth'], function () {
 
-    Route::get('dashboard/edit', [DashboardPostController::class , 'editProfile'])
+    Route::get('dashboard/edit', [ProfileController::class , 'editProfile'])
         ->name('dashboard.edit');
 
-    Route::patch('dashboard/edit', [DashboardPostController::class, 'updateProfile'])
+    Route::patch('dashboard/edit', [ProfileController::class, 'updateProfile'])
         ->name('dashboard.update');
+
+    Route::get('dashboard/editUser', [ProfileController::class , 'editProfile'])
+        ->name('dashboard.edit');
+
+    Route::patch('dashboard/editUser', [ProfileController::class, 'updateProfileUser'])
+        ->name('dashboard.updateUser');
 
     Route::get('dashboard/regismodel', [ModelController::class , 'index'])
         ->name('dashboard.regis.model');
@@ -101,11 +105,6 @@ Route::group(['middleware' => 'auth'], function () {
         ->name('dashboard.create.model');
 });
 
-
-Route::get('/dashboard/posts/checkSlug', [DashboardPostController::class, 'checkSlug'])->middleware('auth');
-
-Route::resource('/dashboard/posts', DashboardPostController::class)->middleware('auth');
-
 Route::get('/dashboard/jobs', [JobController::class, 'index'])->middleware('auth');
 
 Route::resource('/dashboard/jobs', JobController::class)->middleware('auth');
@@ -113,7 +112,6 @@ Route::resource('/dashboard/jobs', JobController::class)->middleware('auth');
 Route::get('/dashboard/portfolio', [PortfolioController::class, 'index'])->middleware('auth');
 
 Route::resource('/dashboard/portfolio', PortfolioController::class)->middleware('auth');
-
 
 Route:: get('/dashboard/orders', [OrderController::class, 'index'])->middleware('auth')->name('viewAllOrders');
 

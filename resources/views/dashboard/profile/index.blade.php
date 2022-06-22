@@ -32,17 +32,24 @@
 						<h4 class="pt-sm-2 pb-1 mb-0 text-nowrap">{{ auth()->user()->name }}</h4>
 						<p class="mb-0">{{ auth()->user()->username }}</p>
 						<div class="mt-2">
-						<a href="/dashboard/edit">
+						@if(Auth::user()->role_id == 1)
+						<a href="/dashboard/editUser">
 							<button class="btn btn-primary" type="button" >
 								Edit Profile
 							</button>
 						</a>
 						</div>
-						@if(Auth::user()->role_id == 1)
 						<div class="mt-2">
 						<a href="/dashboard/regismodel">
 							<button class="btn btn-primary" type="button" >
 								Register as Model
+							</button>
+						</a>
+						</div>
+						@else
+						<a href="/dashboard/edit">
+							<button class="btn btn-primary" type="button" >
+								Edit Profile
 							</button>
 						</a>
 						</div>

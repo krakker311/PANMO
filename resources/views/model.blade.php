@@ -15,7 +15,7 @@
                 @else
                   <img src="{{ asset('storage/profile/default.jpg') }}" alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2" style="width: 150px; z-index: 1">
                 @endif
-                  <a href="/booking/{{ $model->id }}}" class="btn btn-primary mb-3" style="z-index: 1;"> Book now</a>
+                  <a href="/booking/{{ $model->id }}" class="btn btn-primary mb-3" style="z-index: 1;"> Book now</a>
                   @if(Auth::user())
                   <a href="javascript:void(0);" data-id="{{ $model->user_id }}" data-user="{{ $model->user->name }}" class="btn-chat1" style="z-index: 1;" id="chat-toggle">Ask Availability</a>
                   @endif

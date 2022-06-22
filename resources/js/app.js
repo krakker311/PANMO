@@ -28,9 +28,9 @@ Vue.component('favorite', require('./components/Favorite.vue').default);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-// const app = new Vue({
-//     el: '#app',
-// });
+const app = new Vue({
+    el: '#app',
+});
 
 
 require("./chat");
