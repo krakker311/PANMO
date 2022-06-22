@@ -65,8 +65,6 @@ Route::get('profile/{model:id}', [ModelController::class, 'show']);
 Route::post('favorite/{model}', [ModelController::class, 'favorite']);
 Route::post('unfavorite/{model}', [ModelController::class, 'unfavorite']);
 
-
-
 Route::get('/categories', function(){
     return view('categories', [
         'title' => 'Post Categories',
