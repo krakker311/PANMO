@@ -31,15 +31,15 @@ class PostController extends Controller
         ]);
     }
 
-    public function show($id){
-
+    public function show(Request $request){
+        $data = $request->all();
         return view('post', [
             "title" => 'Profile',
             "active" => 'posts',
-            "model" => ModelUser::where('id',$id)->first(),
-            'jobs' => Job::where('model_id', $id)->get(),
-            'portfolios' => Portfolio::where('model_id', $id)->get(),
-            'reviews' => Review::where('model_id',$id)->get()
+            "model" => ModelUser::where('id',$data['id'])->first(),
+            'jobs' => Job::where('model_id', $data['id'])->get(),
+            'portfolios' => Portfolio::where('model_id', $data['id'])->get(),
+            'reviews' => Review::where('model_id',$data['id'])->get()
         ]);
     }
     

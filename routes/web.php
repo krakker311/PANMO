@@ -61,7 +61,7 @@ Route::get('/posts',[PostController::class, 'index']);
 
 //halaman single posts
 
-Route::get('profile/{model:id}', [PostController::class, 'show']);
+Route::post('profile/', [PostController::class, 'show']);
 Route::post('favorite/{model}', [PostController::class, 'favorite']);
 Route::post('unfavorite/{model}', [PostController::class, 'unfavorite']);
 
@@ -140,5 +140,15 @@ Route::get('/dashboard/reviews',[ReviewController::class,'index'])->name('viewAl
 Route::get('/review/id={model:id}',[ReviewController::class,'create']);
 
 Route::get('/chat', [ChatsController::class, 'index'])->middleware('auth');
+
 Route::get('/messages', [ChatsController::class , 'fetchMessages']);
+
 Route::post('/messages', [ChatsController::class, 'sendMessage']);
+
+Route::get('/load-latest-messages', [ChatsController::class, 'getLoadLatestMessages']);
+
+Route::post('/send', [ChatsController::class, 'postSendMessage']);
+
+Route::get('/fetch-old-messages', [ChatsController::class, 'getOldMessages']);
+
+Route::get('/dashboard/myMessage',[ChatsController::class,'myMessages']);

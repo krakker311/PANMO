@@ -34,6 +34,12 @@
           </a>
         </li>
         @endif
+        <li class="nav-item">
+          <a class="nav-link {{ Request::is('dashboard/message*') ? 'active' : '' }}" href="/dashboard/myMessage">
+            <span data-feather="message-circle"></span>
+            My Message
+          </a>
+        </li>
       </ul>
         
     </div>
