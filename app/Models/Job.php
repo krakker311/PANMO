@@ -21,4 +21,8 @@ class Job extends Model
         return $this->belongsTo(Province::class);
     }
 
+    public function model(){
+        return $this->belongsTo(ModelUser::class);
+    }
+
 }

@@ -113,8 +113,6 @@ class PortfolioController extends Controller
 
         $validatedData['model_id'] = auth()->user()->id;
 
-        
-
         Portfolio::where('id', $portfolio->id)->update($validatedData);
 
         return redirect('dashboard/portfolio')->with('success', 'Portfolio has been updated!');
