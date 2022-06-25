@@ -63,7 +63,11 @@ class JobController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('dashboard.jobs.detail', [
+            'job' => Job::where('id',$id)->first(),
+            'categories' => Category::all(),
+            'provinces' => Province::all()
+        ]);
     }
 
     

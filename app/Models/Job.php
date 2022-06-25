@@ -24,5 +24,8 @@ class Job extends Model
     public function model(){
         return $this->belongsTo(ModelUser::class);
     }
+    public function job() {
+        return $this->belongsTo(Job::class);
+    }
 
 }
