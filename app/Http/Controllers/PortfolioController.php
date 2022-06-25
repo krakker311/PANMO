@@ -67,7 +67,10 @@ class PortfolioController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('dashboard.portfolio.detail', [
+            'portfolio' => Portfolio::where('id',$id)->first(),
+            'categories' => Category::all()
+        ]);
     }
 
     /**

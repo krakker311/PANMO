@@ -2,7 +2,7 @@
 
 @section('container')
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Pending Orders</h1>
+        <h1 class="h2">My Orders</h1>
     </div>    
 
     @if(session()->has('success'))
@@ -10,81 +10,48 @@
         {{ session('success') }}
       </div>
     @endif
-
+    <div>
+    <button class="btn btn-primary mb-3">Pending Orders</button>
+      @foreach ($pending_orders as $pending_order)
+          <div class="card" style="width: 50rem;">
+            <div class="card-body">
+              <h5 class="card-title">Title: {{ $pending_order->name }}</h5>
+              <h6 class="card-subtitle">Description : {{ $pending_order->job->job_title}}</h6>
+              <a type="button" class="btn btn-outline-dark" href="/viewOrder/id={{$pending_order->id}}" style="float: right; margin-left: 10px;">Details</a> 
+            </div>
+          </div>
+      @endforeach
+    </div>
+    <div>
+    <button class="btn btn-primary mb-3"style="margin-top: 15px;">Accepted Orders</button> 
     <div class="table-responsive col-lg-8">
-        <table class="table table-striped table-sm">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Orderer Name</th>
-            </tr>
-          </thead>
-          <tbody>
-            @foreach ($pending_orders as $pending_order)
-                <tr>
-                    <td>{{ $loop->iteration }}</td>
-                    <td>{{ $pending_order->name }}</td>
-                    <td>
-                        <a href="/viewOrder/id={{$pending_order->id}}" class="badge bg-info"><span data-feather="eye"></span></a>
-                    </td>
-                </tr>
-            @endforeach
-           
-          </tbody>
-        </table>
-      </div>
-    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Accepted Orders</h1>
-    </div>    
-    <div class="table-responsive col-lg-8">
-        <table class="table table-striped table-sm">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Orderer Name</th>
-            </tr>
-          </thead>
-          <tbody>
             @foreach ($accepted_orders as $accepted_order)
-                <tr>
-                    <td>{{ $loop->iteration }}</td>
-                    <td>{{ $accepted_order->name }}</td>
-                    <td>
-                    <a href="/viewOrder/id={{$accepted_order->id}}" class="badge bg-info"><span data-feather="eye"></span></a>
-                    </td>
-                </tr>
+              <div class="card" style="width: 50rem;">
+                <div class="card-body">
+                  <h5 class="card-title">Title: {{ $accepted_order->name }}</h5>
+                  <h6 class="card-subtitle">Description : {{ $accepted_order->job->job_title}}</h6>
+                  <a type="button" class="btn btn-outline-dark" href="/viewOrder/id={{$accepted_order->id}}" style="float: right; margin-left: 10px;">Details</a> 
+                </div>
+              </div>
             @endforeach
-          </tbody>
-        </table>
+      <div>
       </div>
-
-      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Finish/ Decline Order</h1>
-    </div>    
-    <div class="table-responsive col-lg-8">
-        <table class="table table-striped table-sm">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Orderer Name</th>
-            </tr>
-          </thead>
-          <tbody>
+      <div>
+    <button class="btn btn-primary mb-3" style="margin-top: 15px;">Done / Declined</button>
+    <div>
             @foreach ($done_orders as $done_order)
-                <tr>
-                    <td>{{ $loop->iteration }}</td>
-                    <td>{{ $done_order->name }}</td>
-                    <td>
-                    @if(Auth::user()->id == $done_order->user_id)
-                    <a href="/review/id={{$done_order->model_id}}" class="badge bg-info"><span data-feather="eye"></span></a>
-                    @else
-                    <a href="/viewOrder/id={{$done_order->id}}" class="badge bg-info"><span data-feather="eye"></span></a>
-                    @endif
-                    </td>
-                </tr>
+                <div class="card" style="width: 50rem;">
+                <div class="card-body">
+                  <h5 class="card-title">Title: {{ $done_order->name }}</h5>
+                  <h6 class="card-subtitle">Description : {{ $done_order->job->job_title}}</h6>
+                  @if(Auth::user()->id == $done_order->user_id)
+                  <a type="button" class="btn btn-outline-dark" href="/review/id={{$done_order->model_id}}" style="float: right; margin-left: 10px;">Review</a> 
+                  @else
+                  <a type="button" class="btn btn-outline-dark" href="/viewOrder/id={{$done_order->id}}" style="float: right; margin-left: 10px;">Details</a> 
+                  @endif
+                </div>
+              </div>
             @endforeach
-          </tbody>
-        </table>
       </div>
       
 @endsection
