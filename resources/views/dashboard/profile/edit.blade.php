@@ -31,11 +31,6 @@
 					<div class="text-center text-sm-left mb-2 mb-sm-0">
 						<h4 class="pt-sm-2 pb-1 mb-0 text-nowrap">{{ auth()->user()->name }}</h4>
 						<p class="mb-0">{{ auth()->user()->username }}</p>
-						<div class="mt-2">
-							<button class="btn btn-primary" type="button" >
-								Change Profile Picture
-							</button>
-						</div>
 					</div>
 					<div class="text-center text-sm-right">
 						<span class="badge badge-secondary">administrator</span>
@@ -43,95 +38,117 @@
 					</div>
 					</div>
 				</div>
-				<ul class="nav nav-tabs">
-					<li class="nav-item"><a href="" class="active nav-link">Settings</a></li>
-				</ul>
+
 				<div class="tab-content pt-3">
 					<div class="tab-pane active">
 					@if(Auth::user()->role_id == 1)
-					<form class="form" method="POST" action="{{ route('dashboard.updateUser')}}">
+					<form class="form" method="POST" action="{{ route('dashboard.updateUser')}}"  enctype="multipart/form-data">
 					@else
-					<form class="form" method="POST" action="{{ route('dashboard.update')}}">
+					<form class="form" method="POST" action="{{ route('dashboard.update')}}"  enctype="multipart/form-data">
 					@endif
 						@csrf
                         @method('patch')
 						<div class="row">
 						<div class="col">
-							<div class="row">
-							<div class="col">
-								<div class="form-group">
-								<label>Full Name</label>
-								<input class="form-control   @error('name') is-invalid @enderror" type="text" name="name" value="{{ auth()->user()->name }}">
-								@error('name')
-									<div class="invalid-feedback">
-										{{ $message }}
+								<div class="col">
+									<div class="form-group">
+									<label>Change Profile Picture</label>
+									<img class="img-preview img-fluid mb-3 col-sm-5">
+									<input class="form-control   @error('image') is-invalid @enderror" type="file" name="image" id="image" onchange="previewImage()">
+									@error('image')
+										<div class="invalid-feedback">
+											{{ $message }}
+										</div>
+										@enderror
 									</div>
-									@enderror
 								</div>
-							</div>
-							<div class="col">
-								<div class="form-group">
-								<label>Username</label>
-								<input class="form-control   @error('username') is-invalid @enderror" type="text" name="username" value="{{ auth()->user()->username }}">
-								@error('username')
-									<div class="invalid-feedback">
-										{{ $message }}
-									</div>
-									@enderror
-								</div>
-							</div>
-							</div>
 							<div class="row">
-							<div class="col">
-								<div class="form-group">
-								<label>Email</label>
-								<input id="email" type="email   @error('email') is-invalid @enderror" class="form-control" name="email" value="{{ auth()->user()->email  }}">
-								@error('email')
-									<div class="invalid-feedback">
-										{{ $message }}
+								<div class="col">
+									<div class="form-group">
+									<label>Full Name</label>
+									<input class="form-control   @error('name') is-invalid @enderror" type="text" name="name" value="{{ auth()->user()->name }}">
+									@error('name')
+										<div class="invalid-feedback">
+											{{ $message }}
+										</div>
+										@enderror
 									</div>
-									@enderror
+								</div>
+								<div class="col">
+									<div class="form-group">
+									<label>Username</label>
+									<input class="form-control   @error('username') is-invalid @enderror" type="text" name="username" value="{{ auth()->user()->username }}">
+									@error('username')
+										<div class="invalid-feedback">
+											{{ $message }}
+										</div>
+										@enderror
+									</div>
+								</div>
+								<div class="col">
+									<div class="form-group">
+									<label>Email</label>
+									<input  id="email" type="email   @error('email') is-invalid @enderror" class="form-control" name="email" value="{{ auth()->user()->email  }}">
+									@error('email')
+										<div class="invalid-feedback">
+											{{ $message }}
+										</div>
+										@enderror
+									</div>
 								</div>
 							</div>
 							</div>
 						</div>
 						</div>
 						@if(Auth::user()->role_id == 2)
-						<div class="mb-2"><b>About Me</div>
-							<div class="row">
-								<label class="order-form-label">Province</label>
-								<select class="form-select  @error('province_id') is-invalid @enderror" name="province_id" placeholder="Province" id="province"> 
-								  <option value="">Select Province</option>
-								  @foreach ($provinces as $province)
-									  @if(old('province_id') == $province->id)
-										  <option value="{{ $province->id }}" selected>{{ $province->name }}</option>
-									  @else
-										  <option value="{{ $province->id }}" >{{ $province->name }}</option>
-									  @endif
-								  @endforeach 
-								  @error('province_id')
-								  <div class="invalid-feedback">
-									  {{ $message }}
-								  </div>
-								  @enderror
-								</select>
-							</div>
-							<div class="row">
-							  <label class="order-form-label">City</label>
-								<select class="form-select  @error('city_id') is-invalid @enderror" id="city" name="city_id" value="{{ auth()->user()->model->city_id }}">
-								</select>
-								@error('city_id')
+
+							<div class="col mb-3">
+								<div class="form-group">
+								<label>About</label>
+								<textarea class="form-control @error('description') is-invalid @enderror" rows="5" placeholder="My Bio" name="description">{{ auth()->user()->model->description }}</textarea>
+								@error('description')
 								<div class="invalid-feedback">
 									{{ $message }}
 								</div>
 								@enderror
+								</div>
+							</div>
+							<div class="row">
+								<div class="col">
+									<label class="order-form-label">Province</label>
+									<select class="form-select  @error('province_id') is-invalid @enderror" name="province_id" placeholder="Province" id="province"> 
+									  <option value="">Select Province</option>
+									  @foreach ($provinces as $province)
+										  @if(old('province_id') == $province->id)
+											  <option value="{{ $province->id }}" selected>{{ $province->name }}</option>
+										  @else
+											  <option value="{{ $province->id }}" >{{ $province->name }}</option>
+										  @endif
+									  @endforeach 
+									  @error('province_id')
+									  <div class="invalid-feedback">
+										  {{ $message }}
+									  </div>
+									  @enderror
+									</select>
+								</div>
+								<div class="col">
+								  <label class="order-form-label">City</label>
+									<select class="form-select  @error('city_id') is-invalid @enderror" id="city" name="city_id" value="{{ auth()->user()->model->city_id }}">
+									</select>
+									@error('city_id')
+									<div class="invalid-feedback">
+										{{ $message }}
+									</div>
+									@enderror
+								</div>
 							</div>
 							
 							<div class="row">
 								<div class="col">
 									<div class="form-group">
 									<label>Height</label>
-									<input class="form-control @error('height') is-invalid @enderror" type="text" name="height" value="{{ auth()->user()->model->height }}">
+									<input style = "width : 150px" class="form-control @error('height') is-invalid @enderror" type="text" name="height" value="{{ auth()->user()->model->height }}">
 									@error('height')
 									<div class="invalid-feedback">
 										{{ $message }}
@@ -139,12 +156,10 @@
 									@enderror
 								</div>
 							</div>
-						</div>
-						<div class="row">
 							<div class="col">
 								<div class="form-group">
 									<label>Weight</label>
-									<input class="form-control @error('weight') is-invalid @enderror" type="text" name="weight" value="{{ auth()->user()->model->weight }}">
+									<input style = "width : 150px" class="form-control @error('weight') is-invalid @enderror" type="text" name="weight" value="{{ auth()->user()->model->weight }}">
 									@error('weight')
 									<div class="invalid-feedback">
 										{{ $message }}
@@ -152,12 +167,10 @@
 									@enderror
 								</div>
 							</div>
-						</div>
-						<div class="row">
 							<div class="col">
 								<div class="form-group">
 									<label>Hair Color</label>
-									<input class="form-control @error('hair_color') is-invalid @enderror" type="text" name="hair_color" value="{{ auth()->user()->model->hair_color }}">
+									<input style = "width : 150px" class="form-control @error('hair_color') is-invalid @enderror" type="text" name="hair_color" value="{{ auth()->user()->model->hair_color }}">
 									@error('hair_color')
 									<div class="invalid-feedback">
 										{{ $message }}
@@ -166,11 +179,12 @@
 								</div>
 							</div>
 						</div>
+
 						<div class="row">
 							<div class="col">
 								<div class="form-group">
 									<label>Waist</label>
-									<input class="form-control @error('waist') is-invalid @enderror" type="text" name="waist" value="{{ auth()->user()->model->waist }}">
+									<input style = "width : 150px" class="form-control @error('waist') is-invalid @enderror" type="text" name="waist" value="{{ auth()->user()->model->waist }}">
 									@error('waist')
 									<div class="invalid-feedback">
 										{{ $message }}
@@ -178,12 +192,10 @@
 									@enderror
 								</div>
 							</div>
-						</div>
-						<div class="row">
 							<div class="col">
 								<div class="form-group">
 									<label>Bust</label>
-									<input class="form-control @error('bust') is-invalid @enderror" type="text" name="bust" value="{{ auth()->user()->model->bust }}">
+									<input style = "width : 150px" class="form-control @error('bust') is-invalid @enderror" type="text" name="bust" value="{{ auth()->user()->model->bust }}">
 									@error('bust')
 									<div class="invalid-feedback">
 										{{ $message }}
@@ -191,12 +203,10 @@
 									@enderror
 								</div>
 							</div>
-						</div>
-						<div class="row">
 							<div class="col">
 								<div class="form-group">
 									<label>Hips</label>
-									<input class="form-control @error('hips') is-invalid @enderror" type="text" name="hips" value="{{ auth()->user()->model->hips }}">
+									<input style = "width : 150px" class="form-control @error('hips') is-invalid @enderror" type="text" name="hips" value="{{ auth()->user()->model->hips }}">
 									@error('hips')
 									<div class="invalid-feedback">
 										{{ $message }}
@@ -250,5 +260,20 @@
       });
     });
   });
+
+    
+	function previewImage(){
+		const image = document.querySelector('#image');
+		const imgPreview = document.querySelector('.img-preview');
+		imgPreview.style.display = 'block';
+
+		const oFReader = new FileReader();
+		oFReader.readAsDataURL(image.files[0]);
+
+		oFReader.onload = function(oFREvent){
+			imgPreview.src = oFREvent.target.result;
+		}
+	}
+
 	</script>
 @endsection

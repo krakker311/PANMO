@@ -36,4 +36,7 @@ class ModelUser extends Model
     public function category(){
         return $this->belongsTo(Category::class);
     }
+    public function job(){
+        return $this->hasMany(Job::class);
+    }
 }
