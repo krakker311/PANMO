@@ -13,9 +13,14 @@ class Kernel extends ConsoleKernel
      * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
      * @return void
      */
+    protected $commands = [
+        MeetingReminder::class,
+      ];
+
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
+        // Here you can execute the command once every day
+        $schedule->command('users:order-reminder')->everyMinute();
     }
 
     /**
