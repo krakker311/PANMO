@@ -67,7 +67,10 @@ class PortfolioController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('dashboard.portfolio.detail', [
+            'portfolio' => Portfolio::where('id',$id)->first(),
+            'categories' => Category::all()
+        ]);
     }
 
     /**
@@ -112,8 +115,6 @@ class PortfolioController extends Controller
         }
 
         $validatedData['model_id'] = auth()->user()->id;
-
-        
 
         Portfolio::where('id', $portfolio->id)->update($validatedData);
 

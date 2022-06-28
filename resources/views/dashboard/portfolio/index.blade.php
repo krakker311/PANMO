@@ -10,36 +10,21 @@
         {{ session('success') }}
       </div>
     @endif
-
-    <div class="table-responsive col-lg-8">
-        <a href="/dashboard/portfolio/create" class="btn btn-primary mb-3">Create new portfolio</a>
-        <table class="table table-striped table-sm">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Title</th>
-              <th scope="col">Desc</th>
-            </tr>
-          </thead>
-          <tbody>
+    <a href="/dashboard/jobs/create" class="btn btn-primary mb-3"><i class="bi bi-plus-circle" style="margin-right: 10px;"></i>New Portofolio</a>
+    
             @foreach ($portfolios as $portfolio)
-                <tr>
-                    <td>{{ $loop->iteration }}</td>
-                    <td>{{ $portfolio->title }}</td>
-                    <td>{{ $portfolio->desc }}</td>
-                    <td>
-                        <a href="/dashboard/portfolio/{{ $portfolio->id }}" class="badge bg-info"><span data-feather="eye"></span></a>
-                        <a href="/dashboard/portfolio/{{ $portfolio->id }}/edit" class="badge bg-warning"><span data-feather="edit"></span> </a>
-                        <form action="/dashboard/portfolio/{{ $portfolio->id }}" method="post" class="d-inline">
-                          @method('delete')
-                          @csrf
-                          <button class="badge bg-danger border-0" onclick="return confirm('Are you sure?')"><span data-feather="x-circle"></span></button>
-                        </form>
-                    </td>
-                </tr>
+            <div class="card" style="width: 50rem;">
+              <div class="card-body">
+                <h5 class="card-title">Title: {{ $portfolio->title }}</h5>
+                <h6 class="card-subtitle">Description : {{ $portfolio->desc }}</h6>
+                <a type="button" class="btn btn-primary" href="/dashboard/portfolio/{{ $portfolio->id }}" style="float: right; margin-left: 10px;">Details</a>  
+                <form action="/dashboard/portfolio/{{ $portfolio->id }}" method="post" class="d-inline">
+                @method('delete')
+                @csrf
+                <a class="btn btn-primary" onclick="return confirm('Are you sure?')" style="float: right; margin-left: 10px;">Delete</a>
+                </form>
+                <a type="button" class="btn btn-primary" href="/dashboard/portfolio/{{ $portfolio->id }}/edit" style="float: right; margin-left: 10px;">Update</a>
+              </div>
+            </div>
             @endforeach
-           
-          </tbody>
-        </table>
-      </div>
 @endsection

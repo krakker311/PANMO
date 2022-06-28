@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\ModelUser;
 use App\Models\Province;
 use App\Models\Category;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
 
 class ProfileController extends Controller
@@ -28,7 +29,7 @@ class ProfileController extends Controller
     
     public function updateProfile(Request $request, User $user)
     {   
-        $validatedData = $request->validate([
+        $rules = [
             'name' => 'required|max:255',
             'user_id' => 'required',
             'province_id' => 'required',
@@ -38,18 +39,32 @@ class ProfileController extends Controller
             'hair_color' => 'required',
             'waist' => 'required',
             'bust' => 'required',
-            'hips' => 'required'
-        ]);
+            'hips' => 'required',
+            'images' => 'image|file|max:1024',
+            'description' => 'required'
+        ];
+
+        $validatedData = $request->validate($rules);
+
+        
+        if($request->file('image')){
+
+            if($request->oldImage){
+                Storage::delete($request->oldImage);
+            }
+
+            $validatedData['image'] = $request->file('image')->store('post-images');
+        }
+
 
         $validatedDataUser = $request->validate([
             'name' => 'required|max:255',
             'username' => 'required|min:3|max:255', Rule::unique('users')->ignore($request->user_id),
             'email' => 'required|email:dns', Rule::unique('users')->ignore($request->user_id)
         ]);
-      
+
         ModelUser::where('id', $request->user_id)->update($validatedData);
         User::where('id', $request->user_id)->update($validatedDataUser);
-
 
         return redirect('/dashboard')->with('message', 'Profile Successfully Updated!');
     }

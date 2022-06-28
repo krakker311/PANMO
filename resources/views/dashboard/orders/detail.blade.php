@@ -10,77 +10,59 @@
         {{ session('success') }}
       </div>
     @endif
+    <div class="card" style="width: 50rem;">
+      <div class="card-body">
+        <h5 class="card-title">Model name: {{ $order->name }}</h5>
+        <h6 class="card-subtitle" style="margin-bottom:10px;">Orderer Name : {{ $order->job->job_title}}</h6>
+        <h6 class="card-subtitle"style="margin-bottom:10px;">Orderer Phone : {{ $order->job->job_title}}</h6>
+        <h6 class="card-subtitle"style="margin-bottom:10px;">Orderer address : {{ $order->job->job_title}}</h6>
+        <h6 class="card-subtitle"style="margin-bottom:15px;margin-right:30px;display:inline;">Order Date : {{ $order->job->job_title}}</h6>
+        <h6 class="card-subtitle"style="margin-bottom:15px;display:inline;">Order Time : {{ $order->job->job_title}}</h6>
+        <h6 class="card-subtitle"style="margin-bottom:10px;margin-top:5px;">Order Job: {{ $order->job->job_title}}</h6>
+        <h6 class="card-subtitle"style="margin-bottom:10px;">Order Status : 
+        @if($order->isOrderAccepted == 1)
+          @if($order->payment_status == 1)
+          <button type="button" class="btn btn-warning">Not Paid Yet</button>
+          @elseif($order->payment_status == 2)
+          <button type="button" class="btn btn-success">Already Paid</button>
+          @elseif($order->payment_status == 4)
+          <button type="button" class="btn btn-success">Done</button>
+          @endif
+        @elseif($order->isOrderAccepted == 0)
+          <button type="button" class="btn btn-secondary">Not Accepted yet</button>
+        @endif</h6>
 
-    <div class="table-responsive col-lg-8">
-        <table class="table table-striped table-sm">
-          <thead>
-            <tr>
-              <th scope="col">Model Name</th>
-              <th scope="col">Orderer Name</th>
-              <th scope="col">Orderer Phone</th>
-              <th scope="col">Orderer address</th>
-              <th scope="col">Order Date</th>
-              <th scope="col">Order Time</th>
-              <th scope="col">Order Job</th>
-              <th scope="col">Order Price</th>
-              @if($order->isOrderAccepted == 1)
-              <th scope="col">Payment Status</th>
-              @endif
-            </tr>
-          </thead>
-          <tbody>
-           
-                <tr>
-                    <td>{{ $order->model->name }}</td>
-                    <td>{{ $order->name }}</td>
-                    <td>{{ $order->phone }}</td>
-                    <td>{{ $order->address }}</td>
-                    <td>{{ $order->date }}</td>
-                    <td>{{ $order->time }}</td>
-                    <td>{{ $order->job->job_title }}</td>
-                    <td>{{ $order->job->price }}</td>
-                    @if($order->isOrderAccepted == 1)
-                      @if($order->payment_status == 1)
-                      <td>not yet paid</td>
-                      @elseif($order->payment_status == 1)
-                      <td>already paid</td>
-                      @endif
-                    @endif
-                </tr>
-
-           
-          </tbody>
-        </table>
+        <div class="mt-2">
+          @if($order->isOrderAccepted == 0 && Auth::user()->role_id == 2)
+          <a href="/acceptOrder/id={{$order->id}}">
+            <button class="btn btn-primary" type="button" >
+              Accept Order
+                </button>
+          </a>
+          <a href="/declineOrder/id={{$order->id}}">
+            <button class="btn btn-primary" type="button" >
+              Decline Order
+                </button>
+          </a>
+          
+          @elseif($order->isOrderAccepted == 1 && $order->user_id == Auth::user()->id && $order->payment_status == 1)
+          <button class="btn btn-primary" id="pay-button">Bayar Sekarang</button>
+          @elseif($order->isOrderAccepted == 1 && $order->model->user_id == Auth::user()->id && $order->payment_status == 2 && $order->date <= \Carbon\Carbon::now()->toDateString() && $order->time <= \Carbon\Carbon::now()->toTimeString())
+          <a href="/orderDone/id={{$order->id}}">
+            <button class="btn btn-primary" type="button" >
+              Order Done
+                </button>
+          </a>
+          @elseif($order->isOrderAccepted == 1 && $order->user_id == Auth::user()->id && $order->payment_status == 4)
+          <a href="/review/id={{$order->model_id}}">
+            <button class="btn btn-primary" type="button" >
+              Add Review
+                </button>
+          </a>
+          @endif
+        </div>
       </div>
-      <div class="mt-2">
-      @if($order->isOrderAccepted == 0 && Auth::user()->role_id == 2)
-      <a href="/acceptOrder/id={{$order->id}}">
-        <button class="btn btn-primary" type="button" >
-          Accept Order
-            </button>
-      </a>
-      <a href="/declineOrder/id={{$order->id}}">
-        <button class="btn btn-primary" type="button" >
-          Decline Order
-            </button>
-      </a>
-      
-      @elseif($order->isOrderAccepted == 1 && $order->user_id == Auth::user()->id && $order->payment_status == 1)
-      <button class="btn btn-primary" id="pay-button">Bayar Sekarang</button>
-      @elseif($order->isOrderAccepted == 1 && $order->model->user_id == Auth::user()->id && $order->payment_status == 2 && $order->date <= \Carbon\Carbon::now()->toDateString() && $order->time <= \Carbon\Carbon::now()->toTimeString())
-      <a href="/orderDone/id={{$order->id}}">
-        <button class="btn btn-primary" type="button" >
-          Order Done
-            </button>
-      </a>
-      @elseif($order->isOrderAccepted == 1 && $order->user_id == Auth::user()->id && $order->payment_status == 4)
-      <a href="/review/id={{$order->model_id}}">
-        <button class="btn btn-primary" type="button" >
-          Add Review
-            </button>
-      </a>
-      @endif
-		</div>
+    </div>
     <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="{{ config('midtrans.client_key') }}"></script>
     <script>
         const payButton = document.querySelector('#pay-button');

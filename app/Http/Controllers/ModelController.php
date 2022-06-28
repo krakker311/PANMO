@@ -44,7 +44,8 @@ class ModelController extends Controller
             'hair_color' => 'required',
             'waist' => 'required',
             'bust' => 'required',
-            'hips' => 'required'
+            'hips' => 'required',
+            'description' => 'required'
         ]);
 
         $new_role_id = 2;
@@ -55,19 +56,26 @@ class ModelController extends Controller
 
     public function browse(){
         $title ='';
-        if(request('category')){
-            $category = Category::firstWhere('slug', request('category'));
-            $title = ' in ' . $category->name;
+        $models = ModelUser::latest();
+        $jobs = Job::orderBy('model_id');
+        $searchCategory = 0;
+        
+        
+        if(request('search')){
+            $models->where('name', 'like', '%' . request('search') . '%');
         }
 
-        if(request('author')){
-            $author = ModelUser::firstWhere('username', request('author'));
-            $title = ' by ' . $author->name;
+        if(request('category')){
+            $jobs->where('category_id', 'like', '%' . request('category') . '%');
+            $searchCategory = 1;
         }
+
         return view ('models', [
         "title" => "Our Models" . $title,
         "active" => 'posts',
-        "posts" => ModelUser::latest()->paginate(6)->withQueryString()
+        "posts" => $models->latest()->paginate(6)->withQueryString(),
+        "jobs" => $jobs->latest()->paginate(6)->withQueryString(),
+        "searchCategory" => $searchCategory
         ]);
     }
 
