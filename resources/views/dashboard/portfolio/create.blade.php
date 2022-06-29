@@ -29,7 +29,7 @@
                       </select>
                 </div>
                 <div class="mb-3">
-                    <label for="desc" class="form-label">Descripstion</label>
+                    <label for="desc" class="form-label">Description</label>
                     <input type="text" class="form-control @error('desc') is-invalid @enderror"  id="desc" name="desc" required autofocus value="{{ old('desc') }}">
                     @error('desc')
                     <div class="invalid-feedback">

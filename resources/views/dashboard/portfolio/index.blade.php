@@ -10,7 +10,7 @@
         {{ session('success') }}
       </div>
     @endif
-    <a href="/dashboard/jobs/create" class="btn btn-primary mb-3"><i class="bi bi-plus-circle" style="margin-right: 10px;"></i>New Portofolio</a>
+    <a href="/dashboard/portfolio/create" class="btn btn-primary mb-3"><i class="bi bi-plus-circle" style="margin-right: 10px;"></i>New Portofolio</a>
     
             @foreach ($portfolios as $portfolio)
             <div class="card" style="width: 50rem;">

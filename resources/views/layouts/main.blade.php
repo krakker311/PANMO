@@ -28,7 +28,9 @@
     <div class="container mt-4">
         @yield('container')
     </div>
+    
     <script src="{{ asset('js/app.js') }}"></script>
+    @yield('javascript')
     <script src="assets/timepicker.js"></script> 
   
   </body>
