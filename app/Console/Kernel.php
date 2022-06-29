@@ -14,7 +14,7 @@ class Kernel extends ConsoleKernel
      * @return void
      */
     protected $commands = [
-        MeetingReminder::class,
+        \App\Console\Commands\OrderReminder::class,
       ];
 
     protected function schedule(Schedule $schedule)
