@@ -80,8 +80,9 @@ class ModelController extends Controller
     }
 
     public function show($id){
+        $model = ModelUser::where('id',$id)->first();
         return view('model', [
-            "title" => 'Profile',
+            "title" => $model->name,
             "active" => 'posts',
             "model" => ModelUser::where('id',$id)->first(),
             'jobs' => Job::where('model_id', $id)->get(),
@@ -105,7 +106,7 @@ class ModelController extends Controller
     public function favorites()
     {
         return view('favlist', [
-            "title" => 'Profile',
+            "title" => 'Favorite',
             "active" => 'favorite',
             "posts" => Auth::user()->favorites
         ]);

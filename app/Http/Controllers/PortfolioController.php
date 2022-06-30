@@ -17,6 +17,7 @@ class PortfolioController extends Controller
     public function index()
     {
         return view('dashboard.portfolio.index', [
+            'title' =>'My Portfolio',
             'portfolios' => Portfolio::where('model_id', auth()->user()->id)->get()
         ]);
     }
@@ -29,6 +30,7 @@ class PortfolioController extends Controller
     public function create()
     {
         return view('dashboard.portfolio.create', [
+            'title' =>'My Portfolio',
             'categories' => Category::all()
         ]);
     }
@@ -68,6 +70,7 @@ class PortfolioController extends Controller
     public function show($id)
     {
         return view('dashboard.portfolio.detail', [
+            'title' =>'My Portfolio',
             'portfolio' => Portfolio::where('id',$id)->first(),
             'categories' => Category::all()
         ]);
@@ -82,6 +85,7 @@ class PortfolioController extends Controller
     public function edit(Portfolio $portfolio)
     {
         return view('dashboard.portfolio.edit', [
+            'title' =>'My Portfolio',
             'portfolio' => $portfolio,
             'categories' => Category::all()
         ]);

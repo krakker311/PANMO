@@ -18,6 +18,7 @@ class JobController extends Controller
     public function index()
     {
         return view('dashboard.jobs.index', [
+            'title' => 'My Jobs',
             'jobs' => Job::where('model_id', auth()->user()->id)->get()
         ]);
     }
@@ -29,6 +30,7 @@ class JobController extends Controller
     public function create()
     {
         return view('dashboard.jobs.create', [
+            'title' => 'My Jobs',
             'categories' => Category::all(),
             'provinces' => Province::all()
         ]);
@@ -64,6 +66,7 @@ class JobController extends Controller
     public function show($id)
     {
         return view('dashboard.jobs.detail', [
+            'title' => 'My Jobs',
             'job' => Job::where('id',$id)->first(),
             'categories' => Category::all(),
             'provinces' => Province::all()
@@ -79,6 +82,7 @@ class JobController extends Controller
     public function edit(job $job)
     {
         return view('dashboard.jobs.edit', [
+            'title' => 'My Jobs',
             'job' => $job,
             'categories' => Category::all(),
             'provinces' => Province::all()
@@ -118,7 +122,6 @@ class JobController extends Controller
      */
     public function destroy(Job $job)
     {
-    
         Job::destroy($job->id);
         return redirect('dashboard/jobs')->with('success', 'jobs has been deleted!');
     }

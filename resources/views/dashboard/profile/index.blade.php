@@ -96,9 +96,9 @@
 									</div>
 								</div>
 							</div>
+			
 						</div>
 						</div>
-						
 						<div class="mb-2"><b>About Me</div>
 
 							<div class="row">

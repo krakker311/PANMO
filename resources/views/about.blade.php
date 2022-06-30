@@ -5,23 +5,22 @@
         <h1><strong>ABOUT US</strong></h1>
     </div>
     <div class="text-center mb-5 mt-5" id="about">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <h4>Panmo is Indonesia’s No.1 beauty services marketplace for professionals models. Our models can manage their business, connect with new & existing clients, and showcase their services. Clients can discover model services, and book instantly anytime, anywhere.</h4>
     </div>
-    <div class="text-center mb-5 mt-5" id="team">
-        <h1><strong>TEAM</strong></h1>
+    <div class="text-center mb-5 mt-5">
+        <h1><strong>How to Book</strong></h1>
     </div>
-    <div class="text-center mb-5 mt-5" id="teampict">
-        <div class="row">
-            <div class="col-lg-4">
-                <svg class="bd-placeholder-img rounded-circle" width="200" height="200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Completely round image: 75x75" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Completely round image</title><rect width="100%" height="100%" fill="#868e96"/><text x="50%" y="50%" fill="#dee2e6" dy=".3em">200x200</text></svg>
-            </div>
-            <div class="col-lg-4">
-                <svg class="bd-placeholder-img rounded-circle" width="200" height="200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Completely round image: 75x75" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Completely round image</title><rect width="100%" height="100%" fill="#868e96"/><text x="50%" y="50%" fill="#dee2e6" dy=".3em">200x200</text></svg>
-            </div>
-            <div class="col-lg-4">
-                <svg class="bd-placeholder-img rounded-circle" width="200" height="200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Completely round image: 75x75" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Completely round image</title><rect width="100%" height="100%" fill="#868e96"/><text x="50%" y="50%" fill="#dee2e6" dy=".3em">200x200</text></svg>
-            </div>
-        </div>
+    <div class="mb-5 mt-5" id="about">
+        <h5>1. Pilih model yang anda inginkan pada halaman browse, Kemudian klik read more untuk melihat info harga, foto hasil, rating & review dari client lain.</h5>
+        <br>
+        <h5>2. Klik "Book Now" pada layanan yang kamu inginkan atau bisa klik "Ask for Availability" untuk menanyakan ketersediaan jadwal dari Beauty Artist yang bersangkutan.</h5>
+        <br>
+        <h5>3. Masukan detail pesanan anda dan selesaikan proses pemesanan.</h5>
+        <br>
+        <h5>4. Tunggu konfirmasi dari model.</h5>
+        <br>
+        <h5>5. Model akan segera menghubungi kamu dan siap untuk melayani.</h5>
     </div>
+    
 @endsection
 
