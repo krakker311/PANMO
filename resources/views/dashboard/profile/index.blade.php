@@ -87,7 +87,7 @@
 									</div>
 								</div>
 							</div>
-
+							@if(Auth::user()->role_id == 2)
 							<div class="row">
 								<div class="col mb-3">
 									<div class="form-group">
@@ -98,7 +98,7 @@
 							</div>
 						</div>
 						</div>
-						@if(Auth::user()->role_id == 2)
+						
 						<div class="mb-2"><b>About Me</div>
 
 							<div class="row">
@@ -127,7 +127,7 @@
 							<div class="row">
 								<div class="col">
 									<div class="form-group">
-									<label>Height</label>
+									<label>Height (cm)</label>
 									<input style = "width : 150px" class="form-control @error('height') is-invalid @enderror" type="text" name="height" value="{{ auth()->user()->model->height }}" readonly>
 									@error('height')
 									<div class="invalid-feedback">
@@ -138,7 +138,7 @@
 							</div>
 							<div class="col">
 								<div class="form-group">
-									<label>Weight</label>
+									<label>Weight (kg)</label>
 									<input style = "width : 150px" class="form-control @error('weight') is-invalid @enderror" type="text" name="weight" value="{{ auth()->user()->model->weight }}" readonly>
 									@error('weight')
 									<div class="invalid-feedback">
@@ -163,7 +163,7 @@
 							<div class="row">
 								<div class="col">
 									<div class="form-group">
-										<label>Waist</label>
+										<label>Waist (cm)</label>
 										<input style = "width : 150px" class="form-control @error('waist') is-invalid @enderror" type="text" name="waist" value="{{ auth()->user()->model->waist }}" readonly>
 										@error('waist')
 										<div class="invalid-feedback">
@@ -174,7 +174,7 @@
 								</div>
 								<div class="col">
 									<div class="form-group">
-										<label>Bust</label>
+										<label>Bust (cm)</label>
 										<input style = "width : 150px" class="form-control @error('bust') is-invalid @enderror" type="text" name="bust" value="{{ auth()->user()->model->bust }}" readonly>
 										@error('bust')
 										<div class="invalid-feedback">
@@ -185,7 +185,7 @@
 								</div>
 								<div class="col">
 									<div class="form-group">
-										<label>Hips</label>
+										<label>Hips (cm)</label>
 										<input style = "width : 150px" class="form-control @error('hip') is-invalid @enderror" type="text" name="hip" value="{{ auth()->user()->model->hips }}" readonly>
 										@error('hip')
 										<div class="invalid-feedback">

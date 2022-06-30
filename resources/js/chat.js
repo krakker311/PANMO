@@ -327,7 +327,6 @@ function fetchOldMessages(to_user, old_message_id, callback = null)
 function getMessageSenderTemplate(message)
 {
     const body = getMessageBody(message);
-
     return `
            <div class="row msg_container base_sent" data-message-id="${message.id}" id="message-line-${message.id}">
         <div class="col-md-9 col-xs-9">
@@ -337,7 +336,8 @@ function getMessageSenderTemplate(message)
             </div>
         </div>
         <div class="col-md-3 col-xs-3 avatar">
-            <img src="` + window.base_url +  '/images/user-avatar.png' + `" width="50" height="50" class="img-responsive">
+
+            <img src="/storage/profile/${message.from_user.image}" width="50" height="50" class="img-responsive">
         </div>
     </div>
     `;
@@ -354,11 +354,10 @@ function getMessageSenderTemplate(message)
 function getMessageReceiverTemplate(message)
 {
     const body = getMessageBody(message);
-
     return `
            <div class="row msg_container base_receive" data-message-id="${message.id}" id="message-line-${message.id}">
            <div class="col-md-3 col-xs-3 avatar">
-             <img src="` + window.base_url +  '/images/user-avatar.png' + `" width="50" height="50" class="img-responsive">
+             <img src="/storage/profile/${message.from_user.image}" width="50" height="50" class="img-responsive">
            </div>
         <div class="col-md-9 col-xs-9">
             <div class="messages msg_receive text-left">

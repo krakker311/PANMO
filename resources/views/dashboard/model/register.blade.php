@@ -111,7 +111,7 @@
 								<div class="row">
 									<div class="col">
 										<div class="form-group">
-										<label>Height</label>
+										<label>Height (cm)</label>
 										<input class="form-control @error('height') is-invalid @enderror" type="text" name="height" >
 										@error('height')
 										<div class="invalid-feedback">
@@ -124,7 +124,7 @@
 							<div class="row">
 								<div class="col">
 									<div class="form-group">
-										<label>Weight</label>
+										<label>Weight (kg)</label>
 										<input class="form-control @error('weight') is-invalid @enderror" type="text" name="weight" >
 										@error('weight')
 										<div class="invalid-feedback">
@@ -150,7 +150,7 @@
 							<div class="row">
 								<div class="col">
 									<div class="form-group">
-										<label>Waist</label>
+										<label>Waist (cm)</label>
 										<input class="form-control @error('waist') is-invalid @enderror" type="text" name="waist" >
 										@error('waist')
 										<div class="invalid-feedback">
@@ -163,7 +163,7 @@
 							<div class="row">
 								<div class="col">
 									<div class="form-group">
-										<label>Bust</label>
+										<label>Bust (cm)</label>
 										<input class="form-control @error('bust') is-invalid @enderror" type="text" name="bust">
 										@error('bust')
 										<div class="invalid-feedback">
@@ -176,7 +176,7 @@
 							<div class="row">
 								<div class="col">
 									<div class="form-group">
-										<label>Hips</label>
+										<label>Hips (cm)</label>
 										<input class="form-control @error('hips') is-invalid @enderror" type="text" name="hips" >
 										@error('hips')
 										<div class="invalid-feedback">
@@ -190,7 +190,7 @@
 
 						<div class="row">
 						<div class="col d-flex justify-content-end">
-							<button class="btn btn-primary" type="submit">Save Changes</button>
+							<button class="btn btn-primary" type="submit">Register</button>
 						</div>
 						</div>
 					</form>

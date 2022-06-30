@@ -144,11 +144,7 @@ class ChatsController extends Controller
 
         public function myMessages() {
             return view('dashboard.chats.index', [
-                // 'messages' =>  Message::where(function ($query)  {
-                //     $query->where('from_user', Auth::user()->id)
-                //           ->orWhere('to_user', Auth::user()->id);
-                // })->distinct()->get()
-                'messages' =>  Message::where('to_user', Auth::user()->id)->get()
+                'messages' =>  Message::where('to_user', Auth::user()->id)->get()->sortBy('from_user')
             ]);
         }
 }

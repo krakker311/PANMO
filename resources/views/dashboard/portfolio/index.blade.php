@@ -13,7 +13,7 @@
     <a href="/dashboard/portfolio/create" class="btn btn-primary mb-3"><i class="bi bi-plus-circle" style="margin-right: 10px;"></i>New Portofolio</a>
     
             @foreach ($portfolios as $portfolio)
-            <div class="card" style="width: 50rem;">
+            <div class="card" style="width: 50rem; margin-bottom: 10px;">
               <div class="card-body">
                 <h5 class="card-title">Title: {{ $portfolio->title }}</h5>
                 <h6 class="card-subtitle">Description : {{ $portfolio->desc }}</h6>

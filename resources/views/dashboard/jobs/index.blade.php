@@ -13,7 +13,7 @@
 
     <a href="/dashboard/jobs/create" class="btn btn-primary mb-3"><i class="bi bi-plus-circle" style="margin-right: 10px;"></i>Create new job</a>
             @foreach ($jobs as $job)
-            <div class="card" style="width: 50rem;">
+            <div class="card" style="width: 50rem; margin-bottom: 10px;">
               <div class="card-body">
                 <h5 class="card-title">Title: {{ $job->job_title }}</h5>
                 <h6 class="card-subtitle">Description : {{ $job->job_desc }}</h6>
