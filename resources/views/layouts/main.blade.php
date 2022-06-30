@@ -13,12 +13,19 @@
     <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet"  type='text/css'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-    <title>Verdy Blog | {{ $title }}</title>
+    <title>Panmo | {{ $title }}</title>
     {{-- My Style --}}
     <link rel="stylesheet" href="{{ asset('/css/style.css') }}">
     <link href="{{ asset('css/carousel.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/chat.css') }}" />
-
+    <style>
+      body {
+        background-image: url('../img/bg.png');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+      }
+      </style>
   </head>
   <body>
     

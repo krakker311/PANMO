@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use App\Console\Commands\OrderReminder;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -14,7 +15,7 @@ class Kernel extends ConsoleKernel
      * @return void
      */
     protected $commands = [
-        \App\Console\Commands\OrderReminder::class,
+        OrderReminder::class,
       ];
 
     protected function schedule(Schedule $schedule)

@@ -2,9 +2,8 @@
 
 @section('container')
 
-
 <section class="order-form my-4 mx-4">
-    <div class="container pt-4">
+    <div class="container pt-4" style="background-color: gainsboro" >
 
       <div class="row">
         <div class="col-12">
@@ -37,9 +36,9 @@
             <div class="col-12">
               <label class="order-form-label" for="date-picker-example">Date</label>
             </div>
-            <div class="col-12">
+            <div class="col-12" >
               <input class="order-form-input datepicker" placeholder="Selected date" type="date"
-                id="date" name="date" required autofocus value="{{ old('date') }}">
+                id="date" name="date" required autofocus value="{{ old('date') }}" style="background-color: white">
             </div>
           </div>
 
@@ -49,7 +48,7 @@
             </div>
             <div class="col-12">
               <input class="order-form-input datepicker" placeholder="Selected date" type="time"
-              id="time" name="time" required autofocus value="{{ old('time') }}">
+              id="time" name="time" required autofocus value="{{ old('time') }}" style="background-color: white">
                 <div class="input-group-addon" >
                   <span class="glyphicon glyphicon-time"></span>
            </div>
