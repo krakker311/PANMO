@@ -12,38 +12,34 @@
       </div>
     @endif
 
-    <div class="table-responsive col-lg-8">
-        <table class="table table-striped table-sm">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">User</th>
-              <th scope="col">Action</th>
-            </tr>
-          </thead>
-          <tbody>
           @php
           $i = 1
           @endphp
             @foreach ($messages as $message)
-                <tr>
-                    @if($i != $message->fromUser->id) 
-                    @php
-                    $i = $message->fromUser->id
-                    @endphp
-                    <td>{{ $loop->iteration }}</td>
-                    <td>{{ $message->fromUser->name }}</td>
-                    <td>
-                        <a href="javascript:void(0);" data-id="{{ $message->fromUser->id }}" data-user="{{ $message->fromUser->name }}" class="btn-chat1"><span data-feather="message-circle"></span></a>
-                    </td>
-                    @elseif($i == $message->fromUser->id)
-                    @endif
-                </tr>
+              @if($i != $message->fromUser->id) 
+              @php
+              $i = $message->fromUser->id
+              @endphp
+              <div class="card mb-3" style="width: 30rem;">
+                <div class="row no-gutters">
+                  <div class="col-md-3" style="margin-left: 20px">
+                        @if($message->fromUser->image)
+                        <img src="{{ asset('storage/profile/' . $message->fromUser->image) }}" alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2" style="width: 150px; z-index: 1;margin-bottom: 10px;">
+                        @else
+                        <img src="{{ asset('storage/profile/default.jpg') }}" alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2" style="width: 150px; z-index: 1;margin-bottom: 10px;">
+                        @endif
+                  </div>
+                  <div class="col-md-8 ">
+                    <div class="card-body" style="margin-top: 30px;">
+                      <h5 class="card-title">{{ $message->fromUser->name }}</h5>
+                      <a href="javascript:void(0);" data-id="{{ $message->fromUser->id }}" data-user="{{ $message->fromUser->name }}" class="btn-chat1" style="text-decoration:none;width: 200px;">Reply Messages</span></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              @elseif($i == $message->fromUser->id)
+              @endif
             @endforeach
-           
-          </tbody>
-        </table>
-      </div>
     @if(Auth::user())
     <input type="hidden" id="current_user" value="{{ \Auth::user()->id }}" />
     @endif
