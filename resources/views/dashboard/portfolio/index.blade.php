@@ -21,7 +21,7 @@
                 <form action="/dashboard/portfolio/{{ $portfolio->id }}" method="post" class="d-inline">
                 @method('delete')
                 @csrf
-                <a class="btn btn-primary" onclick="return confirm('Are you sure?')" style="float: right; margin-left: 10px;">Delete</a>
+                <button  class="btn btn-primary" onclick="return confirm('Are you sure?')" style="float: right; margin-left: 10px;">Delete</button>
                 </form>
                 <a type="button" class="btn btn-primary" href="/dashboard/portfolio/{{ $portfolio->id }}/edit" style="float: right; margin-left: 10px;">Update</a>
               </div>

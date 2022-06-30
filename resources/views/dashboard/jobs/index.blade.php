@@ -22,7 +22,7 @@
                 <form action="/dashboard/jobs/{{ $job->id }}" method="post" class="d-inline">
                 @method('delete')
                 @csrf
-                <a class="btn btn-primary" onclick="return confirm('Are you sure?')" style="float: right; margin-left: 10px;">Delete</a>
+                <button class="btn btn-primary" onclick="return confirm('Are you sure?')" style="float: right; margin-left: 10px;">Delete</button>
                 </form>
                 <a type="button" class="btn btn-primary" href="/dashboard/jobs/{{ $job->id }}/edit" style="float: right; margin-left: 10px;">Update</a>
               </div>
