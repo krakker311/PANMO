@@ -60,27 +60,14 @@
 </div>
 <!-- Three columns of text below the carousel -->
 <div class="row">
+@foreach($modelMonths as $model)
   <div class="col-lg-4">
-    <svg class="bd-placeholder-img " width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+  <img src="{{ asset('storage/' . $model->image) }}" alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2" style="width: 250px; z-index: 1; height:250px;">
 
-    <h2>Heading</h2>
-    <p>bio model</p>
-    <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+    <h2>{{ $model->name }} </h2>
   </div>
-  <div class="col-lg-4">
-    <svg class="bd-placeholder-img" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+  @endforeach
 
-    <h2>Heading</h2>
-    <p>Bio model</p>
-    <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
-  </div>
-  <div class="col-lg-4">
-    <svg class="bd-placeholder-img" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
-
-    <h2>Heading</h2>
-    <p>Bio Model</p>
-    <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
-  </div>
 </div>
 
 <div class="service text-center">

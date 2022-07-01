@@ -8,7 +8,7 @@
                 @elseif($message->image)
                     <div style="width: 100%;"> 
                         @if($message->fromUser->image)
-                        <img src="{{ asset('storage/profile/' . $message->fromUser->image) }}" alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2" style="width: 150px; z-index: 1;margin-bottom: 10px;">
+                        <img src="{{ asset('storage/' . $message->fromUser->image) }}" alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2" style="width: 150px; z-index: 1;margin-bottom: 10px;">
                         @else
                         <img src="{{ asset('storage/profile/default.jpg') }}" alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2" style="width: 150px; z-index: 1;margin-bottom: 10px;">
                         @endif</div>
@@ -17,7 +17,7 @@
             </div>
         </div>
         <div class="col-md-3 col-xs-3 avatar">
-            <img src="{{ asset('storage/profile/' . $message->fromUser->image) }}" width="50" height="50" class="img-responsive">
+            <img src="{{ asset('storage/' . $message->fromUser->image) }}" width="50" height="50" class="img-responsive">
         </div>
     </div>
 
@@ -25,7 +25,7 @@
 
     <div class="row msg_container base_receive" data-message-id="{{ $message->id }}" id="message-line-{{$message->id}}">
         <div class="col-md-3 col-xs-3 avatar">
-            <img src="{{ asset('storage/profile/' . $message->fromUser->image) }}" width="50" height="50" class=" img-responsive ">
+            <img src="{{ asset('storage/' . $message->fromUser->image) }}" width="50" height="50" class=" img-responsive ">
         </div>
         <div class="col-md-9 col-xs-9">
             <div class="messages msg_receive text-left">
@@ -34,7 +34,7 @@
                 @elseif($message->image)
                     <div style="width: 100%;">
                         @if($message->fromUser->image)
-                        <img src="{{ asset('storage/profile/' . $message->toUser->image) }}" alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2" style="width: 150px; z-index: 1;margin-bottom: 10px;">
+                        <img src="{{ asset('storage/' . $message->toUser->image) }}" alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2" style="width: 150px; z-index: 1;margin-bottom: 10px;">
                         @else
                         <img src="{{ asset('storage/profile/default.jpg') }}" alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2" style="width: 150px; z-index: 1;margin-bottom: 10px;">
                         @endif

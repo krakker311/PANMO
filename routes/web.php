@@ -4,6 +4,7 @@ use App\Http\Controllers\BookingOrderController;
 use App\Http\Controllers\ChatsController;
 use App\Models\Category;
 use App\Models\Favorite;
+use App\Models\ModelUser;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\LoginController;
@@ -43,7 +44,8 @@ Route::get('/', function () {
     return view ('home', [
         "title" => "Home",
         'active' => 'home',
-        'categories' => Category::all()
+        'categories' => Category::all(),
+        'modelMonths' => ModelUser::orderBy('jobs_done','DESC')->take(3)->get()
     ]);
 });
 

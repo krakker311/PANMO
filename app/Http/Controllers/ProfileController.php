@@ -54,21 +54,21 @@ class ProfileController extends Controller
                 Storage::delete($request->oldImage);
             }
 
-            $validatedData['image'] = $request->file('image')->store('post-images');
+            $validatedData['image'] = $request->file('image')->store('profile');
+            
         }
-
-
         $validatedDataUser = $request->validate([
             'name' => 'required|max:255',
             'username' => 'required|min:3|max:255', Rule::unique('users')->ignore($request->user_id),
             'email' => 'required|email:dns', Rule::unique('users')->ignore($request->user_id)
         ]);
-
+        $validatedDataUser['image'] = $request->file('image')->store('profile');
         ModelUser::where('id', $request->user_id)->update($validatedData);
         User::where('id', $request->user_id)->update($validatedDataUser);
 
         return redirect('/dashboard')->with('message', 'Profile Successfully Updated!');
     }
+
 
     public function updateProfileUser(Request $request, User $user)
     {   
