@@ -144,6 +144,7 @@ class ChatsController extends Controller
 
         public function myMessages() {
             return view('dashboard.chats.index', [
+                'title' => 'My Message',
                 'messages' =>  Message::where('to_user', Auth::user()->id)->get()->sortBy('from_user')
             ]);
         }

@@ -17,6 +17,7 @@ class OrderController extends Controller
         $model = ModelUser::where('user_id',auth()->user()->id)->first();
 
         return view('dashboard.orders.index',[
+            'title' => 'My Order',
             'pending_orders' => Order::where('model_id',$model->id)
                                 ->where('isOrderAccepted','0')->get(),
             'accepted_orders' => Order::where('model_id',$model->id)
@@ -29,6 +30,7 @@ class OrderController extends Controller
 
     public function indexUser() {
         return view('dashboard.orders.index',[
+            'title' => 'My Order',
             'pending_orders' => Order::where('user_id',auth()->user()->id)
                                 ->where('isOrderAccepted','0')->get(),
             'accepted_orders' => Order::where('user_id',auth()->user()->id)
@@ -45,6 +47,7 @@ class OrderController extends Controller
         $snapToken = $order->snap_token;
          
         return view('dashboard.orders.detail',[
+            'title' => 'My Order',
             'order' => Order::where('id',$id)->first(), 
             'snapToken' => $snapToken
         ]);

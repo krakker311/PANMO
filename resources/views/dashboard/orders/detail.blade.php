@@ -13,11 +13,11 @@
     <div class="card" style="width: 50rem;">
       <div class="card-body">
         <h5 class="card-title">Model name: {{ $order->name }}</h5>
-        <h6 class="card-subtitle" style="margin-bottom:10px;">Orderer Name : {{ $order->job->job_title}}</h6>
-        <h6 class="card-subtitle"style="margin-bottom:10px;">Orderer Phone : {{ $order->job->job_title}}</h6>
-        <h6 class="card-subtitle"style="margin-bottom:10px;">Orderer address : {{ $order->job->job_title}}</h6>
-        <h6 class="card-subtitle"style="margin-bottom:15px;margin-right:30px;display:inline;">Order Date : {{ $order->job->job_title}}</h6>
-        <h6 class="card-subtitle"style="margin-bottom:15px;display:inline;">Order Time : {{ $order->job->job_title}}</h6>
+        <h6 class="card-subtitle" style="margin-bottom:10px;">Orderer Name : {{ $order->name}}</h6>
+        <h6 class="card-subtitle"style="margin-bottom:10px;">Orderer Phone : {{ $order->phone}}</h6>
+        <h6 class="card-subtitle"style="margin-bottom:10px;">Orderer address : {{ $order->address}}</h6>
+        <h6 class="card-subtitle"style="margin-bottom:15px;margin-right:30px;display:inline;">Order Date : {{ $order->date}}</h6>
+        <h6 class="card-subtitle"style="margin-bottom:15px;display:inline;">Order Time : {{ $order->time}}</h6>
         <h6 class="card-subtitle"style="margin-bottom:10px;margin-top:5px;">Order Job: {{ $order->job->job_title}}</h6>
         <h6 class="card-subtitle"style="margin-bottom:10px;">Order Status : 
         @if($order->isOrderAccepted == 1)

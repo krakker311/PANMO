@@ -50,10 +50,7 @@ Route::get('/', function () {
 Route::get('/about', function () {
     return view ('About', [
         "title" => "About",
-        "name" => "Verdy",
         'active' => 'about',
-        "email" => "verdyvjvl@gmail.com",
-        "image" => "diluc.jpg"
     ]);
 });
 

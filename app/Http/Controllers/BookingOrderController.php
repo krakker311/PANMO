@@ -88,7 +88,7 @@ class BookingOrderController extends Controller
   
         Notification::send($user, new EmailNotification($order));
 
-        return redirect('/')->with('success', 'Your Order Created');
+        return redirect('/dashboard/ordersUser')->with('success', 'Your Order Created');
     }
 
     /**

@@ -9,35 +9,31 @@
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
+        <img src="img/4.png" alt="">
 
         <div class="container">
           <div class="carousel-caption text-start">
-            <h1>Example headline.</h1>
-            <p>Some representative placeholder content for the first slide of the carousel.</p>
-            <p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>
+            <h1>Discover Our Models</h1>
+            <p>More than 1000 Beauty Services accross Indonesia</p>
+            <p><a class="btn btn-lg btn-dark" href="/posts">Browse Our Model</a></p>
           </div>
         </div>
       </div>
       <div class="carousel-item">
-        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
-
+        <img src="img/model2.png">
         <div class="container">
-          <div class="carousel-caption">
-            <h1>Another example headline.</h1>
-            <p>Some representative placeholder content for the second slide of the carousel.</p>
-            <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
+          <div class="carousel-caption text-start">
+            <h1>How to Book</h1>
+            <p><a class="btn btn-lg btn-dark " href="/about">Learn more</a></p>
           </div>
         </div>
       </div>
       <div class="carousel-item">
         <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
-
         <div class="container">
           <div class="carousel-caption text-end">
-            <h1>One more for good measure.</h1>
-            <p>Some representative placeholder content for the third slide of this carousel.</p>
-            <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
+            <h1>Join Us</h1>
+            <p><a class="btn btn-lg btn-dark" href="/register">Sign up Today</a></p>
           </div>
         </div>
       </div>
@@ -95,18 +91,36 @@
 <!-- Three columns of text below the carousel -->
 <div class="container">
   <div class="row">
-      @foreach ($categories as $category)
           <div class="col-md-4 mb-5">
-              <a href="/posts?category={{ $category->id }}">
+              <a href="/posts?category=1">
               <div class="card bg-dark text-white">
-                  <img src="https://source.unsplash.com/500x500?{{ $category->name }}" class="card-img" alt="{{ $category->name }}">
+                  <img src="img/model-makeup.jpg" class="card-img" >
                   <div class="card-img-overlay d-flex align-items-center p-0">
-                  <h5 class="card-title text-center flex-fill p-4 fs-3" style="background-color: rgba(0, 0, 0, 0.7)">{{ $category->name }}</h5>
+                  <h5 class="card-title text-center flex-fill p-4 fs-3" style="background-color: rgba(0, 0, 0, 0.7)">Make-up Model</h5>
                   </div>
               </div>
               </a> 
           </div>
-      @endforeach
+          <div class="col-md-4 mb-5">
+            <a href="/posts?category=2">
+            <div class="card bg-dark text-white">
+                <img src="img/commercial.jpg" class="card-img" >
+                <div class="card-img-overlay d-flex align-items-center p-0">
+                <h5 class="card-title text-center flex-fill p-4 fs-3" style="background-color: rgba(0, 0, 0, 0.7)">Commercial Model</h5>
+                </div>
+            </div>
+            </a> 
+        </div>
+        <div class="col-md-4 mb-5">
+          <a href="/posts?category=3">
+          <div class="card bg-dark text-white">
+              <img src="img/mature.jpg" class="card-img" >
+              <div class="card-img-overlay d-flex align-items-center p-0">
+              <h5 class="card-title text-center flex-fill p-4 fs-3" style="background-color: rgba(0, 0, 0, 0.7)">Mature Model</h5>
+              </div>
+          </div>
+          </a> 
+      </div>
   </div>
 </div>
     <!-- START THE FEATURETTES -->
