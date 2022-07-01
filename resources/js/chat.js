@@ -337,7 +337,7 @@ function getMessageSenderTemplate(message)
         </div>
         <div class="col-md-3 col-xs-3 avatar">
 
-            <img src="/storage/profile/${message.from_user.image}" width="50" height="50" class="img-responsive">
+            <img src="/storage/${message.from_user.image}" width="50" height="50" class="img-responsive">
         </div>
     </div>
     `;
@@ -357,7 +357,7 @@ function getMessageReceiverTemplate(message)
     return `
            <div class="row msg_container base_receive" data-message-id="${message.id}" id="message-line-${message.id}">
            <div class="col-md-3 col-xs-3 avatar">
-             <img src="/storage/profile/${message.from_user.image}" width="50" height="50" class="img-responsive">
+             <img src="/storage/${message.from_user.image}" width="50" height="50" class="img-responsive">
            </div>
         <div class="col-md-9 col-xs-9">
             <div class="messages msg_receive text-left">

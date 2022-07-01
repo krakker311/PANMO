@@ -137,7 +137,7 @@
 }
 
 .btn-chat1 {
-  background-color: #1a75ff; 
+  background-color:  	#262626 ; 
   border-radius: 4px;
   height: 40px;
   color: white;
@@ -145,6 +145,7 @@
   align-items: center;
   justify-content: center;
 }
+
 
 .center {
   text-align: center;

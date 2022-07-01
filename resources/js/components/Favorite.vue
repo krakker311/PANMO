@@ -1,12 +1,13 @@
 <template>
     <span>
-        <a href="#" v-if="isFavorited" @click.prevent="unFavorite(model)">
+        <a href="#" v-if="isFavorited" @click.prevent="unFavorite(model)" class="btn btn-dark mb-3" style="width: 150px;">
             
-            <i class="bi bi-heart-fill" style="font-size: 1.5em;"></i>
+            <i class="bi bi-heart-fill" style="font-size: 16px;"> Unfavorite</i>
         </a>
-        <a href="#" v-else @click.prevent="favorite(model)">
-           <i class="bi bi-heart" style="font-size: 1.5em;"></i>
+        <a href="#" v-else @click.prevent="favorite(model)" class="btn btn-dark mb-3" style="width: 150px; ">
+           <i class="bi bi-heart" style="font-size: 16px;"> Favorite</i>
         </a>
+
     </span>
 </template>
 
