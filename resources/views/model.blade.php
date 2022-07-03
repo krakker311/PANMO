@@ -23,6 +23,7 @@
                 <p>Member since : {{isset(Auth::user()->created_at) ? Auth::user()->created_at->format('m/d/Y') : Auth::user()->email}}</p>
               </div>
             </div>
+            @if($myModel->id != $model->id)             
             <div class="card-body p-4 text-black">
               <div class="col">
                   <div class="btn-toolbar" style="margin-left:375px">
@@ -37,6 +38,7 @@
                     <favorite :model={{ $model->id }} :favorited={{ $model->favorited() ? 'true' : 'false' }}></favorite>
                     </div>
               </div>
+              @endif
               <div class="mb-5">
                 <p class="lead fw-normal mb-1 mt-4">About Me</p>
 								<textarea class="form-control" rows="5" placeholder="My Bio" readonly>{{ $model->description }}</textarea >

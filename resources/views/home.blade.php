@@ -60,7 +60,7 @@
 </div>
 <!-- Three columns of text below the carousel -->
 <div class="row">
-@foreach($modelMonths as $model)
+  @foreach($modelMonths as $model)
   <div class="col-lg-4">
   <img src="{{ asset('storage/' . $model->image) }}" alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2" style="width: 250px; z-index: 1; height:250px;">
 
