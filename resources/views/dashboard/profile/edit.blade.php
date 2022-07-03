@@ -20,9 +20,9 @@
 					<div class="mx-auto" style="width: 140px;">
 						<div class="d-flex justify-content-center align-items-center rounded" style="height: 140px; background-color: rgb(233, 236, 239);">
 							@if(Auth::user()->image)
-								<img src="{{asset('/storage/post-images/'. Auth::user()->image)}}" alt="img-fluid" width="140px">
+								<img src="{{asset('/storage/'. Auth::user()->image)}}" alt="img-fluid" width="140px" height="140px">
 							@else
-								<img src="{{asset('/storage/profile/default.jpg')}}" alt="img-fluid" width="140px" >
+								<img src="{{asset('/storage/profile/default.jpg')}}" alt="img-fluid" width="140px" height="140px">
 							@endif
 						</div>
 					</div>
@@ -145,7 +145,7 @@
 							</div>
 							
 							<div class="row">
-								<div class="col">
+								<div class="col-lg-2 col-md-10 col-sm-10 col-xs-10">
 									<div class="form-group">
 									<label>Height (cm)</label>
 									<input style = "width : 150px" class="form-control @error('height') is-invalid @enderror" type="text" name="height" value="{{ auth()->user()->model->height }}">
@@ -156,7 +156,7 @@
 									@enderror
 								</div>
 							</div>
-							<div class="col">
+							<div class="col-lg-2 col-md-10 col-sm-10 col-xs-10">
 								<div class="form-group">
 									<label>Weight (kg)</label>
 									<input style = "width : 150px" class="form-control @error('weight') is-invalid @enderror" type="text" name="weight" value="{{ auth()->user()->model->weight }}">
@@ -167,7 +167,7 @@
 									@enderror
 								</div>
 							</div>
-							<div class="col">
+							<div class="col-lg-2 col-md-10 col-sm-10 col-xs-10">
 								<div class="form-group">
 									<label>Hair Color</label>
 									<input style = "width : 150px" class="form-control @error('hair_color') is-invalid @enderror" type="text" name="hair_color" value="{{ auth()->user()->model->hair_color }}">
@@ -181,7 +181,7 @@
 						</div>
 
 						<div class="row">
-							<div class="col">
+							<div class="col-lg-2 col-md-10 col-sm-10 col-xs-10">
 								<div class="form-group">
 									<label>Waist (cm)</label>
 									<input style = "width : 150px" class="form-control @error('waist') is-invalid @enderror" type="text" name="waist" value="{{ auth()->user()->model->waist }}">
@@ -192,7 +192,7 @@
 									@enderror
 								</div>
 							</div>
-							<div class="col">
+							<div class="col-lg-2 col-md-10 col-sm-10 col-xs-10">
 								<div class="form-group">
 									<label>Bust (cm)</label>
 									<input style = "width : 150px" class="form-control @error('bust') is-invalid @enderror" type="text" name="bust" value="{{ auth()->user()->model->bust }}">
@@ -203,7 +203,7 @@
 									@enderror
 								</div>
 							</div>
-							<div class="col">
+							<div class="col-lg-2 col-md-10 col-sm-10 col-xs-10">
 								<div class="form-group">
 									<label>Hips (cm)</label>
 									<input style = "width : 150px" class="form-control @error('hips') is-invalid @enderror" type="text" name="hips" value="{{ auth()->user()->model->hips }}">

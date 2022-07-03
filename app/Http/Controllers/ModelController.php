@@ -78,7 +78,7 @@ class ModelController extends Controller
         return view ('models', [
         "title" => "Our Models" . $title,
         "active" => 'posts',
-        "posts" => $models->latest()->paginate(6)->withQueryString(),
+        "models" => $models->latest()->paginate(6)->withQueryString(),
         "jobs" => $jobs->latest()->paginate(6)->withQueryString(),
         "myModel" => $myModel,
         "searchCategory" => $searchCategory

@@ -20,9 +20,9 @@
 					<div class="mx-auto" style="width: 140px;">
 						<div class="d-flex justify-content-center align-items-center rounded" style="height: 140px; background-color: rgb(233, 236, 239);">
 							@if(Auth::user()->image)
-								<img src="{{asset('/storage/'. Auth::user()->image)}}" alt="img-fluid" width="140px">
+								<img src="{{asset('/storage/'. Auth::user()->image)}}" alt="img-fluid" width="140px" height="140px">
 							@else
-								<img src="{{asset('/storage/profile/default.jpg')}}" alt="img-fluid" width="140px" >
+								<img src="{{asset('/storage/profile/default.jpg')}}" alt="img-fluid" width="140px" height="140px">
 							@endif
 						</div>
 					</div>

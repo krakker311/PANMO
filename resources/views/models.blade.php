@@ -26,26 +26,26 @@
     @if($searchCategory == '0')
     <div class="containner">
         <div class="row">
-            @foreach($posts as $post)
+            @foreach($models as $model)
             <div class="col-md-4 mb-3">
                 <div class="card">
                     <div class="card-body text-center">
-                        <h5 class="card-title">{{ $post->name }}</h5>
+                        <h5 class="card-title">{{ $model->name }}</h5>
                         <div style="max-height: 400px; overflow:hidden;">
-                            @if($post->image)
-                                <img src="{{ asset('storage/' . $post->image) }}" class="img-fluid">
+                            @if($model->image)
+                                <img src="{{ asset('storage/' . $model->image) }}" class="img-fluid" style="width: 300px; height: 300px;">
                             @else
-                                <img src="{{ asset('storage/profile/default.jpg') }}" class="img-fluid">
+                                <img src="{{ asset('storage/profile/default.jpg') }}" class="img-fluid" style="width: 300px; height: 300px;">
                             @endif
                         </div>
                         <!-- <form id="form" action="/profile" method="POST">
                         @csrf
-                        <input type="hidden" name="id" value="{{ $post->id }}">
+                        <input type="hidden" name="id" value="{{ $model->id }}">
                         <button type="submit" id="btnSubmit" class="btn btn-dark">Read More</button>  
                         </form> -->
-                        <h6> <span class="bi-geo-alt-fill"></span> {{ $post->province->name }} - {{ $post->city->name  }}</h6>
-                        <h6> <span class="bi-briefcase"></span>&nbsp;Jobs done: {{ $post->jobs_done }} </h6>
-                        <a href="/profile/{{ $post->id }}" class="btn btn-dark">Profile</a>
+                        <h6> <span class="bi-geo-alt-fill"></span> {{ $model->province->name }} - {{ $model->city->name  }}</h6>
+                        <h6> <span class="bi-briefcase"></span>&nbsp;Jobs done: {{ $model->jobs_done }} </h6>
+                        <a href="/profile/{{ $model->id }}" class="btn btn-dark">Profile</a>
                     </div>
                   </div>
             </div>
@@ -53,7 +53,7 @@
         </div>
     </div>
     <div class="d-flex justify-content-end">
-        {{ $posts->links() }}
+        {{ $models->links() }}
     </div>
 
     @else

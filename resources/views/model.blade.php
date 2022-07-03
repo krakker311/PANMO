@@ -8,15 +8,15 @@
       <div class="row d-flex justify-content-center align-items-center h-100" >
         <div class="col col-xl-12 col-xl-7">
           <div class="card" style="background-color: whitesmoke">
-            <div class="rounded-top text-white d-flex flex-row" style="background-color: black; height:250px;">
-              <div class="ms-4 mt-5 d-flex flex-column" style="width: 150px; height:250px">
+            <div class="rounded-top text-white d-flex flex-row" style="background-color: black; height:200px;">
+              <div class="ms-4 mt-1 d-flex flex-column" style="width: 150px; height:200px">
                 @if($model->image)
-                  <img src="{{ asset('storage/' . $model->image) }}" alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2" style="width: 150px; z-index: 1;">
+                  <img src="{{ asset('storage/' . $model->image) }}" alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2" style="width: 150px; z-index: 1; height: 150px;">
                 @else
-                  <img src="{{ asset('storage/profile/default.jpg') }}" alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2" style="width: 150px; z-index: 1;">
+                  <img src="{{ asset('storage/profile/default.jpg') }}" alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2" style="width: 150px; z-index: 1; height: 150px;">
                 @endif
               </div>
-              <div class="ms-3" style="margin-top: 90px;">
+              <div class="ms-3" style="margin-top: 30px;">
                 <h4 style="margin-bottom: 15px; font-weight: bold">{{ $model->name }}</h4>
                 <h6><span class="bi-geo-alt-fill"></span> {{ $model->province->name }} - {{ $model->city->name }}</h6> 
                 <h6> <span class="bi-briefcase"></span> Jobs Done : {{ $model->jobs_done }} </h6>
