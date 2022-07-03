@@ -109,7 +109,7 @@
               <div class="review-box">
                 @foreach ($portfolios as $portfolio)
                     <!-- <img src="" alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2" style="width: 150px; z-index: 1"> -->
-                    <img class="myImg" id="myImg"src="{{ asset('storage/' . $portfolio->image) }}" alt="{{$portfolio->title}} <br>{{$portfolio->desc}}" width="350" height="200" style="margin-right: 10px; margin-bottom: 10px">
+                    <img class="myImg" id="myImg" src="{{ asset('storage/' . $portfolio->image) }}" alt="{{$portfolio->title}} <br>{{$portfolio->desc}}" width="350" height="200" style="margin-right: 10px; margin-bottom: 10px">
                       <!-- The Modal -->
                       <div class="myModal" id="modal">
                         <span class="close">&times;</span>
@@ -124,7 +124,8 @@
               <div class="d-flex justify-content-between align-items-center mb-4">
                 <p class="lead fw-normal mb-0">Review</p>
               </div>
-                  @foreach ($reviews as $review)
+              <div class="row" style="margin-left:5px;">
+                  @foreach ($reviews as $review)  
                   <div class="card text-start" style="width: 400px;">
                     <div class="card-body">
                       <h5 class="card-title">{{$review->user->name}}</h5>
@@ -140,7 +141,9 @@
                       <p class="card-text">{{$review->comment}}</p> 
                     </div>
                   </div>
+                  
                   @endforeach
+                  </div>
                   <div class="d-flex justify-content-center">
                     {{ $reviews->links() }}
                 </div>

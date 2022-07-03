@@ -13,7 +13,7 @@
                         <button type="button" class="btn btn-default btn-sm upload-btn">
                             <i class="bi bi-file-image"></i>
                         </button>
-                        <textarea class="form-control input-sm chat_input" placeholder="Write your message here..."style="height: 50px;" ></textarea>
+                        <textarea class="form-control input-sm chat_input" placeholder="Write your message here..." style="height: 50px;" ></textarea>
                         <button class="btn btn-primary btn-sm btn-chat" type="button" data-to-user="" disabled style="height: 50px">
                             <i class="bi bi-send"></i>
                             Send</button>
