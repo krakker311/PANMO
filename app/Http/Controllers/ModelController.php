@@ -59,8 +59,13 @@ class ModelController extends Controller
         $models = ModelUser::latest();
         $jobs = Job::orderBy('model_id');
         $searchCategory = 0;
-        
-        
+        $myModel = ModelUser::all();
+        if (Auth::user()) {
+            $myModel = $myModel->where('user_id',Auth::user()->id)->first();
+            $models = $models->where('name', '!=', $myModel->name);
+            $jobs = $jobs->where('model_id', '!=', $myModel->id);
+        }
+
         if(request('search')){
             $models->where('name', 'like', '%' . request('search') . '%');
         }
@@ -75,19 +80,25 @@ class ModelController extends Controller
         "active" => 'posts',
         "posts" => $models->latest()->paginate(6)->withQueryString(),
         "jobs" => $jobs->latest()->paginate(6)->withQueryString(),
+        "myModel" => $myModel,
         "searchCategory" => $searchCategory
         ]);
     }
 
     public function show($id){
         $model = ModelUser::where('id',$id)->first();
+        $myModel = $myModel = ModelUser::all(); 
+        if (Auth::user()) {
+            $myModel = $myModel->where('user_id',Auth::user()->id)->first();
+        }
         return view('model', [
             "title" => $model->name,
             "active" => 'posts',
             "model" => ModelUser::where('id',$id)->first(),
             'jobs' => Job::where('model_id', $id)->get(),
             'portfolios' => Portfolio::where('model_id', $id)->paginate(6)->withQueryString(),
-            'reviews' => Review::where('model_id',$id)->paginate(3)->withQueryString()
+            'reviews' => Review::where('model_id',$id)->paginate(3)->withQueryString(),
+            'myModel' => $myModel
         ]);
     }
     
