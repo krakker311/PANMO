@@ -50,7 +50,7 @@
                     @enderror
                 </div>
 
-                <button type="submit" class="btn btn-primary">Create New Portfolio</button>
+                <button type="submit" class="btn btn-dark">Create New Portfolio</button>
                 
               </form>
     </div>

@@ -32,7 +32,7 @@
 						<h4 class="pt-sm-2 pb-1 mb-0 text-nowrap">{{ auth()->user()->name }}</h4>
 						<p class="mb-0">{{ auth()->user()->username }}</p>
 						<div class="mt-2">
-							<button class="btn btn-primary" type="button" >
+							<button class="btn btn-dark" type="button" >
 								Change Profile Picture
 							</button>
 						</div>
@@ -190,7 +190,7 @@
 
 						<div class="row">
 						<div class="col d-flex justify-content-end">
-							<button class="btn btn-primary" type="submit">Register</button>
+							<button class="btn btn-dark" type="submit">Register</button>
 						</div>
 						</div>
 					</form>

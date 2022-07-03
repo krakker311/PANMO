@@ -10,20 +10,20 @@
         {{ session('success') }}
       </div>
     @endif
-    <a href="/dashboard/portfolio/create" class="btn btn-primary mb-3"><i class="bi bi-plus-circle" style="margin-right: 10px;"></i>New Portofolio</a>
+    <a href="/dashboard/portfolio/create" class="btn btn-dark mb-3"><i class="bi bi-plus-circle" style="margin-right: 10px;"></i>New Portofolio</a>
     
             @foreach ($portfolios as $portfolio)
-            <div class="card" style="width: 50rem; margin-bottom: 10px;">
+            <div class="card" style="width: 40rem; margin-bottom: 10px;">
               <div class="card-body">
-                <h5 class="card-title">Title: {{ $portfolio->title }}</h5>
+                <h5 class="card-title">{{ $portfolio->title }}</h5> <hr>
                 <h6 class="card-subtitle">Description : {{ $portfolio->desc }}</h6>
-                <a type="button" class="btn btn-primary" href="/dashboard/portfolio/{{ $portfolio->id }}" style="float: right; margin-left: 10px;">Details</a>  
+                <a type="button" class="btn btn-dark" href="/dashboard/portfolio/{{ $portfolio->id }}" style="float: right; margin-left: 10px;">Details</a>  
                 <form action="/dashboard/portfolio/{{ $portfolio->id }}" method="post" class="d-inline">
                 @method('delete')
                 @csrf
-                <button  class="btn btn-primary" onclick="return confirm('Are you sure?')" style="float: right; margin-left: 10px;">Delete</button>
+                <button  class="btn btn-dark" onclick="return confirm('Are you sure?')" style="float: right; margin-left: 10px;">Delete</button>
                 </form>
-                <a type="button" class="btn btn-primary" href="/dashboard/portfolio/{{ $portfolio->id }}/edit" style="float: right; margin-left: 10px;">Update</a>
+                <a type="button" class="btn btn-dark" href="/dashboard/portfolio/{{ $portfolio->id }}/edit" style="float: right; margin-left: 10px;">Update</a>
               </div>
             </div>
             @endforeach

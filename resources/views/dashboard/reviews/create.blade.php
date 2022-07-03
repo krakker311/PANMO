@@ -19,7 +19,7 @@
                 <input id="input-1" name="rating" class="rating rating-loading" data-min="0" data-max="5" data-step="1">
                 <input type="hidden" name="model_id" value="{{$model->id}}">
                 <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
-                <button type="submit" class="btn btn-primary">Add Review</button>
+                <button type="submit" class="btn btn-dark">Add Review</button>
                 
               </form>
     </div>

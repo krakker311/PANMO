@@ -65,7 +65,7 @@
                     <trix-editor input="body"></trix-editor>
                 </div>
 
-                <button type="submit" class="btn btn-primary">Update Post</button>
+                <button type="submit" class="btn btn-dark">Update Post</button>
               </form>
     </div>
     <script>

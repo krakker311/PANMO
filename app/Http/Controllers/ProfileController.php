@@ -23,6 +23,7 @@ class ProfileController extends Controller
     public function editProfile(Request $request)
     {
         return view('dashboard.profile.edit', [
+            'title' => 'Profile',
             'user' => $request->user(),
             'provinces' => Province::all()
         ]);

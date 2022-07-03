@@ -5415,6 +5415,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['model', 'favorited'],
   data: function data() {
@@ -5529,8 +5530,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 window.Pusher = __webpack_require__(/*! pusher-js */ "./node_modules/pusher-js/dist/web/pusher.js");
 window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__["default"]({
   broadcaster: 'pusher',
-  key: "3e45b74c47dabce3b4af",
-  cluster: "mt1",
+  key: "cf22a024d4ed3a881a83",
+  cluster: "ap1",
   forceTLS: true
 });
 
@@ -5832,7 +5833,7 @@ function fetchOldMessages(to_user, old_message_id) {
 
 function getMessageSenderTemplate(message) {
   var body = getMessageBody(message);
-  return "\n           <div class=\"row msg_container base_sent\" data-message-id=\"".concat(message.id, "\" id=\"message-line-").concat(message.id, "\">\n        <div class=\"col-md-9 col-xs-9\">\n            <div class=\"messages msg_sent text-right\">\n                ").concat(body, "\n                <time datetime=\"").concat(message.date_time_str, "\"> ").concat(message.from_user.name, " \u2022 ").concat(message.date_human_readable, " </time>\n            </div>\n        </div>\n        <div class=\"col-md-3 col-xs-3 avatar\">\n            <img src=\"") + window.base_url + '/images/user-avatar.png' + "\" width=\"50\" height=\"50\" class=\"img-responsive\">\n        </div>\n    </div>\n    ";
+  return "\n           <div class=\"row msg_container base_sent\" data-message-id=\"".concat(message.id, "\" id=\"message-line-").concat(message.id, "\">\n        <div class=\"col-md-9 col-xs-9\">\n            <div class=\"messages msg_sent text-right\">\n                ").concat(body, "\n                <time datetime=\"").concat(message.date_time_str, "\"> ").concat(message.from_user.name, " \u2022 ").concat(message.date_human_readable, " </time>\n            </div>\n        </div>\n        <div class=\"col-md-3 col-xs-3 avatar\">\n\n            <img src=\"/storage/").concat(message.from_user.image, "\" width=\"50\" height=\"50\" class=\"img-responsive\">\n        </div>\n    </div>\n    ");
 }
 /**
  * getMessageReceiverTemplate
@@ -5846,7 +5847,7 @@ function getMessageSenderTemplate(message) {
 
 function getMessageReceiverTemplate(message) {
   var body = getMessageBody(message);
-  return "\n           <div class=\"row msg_container base_receive\" data-message-id=\"".concat(message.id, "\" id=\"message-line-").concat(message.id, "\">\n           <div class=\"col-md-3 col-xs-3 avatar\">\n             <img src=\"") + window.base_url + '/images/user-avatar.png' + "\" width=\"50\" height=\"50\" class=\"img-responsive\">\n           </div>\n        <div class=\"col-md-9 col-xs-9\">\n            <div class=\"messages msg_receive text-left\">\n                ".concat(body, "\n                <time datetime=\"").concat(message.date_time_str, "\"> ").concat(message.from_user.name, "  \u2022 ").concat(message.date_human_readable, " </time>\n            </div>\n        </div>\n    </div>\n    ");
+  return "\n           <div class=\"row msg_container base_receive\" data-message-id=\"".concat(message.id, "\" id=\"message-line-").concat(message.id, "\">\n           <div class=\"col-md-3 col-xs-3 avatar\">\n             <img src=\"/storage/").concat(message.from_user.image, "\" width=\"50\" height=\"50\" class=\"img-responsive\">\n           </div>\n        <div class=\"col-md-9 col-xs-9\">\n            <div class=\"messages msg_receive text-left\">\n                ").concat(body, "\n                <time datetime=\"").concat(message.date_time_str, "\"> ").concat(message.from_user.name, "  \u2022 ").concat(message.date_human_readable, " </time>\n            </div>\n        </div>\n    </div>\n    ");
 }
 
 function getMessageBody(message) {
@@ -45823,6 +45824,8 @@ var render = function () {
       ? _c(
           "a",
           {
+            staticClass: "btn btn-dark mb-3",
+            staticStyle: { width: "150px" },
             attrs: { href: "#" },
             on: {
               click: function ($event) {
@@ -45832,15 +45835,21 @@ var render = function () {
             },
           },
           [
-            _c("i", {
-              staticClass: "bi bi-heart-fill",
-              staticStyle: { "font-size": "1.5em" },
-            }),
+            _c(
+              "i",
+              {
+                staticClass: "bi bi-heart-fill",
+                staticStyle: { "font-size": "16px" },
+              },
+              [_vm._v(" Unfavorite")]
+            ),
           ]
         )
       : _c(
           "a",
           {
+            staticClass: "btn btn-dark mb-3",
+            staticStyle: { width: "150px" },
             attrs: { href: "#" },
             on: {
               click: function ($event) {
@@ -45850,10 +45859,14 @@ var render = function () {
             },
           },
           [
-            _c("i", {
-              staticClass: "bi bi-heart",
-              staticStyle: { "font-size": "1.5em" },
-            }),
+            _c(
+              "i",
+              {
+                staticClass: "bi bi-heart",
+                staticStyle: { "font-size": "16px" },
+              },
+              [_vm._v(" Favorite")]
+            ),
           ]
         ),
   ])

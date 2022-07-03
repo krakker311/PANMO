@@ -220,7 +220,7 @@
 					<input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
 						<div class="row">
 						<div class="col d-flex justify-content-end">
-							<button class="btn btn-primary" type="submit">Save Changes</button>
+							<button class="btn btn-dark" type="submit">Save Changes</button>
 						</div>
 						</div>
 					</form>

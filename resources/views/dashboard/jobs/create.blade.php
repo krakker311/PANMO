@@ -50,7 +50,7 @@
                  
                 </div>
 
-                <button type="submit" class="btn btn-primary">Create New Job</button>
+                <button type="submit" class="btn btn-dark">Create New Job</button>
                 
               </form>
     </div>

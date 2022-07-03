@@ -35,27 +35,27 @@
         <div class="mt-2">
           @if($order->isOrderAccepted == 0 && Auth::user()->role_id == 2)
           <a href="/acceptOrder/id={{$order->id}}">
-            <button class="btn btn-primary" type="button" >
+            <button class="btn btn-dark" type="button" >
               Accept Order
                 </button>
           </a>
           <a href="/declineOrder/id={{$order->id}}">
-            <button class="btn btn-primary" type="button" >
+            <button class="btn btn-dark" type="button" >
               Decline Order
                 </button>
           </a>
           
           @elseif($order->isOrderAccepted == 1 && $order->user_id == Auth::user()->id && $order->payment_status == 1)
-          <button class="btn btn-primary" id="pay-button">Bayar Sekarang</button>
+          <button class="btn btn-dark" id="pay-button">Bayar Sekarang</button>
           @elseif($order->isOrderAccepted == 1 && $order->model->user_id == Auth::user()->id && $order->payment_status == 2 && $order->date <= \Carbon\Carbon::now()->toDateString() && $order->time <= \Carbon\Carbon::now()->toTimeString())
           <a href="/orderDone/id={{$order->id}}">
-            <button class="btn btn-primary" type="button" >
+            <button class="btn btn-dark" type="button" >
               Order Done
                 </button>
           </a>
           @elseif($order->isOrderAccepted == 1 && $order->user_id == Auth::user()->id && $order->payment_status == 4)
           <a href="/review/id={{$order->model_id}}">
-            <button class="btn btn-primary" type="button" >
+            <button class="btn btn-dark" type="button" >
               Add Review
                 </button>
           </a>

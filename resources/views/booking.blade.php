@@ -94,7 +94,7 @@
         <input type="hidden" name="email_id" value="{{ $model->user_id }}">
           <div class="row mt-3">
             <div class="col-12 mt-5">
-              <button type="submit" id="btnSubmit" class="btn btn-dark d-block mx-auto btn-submit"onclick="return confirm('Please check your order again!')"  >Next</button>
+              <button type="submit" id="btnSubmit" class="btn btn-dark d-block mx-auto btn-submit"  >Next</button>
             </div>
           </div>
           </form>

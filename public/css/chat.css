@@ -9,7 +9,9 @@ p {
 }
 
 .base_sent p {
-    background: #e674a8;
+    background: white;
+    border-width: 1px;
+    border-style: solid;
 }
 
 time {

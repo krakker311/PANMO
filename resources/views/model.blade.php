@@ -4,10 +4,10 @@
 
 <div id="app">
   <section class="h-100">
-    <div class="container py-4 h-100">
-      <div class="row d-flex justify-content-center align-items-center h-100">
+    <div class="container py-4 h-100" >
+      <div class="row d-flex justify-content-center align-items-center h-100" >
         <div class="col col-xl-12 col-xl-7">
-          <div class="card">
+          <div class="card" style="background-color: whitesmoke">
             <div class="rounded-top text-white d-flex flex-row" style="background-color: black; height:250px;">
               <div class="ms-4 mt-5 d-flex flex-column" style="width: 150px; height:250px">
                 @if($model->image)
@@ -17,136 +17,111 @@
                 @endif
               </div>
               <div class="ms-3" style="margin-top: 90px;">
-                <h5>{{ $model->name }}</h5>
-                <p>{{ $model->province->name }} - {{ $model->city->name }}</p> 
-                <p> <span class="bi-briefcase"></span> Jobs Done {{ $model->jobs_done }} </p>
-                <p>Member since : {{isset(Auth::user()->created_at) ? Auth::user()->created_at->format('m/d/Y') : Auth::user()->email}}</p>
+                <h4 style="margin-bottom: 15px; font-weight: bold">{{ $model->name }}</h4>
+                <h6><span class="bi-geo-alt-fill"></span> {{ $model->province->name }} - {{ $model->city->name }}</h6> 
+                <h6> <span class="bi-briefcase"></span> Jobs Done : {{ $model->jobs_done }} </h6>
+                <h6>Member since : {{isset($model->created_at) ? $model->created_at->format('m/d/Y') : $model->email}}</h6>
               </div>
             </div>
-            @if($myModel->id != $model->id)             
-            <div class="card-body p-4 text-black">
-              <div class="col">
-                  <div class="btn-toolbar" style="margin-left:375px">
-                    <a href="/booking/{{ $model->id }}" class="btn btn-dark mb-3" style="width: 150px; margin-right: 10px"> Book now</a>
-                    @if(Auth::user())
-                    <a href="javascript:void(0);" class="btn-chat1" data-id="{{ $model->user_id }}" data-user="{{ $model->user->name }}"  style="z-index: 1; margin-right: 10px; text-decoration:none; width: 150px;" id="chat-toggle">
-                    <div class="center">
-                    Ask Availability
-                    </div>
-                    </a>
-                    @endif
-                    <favorite :model={{ $model->id }} :favorited={{ $model->favorited() ? 'true' : 'false' }}></favorite>
-                    </div>
-              </div>
-              @endif
-              <div class="mb-5">
-                <p class="lead fw-normal mb-1 mt-4">About Me</p>
-								<textarea class="form-control" rows="5" placeholder="My Bio" readonly>{{ $model->description }}</textarea >
-              </div>
-              <div class="mb-5">
-                <p class="lead fw-normal mb-1 mt-4">Biodata</p>
-                <div class="row">
-                  <div class="col-lg-2 col-md-10 col-sm-10 col-xs-10">
-                    <div class="form-group">
-                      <label>Height (cm)</label>
-                        <input style = "width : 150px" class="form-control" type="text" name="height" value="{{ $model->height }}" readonly>
-                    </div>
-                </div>
-                  <div class="col-lg-2 col-md-10 col-sm-10 col-xs-10">
-                    <div class="form-group">
-                      <label>Weight (kg)</label>
-                      <input style = "width : 150px" class="form-control" type="text" name="weight" value="{{ $model->weight }}" readonly>
-                    </div>
-                  </div>
-                  <div class="col-lg-2 col-md-10 col-sm-10 col-xs-10">
-                    <div class="form-group">
-                      <label>Hair Color</label>
-                      <input style = "width : 150px" class="form-control" type="text" name="hair_color" value="{{ $model->hair_color }}" readonly>
-                    </div>
-                  </div>
-                </div>
+            <div class="container">
 
-                  <div class="row">
-                    <div class="col-lg-2 col-md-10 col-sm-10 col-xs-10">
-                      <div class="form-group">
-                        <label>Waist (cm)</label>
-                        <input style = "width : 150px" class="form-control" type="text" name="waist" value="{{ $model->waist }}" readonly>
+              @if($myModel->id != $model->id)             
+              <div class="card-body p-4 text-black">
+                <div class="col">
+                    <div class="btn-toolbar" style="margin-left:375px">
+                      <a href="/booking/{{ $model->id }}" class="btn btn-dark mb-3" style="width: 150px; margin-right: 10px"> Book now</a>
+                      @if(Auth::user())
+                      <a href="javascript:void(0);" class="btn-chat1" data-id="{{ $model->user_id }}" data-user="{{ $model->user->name }}"  style="z-index: 1; margin-right: 10px; text-decoration:none; width: 150px;" id="chat-toggle">
+                      <div class="center">
+                      Ask Availability
                       </div>
-                    </div>
-                    <div class="col-lg-2 col-md-10 col-sm-10 col-xs-10">
-                      <div class="form-group">
-                        <label>Bust (cm)</label>
-                        <input style = "width : 150px" class="form-control" type="text" name="bust" value="{{ $model->bust }}" readonly>
+                      </a>
+                      @endif
+                      <favorite :model={{ $model->id }} :favorited={{ $model->favorited() ? 'true' : 'false' }}></favorite>
                       </div>
-                    </div>
-                    <div class="col-lg-2 col-md-10 col-sm-10 col-xs-10">
-                      <div class="form-group">
-                        <label>Hips (cm)</label>
-                        <input style = "width : 150px" class="form-control" type="text" name="hip" value="{{ $model->hips }}" readonly>
-                      </div>
-                    </div>
-                  </div>
                 </div>
-              
-              <div class="d-flex justify-content-between align-items-center mb-4">
-                <p class="lead fw-normal mb-0">Service</p>
+                @endif
+                <div class="col text-center mt-5">
+                  <h4 style="font-weight: bold">About Me</h4>
+                      <h5>Height: {{ $model->height }} cm -
+                      Weight: {{ $model->weight }} kg -
+                      Hips: {{ $model->hips }} cm -
+                      Waist: {{ $model->waist }} cm -
+                      Bust: {{ $model->bust }} cm -
+                      Hair Color: {{ $model->hair_color }}</h5>
+                      <hr>
+                      <h5>{{ $model->description }}</h5>
+                </div>
+                <div class="text-center mt-5" >
+                  <h4 style="font-weight: bold">Portofolio</h4>
+                </div>
+                  @forelse ($portfolios as $portfolio)
+                      <!-- <img src="" alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2" style="width: 150px; z-index: 1"> -->
+                      <img class="myImg" id="myImg"src="{{ asset('storage/' . $portfolio->image) }}" alt="{{$portfolio->title}} <br>{{$portfolio->desc}}" width="350" height="200" style="margin-right: 10px; margin-bottom: 10px">
+                        <!-- The Modal -->
+                        <div class="myModal" id="modal">
+                          <span class="close">&times;</span>
+                          <img class="modal-content">
+                          <div class="caption" id=""></div>
+                        </div>
+                        @empty 
+                        <h6 style="text-align: center">No portfolio yet</h6>
+                  @endforelse
+    
+                  <div class="d-flex justify-content-center">
+                      {{ $portfolios->links() }}
+                  </div>
+            
+              <br>
+              <div class="text-center mt-5" >
+                <h4 style="font-weight: bold">Service</h4>
               </div>
-      
-                  @foreach ($jobs as $job)
-                  <div class="card" style="width: 50rem; margin-bottom: 10px">
+                  @forelse ($jobs as $job)
+                  <div class="card text-center" style="margin-bottom: 10px">
                       <div class="card-body">
-                        <h5 class="card-title">Title: {{ $job->job_title }}</h5>
-                        <h6 class="card-subtitle">Description : {{ $job->job_desc }}</h6>
-                        <h6 class="card-text ">Price: {{ $job->price }}</p>
+                        <h4 class="card-title">{{ $job->job_title }}</h4> <hr>
+                        <h5 class="card-subtitle" style="margin-bottom: 10px">Description : {{ $job->job_desc }}</h5>
+                        
+                        <h5 class="card-text"><span class="bi-cash-stack"></span> IDR {{ number_format($job->price,2,',','.') }}</h5>
                       </div>
                     </div>
-                  @endforeach
-              
-              
-              <div class="d-flex justify-content-between align-items-center mb-4">
-                <p class="lead fw-normal mb-0">Portofolio</p>
-              </div>
-              <div class="review-box">
-                @foreach ($portfolios as $portfolio)
-                    <!-- <img src="" alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2" style="width: 150px; z-index: 1"> -->
-                    <img class="myImg" id="myImg" src="{{ asset('storage/' . $portfolio->image) }}" alt="{{$portfolio->title}} <br>{{$portfolio->desc}}" width="350" height="200" style="margin-right: 10px; margin-bottom: 10px">
-                      <!-- The Modal -->
-                      <div class="myModal" id="modal">
-                        <span class="close">&times;</span>
-                        <img class="modal-content">
-                        <div class="caption" id=""></div>
-                      </div>
-                @endforeach
-                </div>
-                <div class="d-flex justify-content-center">
-                    {{ $portfolios->links() }}
-                </div>
-              <div class="d-flex justify-content-between align-items-center mb-4">
-                <p class="lead fw-normal mb-0">Review</p>
-              </div>
-              <div class="row" style="margin-left:5px;">
-                  @foreach ($reviews as $review)  
-                  <div class="card text-start" style="width: 400px;">
-                    <div class="card-body">
-                      <h5 class="card-title">{{$review->user->name}}</h5>
-                      <p class="card-text"> 
-                        @while($review->rating>0)
-                          @if($review->rating >0.5)
-                              <i class="fa fa-star"></i>
-                          @else
-                              <i class="fa fa-star-half"></i>
-                          @endif
-                          @php $review->rating--; @endphp
-                        @endwhile</p>
-                      <p class="card-text">{{$review->comment}}</p> 
-                    </div>
+                    @empty 
+                    <h6 style="text-align: center">No service yet</h6>
+                  @endforelse
+                  <br>
+                  <div class="text-center mt-5" >
+                    <h4 style="font-weight: bold">Review</h4>
                   </div>
-                  
-                  @endforeach
+                  <div class="row" style="margin-left: 5px; margin-bottom: 30px">
+                    @forelse ($reviews as $review)
+                    <div class="card text-start" style="width: 400px;">
+                      <div class="card-body">
+                        <h5 class="card-title">{{$review->user->name}}</h5>
+                        <p class="card-text"> 
+                          @while($review->rating>0)
+                            @if($review->rating >0.5)
+                                <i class="fa fa-star"></i>
+                            @else
+                                <i class="fa fa-star-half"></i>
+                            @endif
+                            @php $review->rating--; @endphp
+                          @endwhile</p>
+                        <p class="card-text">{{$review->comment}}</p> 
+                      </div>
+                    </div>
+      
+                    @empty 
+                      <h6 style="text-align: center">No review yet</h6>
+                    @endforelse
                   </div>
                   <div class="d-flex justify-content-center">
                     {{ $reviews->links() }}
                 </div>
+            </div>
+
+                  
+             
+
           </div>
         </div>
       </div>
@@ -184,9 +159,8 @@
       modals[i].style.display = "none";
     }
   }
-
-
 // Get the <span> element that closes the modal
+
  
   </script>
   @endsection

@@ -8,9 +8,9 @@
                 @elseif($message->image)
                     <div style="width: 100%;"> 
                         @if($message->fromUser->image)
-                        <img src="{{ asset('storage/' . $message->fromUser->image) }}" alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2" style="width: 150px; z-index: 1;margin-bottom: 10px;">
+                        <img src="{{ asset('storage/' . $message->fromUser->image) }}" alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 " style="width: 150px; z-index: 1;">
                         @else
-                        <img src="{{ asset('storage/profile/default.jpg') }}" alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2" style="width: 150px; z-index: 1;margin-bottom: 10px;">
+                        <img src="{{ asset('storage/profile/default.jpg') }}" alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 " style="width: 150px; z-index: 1;">
                         @endif</div>
                 @endif
                 <time datetime="{{ date("Y-m-dTH:i", strtotime($message->created_at->toDateTimeString())) }}">{{ $message->fromUser->name }} • {{ $message->created_at->diffForHumans() }}</time>
@@ -34,9 +34,9 @@
                 @elseif($message->image)
                     <div style="width: 100%;">
                         @if($message->fromUser->image)
-                        <img src="{{ asset('storage/' . $message->toUser->image) }}" alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2" style="width: 150px; z-index: 1;margin-bottom: 10px;">
+                        <img src="{{ asset('storage/' . $message->toUser->image) }}" alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 " style="width: 150px; z-index: 1;">
                         @else
-                        <img src="{{ asset('storage/profile/default.jpg') }}" alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2" style="width: 150px; z-index: 1;margin-bottom: 10px;">
+                        <img src="{{ asset('storage/profile/default.jpg') }}" alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 " style="width: 150px; z-index: 1;">
                         @endif
                     </div>
                 @endif

@@ -24,17 +24,15 @@
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-size: 100% 100%;
+          font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
       }
       </style>
   </head>
   <body>
     
     @include('partials.navbar')
-
-
-    <div class="container mt-4">
-        @yield('container')
-    </div>
+    @yield('container')
     
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
