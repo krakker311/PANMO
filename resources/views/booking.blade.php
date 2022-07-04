@@ -92,7 +92,7 @@
         <input type="hidden" name="model_id" value="{{$model->id}}">
         <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
         <input type="hidden" name="email_id" value="{{ $model->user_id }}">
-        <input type="hidden" name="paymentStatus" value="1">
+        <input type="hidden" name="payment_status" value="1">
           <div class="row mt-3">
             <div class="col-12 mt-5">
               <button type="submit" id="btnSubmit" class="btn btn-dark d-block mx-auto btn-submit"  >Next</button>
