@@ -51,17 +51,32 @@
 						@csrf
                         @method('post')
 						<div class="row">
-						<div class="col">
-							<div class="row">
-							<div class="col">
-								<div class="form-group">
-								<label>Full Name</label>
-								<input class="form-control" type="text" name="name" value="{{ auth()->user()->name }}">
+						<div class="row">
+								<div class="col">
+									<div class="form-group">
+									<label>Full Name</label>
+									<input class="form-control   @error('name') is-invalid @enderror" type="text" name="name" value="{{ auth()->user()->name }}">
+									@error('name')
+										<div class="invalid-feedback">
+											{{ $message }}
+										</div>
+										@enderror
+									</div>
 								</div>
-							</div>
+								<div class="col">
+									<div class="form-group">
+									<label>Username</label>
+									<input class="form-control   @error('username') is-invalid @enderror" type="text" name="username" value="{{ auth()->user()->username }}">
+									@error('username')
+										<div class="invalid-feedback">
+											{{ $message }}
+										</div>
+										@enderror
+									</div>
+								</div>
 							<input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
 							<div class="row">
-							<div class="col mb-3">
+						<div class="col mb-3">
 								<div class="form-group">
 								<label>About</label>
 								<textarea class="form-control @error('description') is-invalid @enderror" rows="5" placeholder="My Bio" name="description"></textarea>
@@ -72,14 +87,8 @@
 								@enderror
 								</div>
 							</div>
-							</div>
-						</div>
-						</div>
-						<div class="row">
-						<div class="col-12 col-sm-6 mb-3">
-							<div class="mb-2"><b>About Me</div>
-
-								<div class="row">
+							<div class="row">
+								<div class="col">
 									<label class="order-form-label">Province</label>
 									<select class="form-select  @error('province_id') is-invalid @enderror" name="province_id" placeholder="Province" id="province"> 
 									  <option value="">Select Province</option>
@@ -97,7 +106,7 @@
 									  @enderror
 									</select>
 								</div>
-								  <div class="row">
+								<div class="col">
 								  <label class="order-form-label">City</label>
 									<select class="form-select  @error('city_id') is-invalid @enderror" id="city" name="city_id">
 									</select>
@@ -107,86 +116,80 @@
 									</div>
 									@enderror
 								</div>
-								
-								<div class="row">
-									<div class="col">
-										<div class="form-group">
-										<label>Height (cm)</label>
-										<input class="form-control @error('height') is-invalid @enderror" type="text" name="height" >
-										@error('height')
-										<div class="invalid-feedback">
-											{{ $message }}
-										</div>
-										@enderror
+							</div>
+							
+							<div class="row">
+								<div class="col-lg-2 col-md-10 col-sm-10 col-xs-10">
+									<div class="form-group">
+									<label>Height (cm)</label>
+									<input style = "width : 150px" class="form-control @error('height') is-invalid @enderror" type="text" name="height">
+									@error('height')
+									<div class="invalid-feedback">
+										{{ $message }}
 									</div>
+									@enderror
 								</div>
 							</div>
-							<div class="row">
-								<div class="col">
-									<div class="form-group">
-										<label>Weight (kg)</label>
-										<input class="form-control @error('weight') is-invalid @enderror" type="text" name="weight" >
-										@error('weight')
-										<div class="invalid-feedback">
-											{{ $message }}
-										</div>
-										@enderror
+							<div class="col-lg-2 col-md-10 col-sm-10 col-xs-10">
+								<div class="form-group">
+									<label>Weight (kg)</label>
+									<input style = "width : 150px" class="form-control @error('weight') is-invalid @enderror" type="text" name="weight">
+									@error('weight')
+									<div class="invalid-feedback">
+										{{ $message }}
 									</div>
+									@enderror
 								</div>
 							</div>
-							<div class="row">
-								<div class="col">
-									<div class="form-group">
-										<label>Hair Color</label>
-										<input class="form-control @error('hair_color') is-invalid @enderror" type="text" name="hair_color" >
-										@error('hair_color')
-										<div class="invalid-feedback">
-											{{ $message }}
-										</div>
-										@enderror
+							<div class="col-lg-2 col-md-10 col-sm-10 col-xs-10">
+								<div class="form-group">
+									<label>Hair Color</label>
+									<input style = "width : 150px" class="form-control @error('hair_color') is-invalid @enderror" type="text" name="hair_color" >
+									@error('hair_color')
+									<div class="invalid-feedback">
+										{{ $message }}
 									</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col">
-									<div class="form-group">
-										<label>Waist (cm)</label>
-										<input class="form-control @error('waist') is-invalid @enderror" type="text" name="waist" >
-										@error('waist')
-										<div class="invalid-feedback">
-											{{ $message }}
-										</div>
-										@enderror
-									</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col">
-									<div class="form-group">
-										<label>Bust (cm)</label>
-										<input class="form-control @error('bust') is-invalid @enderror" type="text" name="bust">
-										@error('bust')
-										<div class="invalid-feedback">
-											{{ $message }}
-										</div>
-										@enderror
-									</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col">
-									<div class="form-group">
-										<label>Hips (cm)</label>
-										<input class="form-control @error('hips') is-invalid @enderror" type="text" name="hips" >
-										@error('hips')
-										<div class="invalid-feedback">
-											{{ $message }}
-										</div>
-										@enderror
-									</div>
+									@enderror
 								</div>
 							</div>
 						</div>
+
+						<div class="row">
+							<div class="col-lg-2 col-md-10 col-sm-10 col-xs-10">
+								<div class="form-group">
+									<label>Waist (cm)</label>
+									<input style = "width : 150px" class="form-control @error('waist') is-invalid @enderror" type="text" name="waist" >
+									@error('waist')
+									<div class="invalid-feedback">
+										{{ $message }}
+									</div>
+									@enderror
+								</div>
+							</div>
+							<div class="col-lg-2 col-md-10 col-sm-10 col-xs-10">
+								<div class="form-group">
+									<label>Bust (cm)</label>
+									<input style = "width : 150px" class="form-control @error('bust') is-invalid @enderror" type="text" name="bust">
+									@error('bust')
+									<div class="invalid-feedback">
+										{{ $message }}
+									</div>
+									@enderror
+								</div>
+							</div>
+							<div class="col-lg-2 col-md-10 col-sm-10 col-xs-10">
+								<div class="form-group">
+									<label>Hips (cm)</label>
+									<input style = "width : 150px" class="form-control @error('hips') is-invalid @enderror" type="text" name="hips">
+									@error('hips')
+									<div class="invalid-feedback">
+										{{ $message }}
+									</div>
+									@enderror
+								</div>
+							</div>
+						</div>
+					</div>
 
 						<div class="row">
 						<div class="col d-flex justify-content-end">

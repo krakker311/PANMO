@@ -72,7 +72,8 @@ class BookingOrderController extends Controller
             'user_id' => 'required',
             'model_id' => 'required',
             'city_id' => 'required',
-            'isOrderAccepted' => 'boolean'
+            'isOrderAccepted' => 'boolean',
+            'paymentStatus' => 'required'
         ]);
 
         Order::create($validatedData);
