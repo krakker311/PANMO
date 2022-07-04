@@ -140,10 +140,6 @@ Route::post('/review',[ReviewController::class, 'addReview']);
 
 Route::get('/chat', [ChatsController::class, 'index'])->middleware('auth');
 
-Route::get('/messages', [ChatsController::class , 'fetchMessages']);
-
-Route::post('/messages', [ChatsController::class, 'sendMessage']);
-
 Route::get('/load-latest-messages', [ChatsController::class, 'getLoadLatestMessages']);
 
 Route::post('/send', [ChatsController::class, 'postSendMessage']);
