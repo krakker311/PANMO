@@ -62,8 +62,10 @@ class ModelController extends Controller
         $myModel = ModelUser::all();
         if (Auth::user()) {
             $myModel = $myModel->where('user_id',Auth::user()->id)->first();
-            $models = $models->where('name', '!=', $myModel->name);
-            $jobs = $jobs->where('model_id', '!=', $myModel->id);
+            if($myModel == []) {
+                $models = $models->where('name', '!=', $myModel->name);
+                $jobs = $jobs->where('model_id', '!=', $myModel->id);
+            }  
         }
 
         if(request('search')){

@@ -51,7 +51,7 @@ Route::get('/', function () {
 
 Route::get('/about', function () {
     return view ('About', [
-        "title" => "About",
+        "title" => "about",
         'active' => 'about',
     ]);
 });
