@@ -19,8 +19,7 @@
         "fakerphp/faker": "^1.9.1",
         "pusher/pusher-php-server": "^7.0"
     },
-    "require-dev": {
-        
+    "require-dev": {  
         "laravel/sail": "^1.0.1",
         "mockery/mockery": "^1.4.4",
         "nunomaduro/collision": "^6.1",
