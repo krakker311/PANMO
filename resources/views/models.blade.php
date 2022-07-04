@@ -13,7 +13,7 @@
                 @if($searchCategory == '0')
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" placeholder="Search by name" name="search" value="{{ request('search') }}">
-                        @if($myModel == [])
+                        @if(!is_null($myModel))
                         <input type="hidden" name="model-id" value = "{{ $myModel->id }}">
                         @endif
                         <button class="btn btn-dark" type="submit" >Search</button>

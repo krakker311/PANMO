@@ -62,7 +62,7 @@ class ModelController extends Controller
         $myModel = ModelUser::all();
         if (Auth::user()) {
             $myModel = $myModel->where('user_id',Auth::user()->id)->first();
-            if($myModel == []) {
+            if(!is_null($myModel)) {
                 $models = $models->where('name', '!=', $myModel->name);
                 $jobs = $jobs->where('model_id', '!=', $myModel->id);
             }  
