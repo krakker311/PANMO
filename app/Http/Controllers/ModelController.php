@@ -22,6 +22,7 @@ class ModelController extends Controller
     public function index()
     {
         return view('dashboard.model.register', [
+            'title' => 'Register',
             'provinces' => Province::all()
         ]);
     }
