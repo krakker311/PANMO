@@ -50,8 +50,8 @@ Route::get('/', function () {
 });
 
 Route::get('/about', function () {
-    return view ('About', [
-        "title" => "about",
+    return view ('about', [
+        "title" => "About",
         'active' => 'about',
     ]);
 });
