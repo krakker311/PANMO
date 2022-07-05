@@ -3,7 +3,7 @@
 @section('container')
 <div class="container">
 
-    <h1 class="mb-5 text-center">{{ $title }}</h1>
+    <h1 class="mb-5 text-center mt-5">{{ $title }}</h1>
     <div class="row justify-content-center mb-3">
         <div class="col-md-6">
             <form action="/posts">
@@ -38,12 +38,7 @@
                                 <img src="{{ asset('storage/profile/default.jpg') }}" class="img-fluid" style="width: 300px; height: 300px;">
                             @endif
                         </div>
-                        <!-- <form id="form" action="/profile" method="POST">
-                        @csrf
-                        <input type="hidden" name="id" value="{{ $model->id }}">
-                        <button type="submit" id="btnSubmit" class="btn btn-dark">Read More</button>  
-                        </form> -->
-                        <h6> <span class="bi-geo-alt-fill"></span> {{ $model->province->name }} - {{ $model->city->name  }}</h6>
+                        <h6 style="margin-top:10px"> <span class="bi-geo-alt-fill"></span> {{ $model->province->name }} - {{ $model->city->name  }}</h6>
                         <h6> <span class="bi-briefcase"></span>&nbsp;Jobs done: {{ $model->jobs_done }} </h6>
                         <a href="/profile/{{ $model->id }}" class="btn btn-dark">Profile</a>
                     </div>
@@ -75,7 +70,9 @@
                                 <img src="{{ asset('storage/profile/default.jpg') }}" class="img-fluid">
                             @endif
                         </div>
-                        <a href="/profile/{{ $job->model->id }}" class="btn btn-dark">Read more</a>
+                        <h6 style="margin-top:10px"> <span class="bi-geo-alt-fill"></span> {{ $job->model->province->name }} - {{ $job->model->city->name  }}</h6>
+                        <h6> <span class="bi-briefcase"></span>&nbsp;Jobs done: {{ $job->model->jobs_done }} </h6>
+                        <a href="/profile/{{ $job->model->id }}" class="btn btn-dark">Profile</a>
                     </div>
                   </div>
             </div>
