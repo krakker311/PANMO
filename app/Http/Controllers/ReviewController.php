@@ -18,6 +18,7 @@ class ReviewController extends Controller
 
     public function create($id){
         return view('dashboard.reviews.create',[
+            'title' => 'Review',
             'model' => ModelUser::where('id',$id)->first(),           
         ]);
     }
