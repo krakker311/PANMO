@@ -46,7 +46,8 @@ class ModelController extends Controller
             'waist' => 'required',
             'bust' => 'required',
             'hips' => 'required',
-            'description' => 'required'
+            'description' => 'required',
+            'jobs_done'=>'required'
         ]);
 
         $new_role_id = 2;
