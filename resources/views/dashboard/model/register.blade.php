@@ -190,7 +190,7 @@
 							</div>
 						</div>
 					</div>
-
+					<input type="hidden" name="jobs_done" value="0">
 						<div class="row">
 						<div class="col d-flex justify-content-end">
 							<button class="btn btn-dark" type="submit">Register</button>

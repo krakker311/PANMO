@@ -56,7 +56,6 @@ class OrderController extends Controller
     public function acceptOrder($id) {
         $order =  Order::where('id',$id)->first();
         $order->update(['isOrderAccepted' => '1']);
-        dd($order);
         $user = User::where('id',$order->user_id)->first();
         $model = ModelUser::where('id',$order->model_id)->first();
         $email = [
