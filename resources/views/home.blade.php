@@ -162,5 +162,17 @@
     <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
+
+<script>
+  $("#myCarousel").slick({
+    arrows: false,
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 1500,
+    mobileFirst: true
+});
+</script>
 @endsection
 
