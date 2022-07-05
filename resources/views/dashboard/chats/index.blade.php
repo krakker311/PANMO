@@ -24,7 +24,7 @@
                 <div class="row no-gutters">
                   <div class="col-md-3" style="margin-left: 20px">
                         @if($message->fromUser->image)
-                        <img src="{{ asset('storage/' . $message->fromUser->image) }}" alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2" style="width: 150px; z-index: 1;margin-bottom: 10px;">
+                        <img src="{{ $message->fromUser->image }}" alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2" style="width: 150px; z-index: 1;margin-bottom: 10px;">
                         @else
                         <img src="{{ asset('storage/profile/default.jpg') }}" alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2" style="width: 150px; z-index: 1;margin-bottom: 10px;">
                         @endif

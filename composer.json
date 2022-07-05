@@ -7,7 +7,10 @@
     "require": {
         "php": "^8.0.2",
         "cviebrock/eloquent-sluggable": "^9.0",
+        "fakerphp/faker": "^1.9.1",
         "guzzlehttp/guzzle": "^7.2",
+        "jrm2k6/cloudder": "0.6.0",
+        "cloudinary/cloudinary_php": "1.20",
         "laravel/fortify": "^1.13",
         "laravel/framework": "^9.11",
         "laravel/jetstream": "^2.8",
@@ -16,7 +19,6 @@
         "laravel/ui": "^3.4",
         "livewire/livewire": "^2.5",
         "midtrans/midtrans-php": "^2.5",
-        "fakerphp/faker": "^1.9.1",
         "pusher/pusher-php-server": "^7.0"
     },
     "require-dev": {  

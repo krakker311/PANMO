@@ -69,7 +69,7 @@
       <a style="text-decoration: none; color: black" href="/profile/{{ $model->id }}">
         <div style="border-radius: 10%" class="card">
           <div class="card-body">
-            <img style="border-radius: 10%" src="{{ asset('storage/' . $model->image) }}" alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2" style="width: 250px; z-index: 1; height:250px;">
+            <img style="border-radius: 10%" src="{{ $model->image }}" alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2" style="width: 250px; z-index: 1; height:250px;">
           </div>
           <div class="card-footer">
             <h4>{{ $model->name }} </h4>

@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('desc');
             $table->string('image')->nullable();
+            $table->text('public_id')->nullable();
             $table->timestamp('published_at')->nullable();
             $table->timestamps();
         });

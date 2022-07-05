@@ -11,7 +11,7 @@
             <div class="rounded-top text-white d-flex flex-row" style="background-color: black; height:200px;">
               <div class="ms-4 mt-1 d-flex flex-column" style="width: 150px; height:200px">
                 @if($model->image)
-                  <img src="{{ asset('storage/' . $model->image) }}" alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2" style="width: 150px; z-index: 1; height: 150px;">
+                  <img src="{{ $model->image }}" alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2" style="width: 150px; z-index: 1; height: 150px;">
                 @else
                   <img src="{{ asset('storage/profile/default.jpg') }}" alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2" style="width: 150px; z-index: 1; height: 150px;">
                 @endif

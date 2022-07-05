@@ -21,7 +21,8 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('domicile')->nullable();
-            $table->string('image')->default('profile/default.jpg');
+            $table->string('image')->default('https://res.cloudinary.com/panmo-model/image/upload/v1657033395/panmo-images/default.jpg');
+            $table->text('public_id')->nullable();
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();

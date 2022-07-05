@@ -26,7 +26,7 @@ return new class extends Migration
             $table->integer('waist')->nullable();
             $table->integer('hips')->nullable();
             $table->integer('jobs_done')->nullable();
-            $table->string('image')->nullable();
+            $table->string('image')->default('https://res.cloudinary.com/panmo-model/image/upload/v1657033395/panmo-images/default.jpg');;
             $table->text('description')->nullable();
             $table->timestamps();
         });

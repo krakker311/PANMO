@@ -33,7 +33,7 @@
                         <h5 class="card-title">{{ $model->name }}</h5>
                         <div style="max-height: 400px; overflow:hidden;">
                             @if($model->image)
-                                <img src="{{ asset('storage/' . $model->image) }}" class="img-fluid" style="width: 300px; height: 300px;">
+                                <img src="{{ $model->image }}" class="img-fluid" style="width: 300px; height: 300px;">
                             @else
                                 <img src="{{ asset('storage/profile/default.jpg') }}" class="img-fluid" style="width: 300px; height: 300px;">
                             @endif
@@ -65,7 +65,7 @@
                         <h5 class="card-title">{{ $job->model->name }}</h5>
                         <div style="max-height: 400px; overflow:hidden;">
                             @if($job->model->image)
-                                <img src="{{ asset('storage/job-images' . $job->model->image) }}" class="img-fluid">
+                                <img src="{{ $job->model->image }}" class="img-fluid">
                             @else
                                 <img src="{{ asset('storage/profile/default.jpg') }}" class="img-fluid">
                             @endif
