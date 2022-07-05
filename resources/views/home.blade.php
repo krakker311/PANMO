@@ -1,84 +1,98 @@
 @extends('layouts.main')
 
 @section('container')
-  <!-- Marketing messaging and featurettes
+
+<div>
+  <img src="{{ asset('img/header2.jpg') }}" style="margin-bottom: 5%; width:100%;">
+  <div class="container">
+      <div class="carousel-caption text-start">
+        <img src="{{ asset('img/header2.png') }}" style="margin-bottom: 6%;">
+        <div style="margin-left: 2%; margin-bottom: 10%;">
+          <h1>Welcome to Panmo</h1>
+          <h5>Discover our model more than 1000 Beauty Services accross Indonesia</h5>
+          <a style="margin-top: 2%" class="btn btn-lg btn-dark" href="/posts">Browse now</a>
+        </div>
+      </div>
+  </div>
+</div>
+  <!-- Marketing messaging and featurettes 
   ================================================== -->
   <!-- Wrap the rest of the page in another container to center all the content. -->
-  <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-    </div>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="img/4.png">
-        <div class="container">
-          <div class="carousel-caption text-start">
-            <h1>Discover Our Models</h1>
-            <p>More than 1000 Beauty Services accross Indonesia</p>
-            <p><a class="btn btn-lg btn-dark" href="/posts">Browse Our Model</a></p>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <img src="img/model2.png">
-        <div class="container">
-          <div class="carousel-caption text-start">
-            <h1>How to Book</h1>
-            <p><a class="btn btn-lg btn-dark " href="/about">Learn more</a></p>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <img src="img/home3.jpg">
-        <div class="container">
-          <div class="carousel-caption text-start">
-            <h1>Join Us</h1>
-            <div class="row">
-                <div class="col-sm-6">
-                  <p>We will helps you as a Model to enhance your online exposure, grow and manage your beauty business professionally, while helping clients to find & book preferred beauty services easily.</p>
-                </div>
-            </div>
-            <p><a class="btn btn-lg btn-dark" href="/register">Sign up Today</a></p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
-  <div style="margin-top: 7%" class="modelofthemonth text-center">
+  <div class="container">
 
-<div class="title mb-4">
+    <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="img/makeup.jpg">
+          <div class="container">
+            <div class="carousel-caption text-start">
+              <h1>Discover Our Models</h1>
+              <p>More than 1000 Beauty Services accross Indonesia</p>
+              <a class="btn btn-lg btn-dark" href="/posts">Browse Our Model</a>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="img/4.png">
+          <div class="container">
+            <div class="carousel-caption text-start">
+              <h1>How to Book</h1>
+              <p>Learn how to use our services</p>
+              <p><a class="btn btn-lg btn-dark " href="/about">Learn more</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="img/home3.jpg">
+          <div class="container">
+            <div class="carousel-caption text-start">
+              <h1>Join Us</h1>
+              <div class="row">
+                  <div class="col-sm-6">
+                    <p>We will helps you as a Model to enhance your online exposure, grow and manage your beauty business professionally, while helping clients to find & book preferred beauty services easily.</p>
+                  </div>
+              </div>
+              <p><a class="btn btn-lg btn-dark" href="/register">Sign up Today</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+  
+<div style="margin-top: 7%" class="modelofthemonth text-center">
     <h1>Model of the month</h1>
 </div>
 <!-- Three columns of text below the carousel -->
 <div class="container">
-
   <div class="row">
   @foreach($modelMonths as $model)
     <div class="col-md-4">
-  
       <a style="text-decoration: none; color: black" href="/profile/{{ $model->id }}">
         <div style="border-radius: 10%" class="card">
-          <div class="card-body">
+          <div class="card-body center">
             <img style="border-radius: 10%" src="{{ $model->image }}" alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2" style="width: 250px; z-index: 1; height:250px;">
           </div>
-          <div class="card-footer">
+          <div class="card-footer text-center">
             <h4>{{ $model->name }} </h4>
           </div>
         </div>
       </a>
     </div>
     @endforeach
-  
   </div>
 </div>
 
@@ -162,7 +176,6 @@
     <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
-
 <script>
   $("#myCarousel").slick({
     arrows: false,
@@ -170,7 +183,7 @@
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 1500,
+    autoplaySpeed: 10,
     mobileFirst: true
 });
 </script>

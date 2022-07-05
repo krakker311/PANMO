@@ -1,18 +1,17 @@
 @extends('layouts.main')
 
 @section('container')
-    <div style="background-image: url({{ asset('img/about.jpg') }}); background-size: 100% 100%">
+    <div style="background-image: url({{ asset('img/about.jpg') }}); background-size: 100%">
         <br>
-        <div style="color: black; margin: 2% 2% 2% 2%"class="judul text-start" id="title">
+        <div style="color: black; margin-left: 3%; margin-top: 5%"class="judul text-start" id="title">
             <h1><strong>About Us</strong></h1>
         </div>
         <div class="row">
-            <div style="color: black; margin-left: 2%" class="col-sm-5 text-left mb-5 mt-5" id="about">
+            <div style="color: black; margin-left: 3%; margin-top: 5%" class="col-sm-5 text-left" id="about">
                 <h4 style="  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
                 ">Panmo is Indonesia’s No.1 beauty services marketplace for professionals models. Our models can manage their business, connect with new & existing clients, and showcase their services. Clients can discover model services, and book instantly anytime, anywhere.</h4>
             </div>
         </div>
-        
         <br><br><br><br><br><br><br><br><br><br><br><br><br>
     </div>
 <div class="container">
