@@ -75,7 +75,7 @@ class BookingOrderController extends Controller
             'isOrderAccepted' => 'boolean',
             'payment_status' => 'required'
         ]);
-
+        $validatedData['notified'] = 0;
         Order::create($validatedData);
         $orderid = Order::latest('created_at')->first();
         $user = User::find($request->input('email_id'));

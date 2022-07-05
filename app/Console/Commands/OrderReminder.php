@@ -32,13 +32,19 @@ class OrderReminder extends Command
      */
     public function handle()
     {
-        $orders = Order::where('call_start_time', '<=', Carbon::now()->add(15, 'minute')->toDateTimeString())
-                            ->where('call_start_time', '>', Carbon::now()->toDateTimeString())
+        $orders = Order::where('time', '>=', Carbon::now()->add(60, 'minute')->toDateTimeString())
+                            ->where('time', '<', Carbon::now()->toDateTimeString())
                             ->where('notified', 0)
                             ->get();
 
         foreach ($orders as $order){
-            $order->user->notify(new BookingOrderNotification());
+            $email = [
+                'greeting' => 'Hi ',
+                'body' => 'There are order for you .',
+                'actionText' => 'View Order',
+                'actionURL' => ''
+            ];
+            Notification::send($order->user, new EmailNotification($email));
             $order->notified = 1;
             $order->save();
         }
