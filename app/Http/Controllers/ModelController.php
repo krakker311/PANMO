@@ -96,7 +96,9 @@ class ModelController extends Controller
         $myModel = $myModel = ModelUser::all(); 
         if (Auth::user()) {
             $myModel = $myModel->where('user_id',Auth::user()->id)->first();
-        } 
+        } else {
+            $myModel = NULL;
+        }
         return view('model', [
             "title" => $model->name,
             "active" => 'posts',
