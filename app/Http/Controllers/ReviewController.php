@@ -11,6 +11,7 @@ class ReviewController extends Controller
     public function index(){
         $model = ModelUser::where('user_id',auth()->user()->id)->first();
         return view('dashboard.reviews.index',[
+            'title' => 'Review'
             'reviews' => Review::where('model_id',$model->id)->get(),            
         ]);
     }
