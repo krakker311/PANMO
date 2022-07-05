@@ -75,11 +75,6 @@
                                 <img src="{{ asset('storage/profile/default.jpg') }}" class="img-fluid">
                             @endif
                         </div>
-                        <!-- <form id="form" action="/profile" method="job">
-                        @csrf
-                        <input type="hidden" name="id" value="{{ $job->model->id }}">
-                        <button type="submit" id="btnSubmit" class="btn btn-dark">Read More</button>  
-                        </form> -->
                         <a href="/profile/{{ $job->model->id }}" class="btn btn-dark">Read more</a>
                     </div>
                   </div>

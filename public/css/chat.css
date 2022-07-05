@@ -5,7 +5,9 @@ p {
 }
 
 .base_receive p {
-    background: #4bdbe6;
+    background: lightgray;
+    border-width: 1px;
+    border-style: solid;
 }
 
 .base_sent p {

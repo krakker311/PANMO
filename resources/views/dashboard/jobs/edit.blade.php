@@ -2,7 +2,7 @@
 
 @section('container')
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Create New Job</h1>
+        <h1 class="h2">Update Job</h1>
     </div>
     <div class="col-lg-8">
             <form method="post" action="/dashboard/jobs/{{ $job->id }}" class="mb-5" enctype="multipart/form-data">
@@ -50,7 +50,7 @@
                   </div>
                 </div>
 
-                <button type="submit" class="btn btn-dark">Create New Job</button>
+                <button type="submit" class="btn btn-dark">Update Job</button>
               </form>
     </div>
 @endsection

@@ -102,7 +102,6 @@ class JobController extends Controller
             'job_title' => 'required|max:100',
             'job_desc' => 'required|max:500',
             'category_id' => 'required',
-            'province_id' => 'required',
             'price' => 'required|integer',
         ];
 
