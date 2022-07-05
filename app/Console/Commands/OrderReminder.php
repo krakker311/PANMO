@@ -45,7 +45,7 @@ class OrderReminder extends Command
                 'actionURL' => ''
             ];
             $user = User::find($request->input($order->model->user_id));
-            Notification::send($order->model->user_id, new EmailNotification($email));
+            Notification::send($user, new EmailNotification($email));
             $order->notified = 1;
             $order->save();
         }
