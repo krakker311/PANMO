@@ -13,6 +13,6 @@ class VerifyCsrfToken extends Middleware
      */
     protected $except = [
         '/notification/handling',
-        '/login'
+        '/login/android'
     ];
 }
