@@ -75,7 +75,7 @@ Route::get('/categories', function(){
 Route::get('/favorites', [ModelController::class, 'favorites']);
 
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
-
+Route::post('/login/android', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
 
 Route::get('/register', [RegisterController::class, 'index'])->name('register')->middleware('guest');
