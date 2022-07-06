@@ -12,14 +12,16 @@
     @endif
     <div class="card" style="width: 50rem;">
       <div class="card-body">
-        <h5 class="card-title">Model name: {{ $order->name }}</h5>
-        <h6 class="card-subtitle" style="margin-bottom:10px;">Orderer Name : {{ $order->name}}</h6>
-        <h6 class="card-subtitle"style="margin-bottom:10px;">Orderer Phone : {{ $order->phone}}</h6>
-        <h6 class="card-subtitle"style="margin-bottom:10px;">Orderer address : {{ $order->address}}</h6>
-        <h6 class="card-subtitle"style="margin-bottom:15px;margin-right:30px;display:inline;">Order Date : {{ $order->date}}</h6>
-        <h6 class="card-subtitle"style="margin-bottom:15px;display:inline;">Order Time : {{ $order->time}}</h6>
-        <h6 class="card-subtitle"style="margin-bottom:10px;margin-top:5px;">Order Job: {{ $order->job->job_title}}</h6>
-        <h6 class="card-subtitle"style="margin-bottom:10px;">Order Status : 
+        <h5 class="card-title"style="margin-bottom:40px; text-align: center;">Service: {{ $order->job->job_title}}</h5>
+        <h6 class="card-subtitle"style="margin-bottom:10px;">Order id: {{ $order->id }}</h6>
+        <h6 class="card-subtitle"style="margin-bottom:10px;">Model Name: {{ $order->model->name }}</h6>
+        <h6 class="card-subtitle"style="margin-bottom:10px;">Name : {{ $order->name}}</h6>
+        <h6 class="card-subtitle"style="margin-bottom:10px;">Phone : {{ $order->phone}}</h6>
+        <h6 class="card-subtitle"style="margin-bottom:10px;">Address : {{ $order->address}}</h6>
+        <h6 class="card-subtitle"style="margin-bottom:10px;">Order Date : {{ $order->date}}</h6>
+        <h6 class="card-subtitle"style="margin-bottom:10px;">Order Time : {{ $order->time}}</h6>
+        <hr>
+        <h6>Order Status : 
         @if($order->isOrderAccepted == 1)
           @if($order->payment_status == 1)
           <button type="button" class="btn btn-warning">Not Paid Yet</button>
@@ -30,19 +32,19 @@
           @endif
         @elseif($order->isOrderAccepted == 0)
           <button type="button" class="btn btn-secondary">Not Accepted yet</button>
-        @endif</h6>
+        @endif
 
-        <div class="mt-2">
+        <div style="text-align: right">
           @if($order->isOrderAccepted == 0 && Auth::user()->role_id == 2)
           <a href="/acceptOrder/id={{$order->id}}">
             <button class="btn btn-dark" type="button" >
               Accept Order
-                </button>
+            </button>
           </a>
           <a href="/declineOrder/id={{$order->id}}">
             <button class="btn btn-dark" type="button" >
               Decline Order
-                </button>
+            </button>
           </a>
           
           @elseif($order->isOrderAccepted == 1 && $order->user_id == Auth::user()->id && $order->payment_status == 1)
@@ -61,6 +63,8 @@
           </a>
           @endif
         </div>
+      </h6>
+
       </div>
     </div>
     <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="{{ config('midtrans.client_key') }}"></script>
