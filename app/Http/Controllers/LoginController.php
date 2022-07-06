@@ -26,7 +26,7 @@ class LoginController extends Controller
             return $request->email;
         }
 
-        return back()->with('loginError', 'Login failed!');
+        return ('failed');
 
     }
 
