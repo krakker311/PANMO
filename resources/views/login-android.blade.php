@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.android-main')
 
 @section('container')
 <div class="row justify-content-center">
@@ -19,7 +19,7 @@
     @endif
 
     <main class="form-signin">
-      <h1 class="h3 mb-3 fw-normal text-center mt-10">Please login</h1>
+      <h1 class="h3 mb-3 fw-normal text-center">Please login</h1>
         <form action="/login/android" method="post">
           @csrf
 
