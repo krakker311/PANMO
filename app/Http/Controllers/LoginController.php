@@ -7,8 +7,14 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
-    public function index(){
+    public function indexAndroid(){
         return view('login-android', [
+            'title' => 'Login',
+            'active' => 'login'
+        ]);
+    }
+    public function index(){
+        return view('auth/login', [
             'title' => 'Login',
             'active' => 'login'
         ]);

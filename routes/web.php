@@ -73,8 +73,8 @@ Route::get('/categories', function(){
 });
 
 Route::get('/favorites', [ModelController::class, 'favorites']);
-
-Route::get('/login/android', [LoginController::class, 'index'])->name('login');
+Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::get('/login/android', [LoginController::class, 'indexAndroid'])->name('loginAndroid');
 Route::post('/login/android', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
 
