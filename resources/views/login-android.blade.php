@@ -19,11 +19,11 @@
     @endif
 
     <main class="form-signin">
-      <h1 class="h3 mb-3 fw-normal text-center">Please login</h1>
+      <h1 class="h3 mb-3 fw-normal text-center" style="margin-top: 30px">Please Login to Your Account</h1>
         <form action="/login/android" method="post">
           @csrf
 
-          <div class="form-floating">
+          <div class="form-floating" style="margin-top: 30px">
             <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="name@example.com" autofocus required value="{{ old('email') }}">
             <label for="email">Email address</label>
             @error('email')
@@ -40,7 +40,6 @@
       
           <button class="w-100 btn btn-lg btn-dark" type="submit">Log in</button>
         </form>
-        <small class="d-block text-center mt-3">Not registered? <a href="/register">Register now</a></small>
       </main>
   </div>
 </div>
