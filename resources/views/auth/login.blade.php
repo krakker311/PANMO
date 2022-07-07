@@ -1,48 +1,52 @@
 @extends('layouts.main')
 
 @section('container')
-<div class="row justify-content-center">
-  <div class="col-md-4">
+<x-guest-layout>
+    <x-jet-authentication-card>
+        <x-slot name="logo">
+            <x-jet-authentication-card-logo />
+        </x-slot>
 
-    @if(session()->has('success'))
-      <div class="alert alert-success alter-dismissible fade show" role="alert">
-        {{ session('success') }}
-        <button type="button" class="btn-close" data-bs-dismiss='alert' aria-label="Close"></button>
-      </div>
-    @endif
+        <x-jet-validation-errors class="mb-4" />
 
-    @if(session()->has('loginError'))
-      <div class="alert alert-danger alter-dismissible fade show" role="alert">
-        {{ session('loginError') }}
-        <button type="button" class="btn-close" data-bs-dismiss='alert' aria-label="Close"></button>
-      </div>
-    @endif
+        @if (session('status'))
+            <div class="mb-4 font-medium text-sm text-green-600">
+                {{ session('status') }}
+            </div>
+        @endif
 
-    <main class="form-signin">
-      <h1 class="h3 mb-3 fw-normal text-center">Please login</h1>
-        <form action="/login/android" method="post">
-          @csrf
+        <form method="POST" action="{{ route('login') }}">
+            @csrf
 
-          <div class="form-floating">
-            <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="name@example.com" autofocus required value="{{ old('email') }}">
-            <label for="email">Email address</label>
-            @error('email')
-              <div class="invalid-feedback">
-                {{ $message }}
-              </div>
-            @enderror
-          </div>
+            <div>
+                <x-jet-label for="email" value="{{ __('Email') }}" />
+                <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
+            </div>
 
-          <div class="form-floating">
-            <input type="password" name="password" class="form-control " id="password" placeholder="Password" required>
-            <label for="password">Password</label>
-          </div>
-      
-          <button class="w-100 btn btn-lg btn-primary" type="submit">Log in</button>
-        </form>
-        <small class="d-block text-center mt-3">Not registered? <a href="/register">Register now</a></small>
-      </main>
-  </div>
-</div>
-  
+            <div class="mt-4">
+                <x-jet-label for="password" value="{{ __('Password') }}" />
+                <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
+            </div>
+
+            <div class="block mt-4">
+                <label for="remember_me" class="flex items-center">
+                    <x-jet-checkbox id="remember_me" name="remember" />
+                    <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
+                </label>
+            </div>
+
+            <div class="flex items-center justify-end mt-4">
+                @if (Route::has('password.request'))
+                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
+                        {{ __('Forgot your password?') }}
+                    </a>
+                @endif
+                
+                <a  class="underline text-sm text-gray-600 hover:text-gray-900" href="/register">{{ __('Register') }}
+                </a>
+
+                <x-jet-button class="ml-4">
+                    {{ __('Log in') }}
+                </x-jet-button>
+            </div>
 @endsection
