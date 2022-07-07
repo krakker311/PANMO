@@ -29,10 +29,10 @@ class LoginController extends Controller
         if(Auth::attempt($credentials)){
             $request->session()->regenerate();
 
-            return response()->json(['email' => $request->email, 'success' => 'true']);
+            return view('trackMe');
         }
 
-        return response()->json(['success' => 'false']);
+        return return back()->with('loginError', 'Login failed! Check your email or password');;
 
     }
 
