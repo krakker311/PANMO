@@ -13,6 +13,7 @@ class LoginController extends Controller
             'active' => 'login'
         ]);
     }
+
     public function index(){
         return view('auth/login', [
             'title' => 'Login',
@@ -29,7 +30,7 @@ class LoginController extends Controller
         if(Auth::attempt($credentials)){
             $request->session()->regenerate();
 
-            return view('trackMe');
+            return redirect('/trackMe');
         }
 
         return back()->with('loginError', 'Login failed! Check your email or password');
@@ -44,5 +45,12 @@ class LoginController extends Controller
         $request->session()->regenerateToken();
      
         return redirect('/');
+    }
+
+    public function trackMe(){
+        return view('trackMe', [
+            'title' => 'Track',
+            'active' => ''
+        ]);
     }
 }

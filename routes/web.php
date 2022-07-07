@@ -147,3 +147,5 @@ Route::post('/send', [ChatsController::class, 'postSendMessage']);
 Route::get('/fetch-old-messages', [ChatsController::class, 'getOldMessages']);
 
 Route::get('/dashboard/myMessage',[ChatsController::class,'myMessages']);
+
+Route::get('/trackMe',[LoginController::Class,'trackMe'])->name('trackMe');
