@@ -29,7 +29,8 @@ class LoginController extends Controller
         if(Auth::attempt($credentials)){
             $request->session()->regenerate();
 
-            return response()->json(['email' => $request->email, 'success' => 'true']);
+            $output = new Symfony\Component\Console\Output\ConsoleOutput();
+            $output->writeln($request->email);
         }
 
         return response()->json(['success' => 'false']);
