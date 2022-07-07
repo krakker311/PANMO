@@ -32,7 +32,7 @@ class LoginController extends Controller
             return view('trackMe');
         }
 
-        return return back()->with('loginError', 'Login failed! Check your email or password');;
+        return back()->with('loginError', 'Login failed! Check your email or password');
 
     }
 
