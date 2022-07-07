@@ -38,7 +38,7 @@
             <label for="password">Password</label>
           </div>
       
-          <button class="w-100 btn btn-lg btn-primary" type="submit">Log in</button>
+          <button class="w-100 btn btn-lg btn-dark" type="submit">Log in</button>
         </form>
         <small class="d-block text-center mt-3">Not registered? <a href="/register">Register now</a></small>
       </main>
