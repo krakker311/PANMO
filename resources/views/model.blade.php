@@ -69,19 +69,20 @@
                 <div class="text-center mt-5" >
                   <h4 style="font-weight: bold">Portofolio</h4>
                 </div>
-                  @forelse ($portfolios as $portfolio)
-                      <!-- <img src="" alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2" style="width: 150px; z-index: 1"> -->
-                      <img class="myImg" id="myImg"src="{{ $portfolio->image }}" alt="{{$portfolio->title}} <br>{{$portfolio->desc}}" width="350" height="200" style="margin-right: 10px; margin-bottom: 10px">
-                        <!-- The Modal -->
-                        <div class="myModal" id="modal">
-                          <span class="close">&times;</span>
-                          <img class="modal-content">
-                          <div class="caption" id=""></div>
-                        </div>
-                        @empty 
-                        <h6 style="text-align: center">No portfolio yet</h6>
-                  @endforelse
-    
+                    <div class="container center" > 
+                      @forelse ($portfolios as $portfolio)
+                          <!-- <img src="" alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2" style="width: 150px; z-index: 1"> -->
+                          <img class="myImg" id="myImg"src="{{ $portfolio->image }}" alt="{{$portfolio->title}} <br>{{$portfolio->desc}}" width="300" height="300" style="margin-right: 50px; margin-bottom: 10px;object-fit: cover;">
+                            <!-- The Modal -->
+                            <div class="myModal" id="modal">
+                              <span class="close">&times;</span>
+                              <img class="modal-content">
+                              <div class="caption" id=""></div>
+                            </div>
+                            @empty 
+                            <h6 style="text-align: center">No portfolio yet</h6>
+                      @endforelse
+                    </div>
                   <div class="d-flex justify-content-center">
                       {{ $portfolios->links() }}
                   </div>

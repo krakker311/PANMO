@@ -35,7 +35,7 @@
                     <label for="image" class="form-label">Image</label>
                     <input type="hidden" name="oldImage" value="{{ $portfolio->image }}">
                     @if($portfolio->image)
-                    <img src="{{ $portfolio->image }}" class="img-preview img-fluid mb-3 col-sm-5 d-block">
+                    <img src="{{ $portfolio->image }}" class="img-preview img-fluid mb-3 col-sm-5 d-block" >
                     @else
                     <img class="img-preview img-fluid mb-3 col-sm-5">
                     @endif

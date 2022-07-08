@@ -16,7 +16,7 @@
             <div class="card" style="width: 40rem; margin-bottom: 10px;">
               <div class="card-body">
                 <h5 class="card-title">{{ $portfolio->title }}</h5> <hr>
-                <h6 class="card-subtitle">Description : {{ $portfolio->desc }}</h6>
+                <h6 class="card-subtitle mb-5">Description : {{ $portfolio->desc }}</h6>
                 <a type="button" class="btn btn-dark" href="/dashboard/portfolio/{{ $portfolio->id }}" style="float: right; margin-left: 10px;">Details</a>  
                 <form action="/dashboard/portfolio/{{ $portfolio->id }}" method="post" class="d-inline">
                 @method('delete')
