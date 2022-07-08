@@ -19,7 +19,7 @@ class PortfolioController extends Controller
     {
         return view('dashboard.portfolio.index', [
             'title' =>'My Portfolio',
-            'portfolios' => Portfolio::where('model_id', auth()->user()->id)->get()
+            'portfolios' => Portfolio::where('model_id', auth()->user()->model->id)->get()
         ]);
     }
 
@@ -72,7 +72,7 @@ class PortfolioController extends Controller
         // In a situation where the user has already uploaded a file we could use the delete method to remove the media and upload a new one.
         $validatedData['public_id'] = $public_id;
         $validatedData['image'] = $image_url;
-        $validatedData['model_id'] = auth()->user()->id;
+        $validatedData['model_id'] = auth()->user()->model->id;
 
         Portfolio::create($validatedData);
 
@@ -153,7 +153,7 @@ class PortfolioController extends Controller
         $validatedData['public_id'] = $public_id;
         $validatedData['image'] = $image_url;
 
-        $validatedData['model_id'] = auth()->user()->id;
+        $validatedData['model_id'] = auth()->user()->model->id;
 
         Portfolio::where('id', $portfolio->id)->update($validatedData);
 

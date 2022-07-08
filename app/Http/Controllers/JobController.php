@@ -19,7 +19,7 @@ class JobController extends Controller
     {
         return view('dashboard.jobs.index', [
             'title' => 'My Jobs',
-            'jobs' => Job::where('model_id', auth()->user()->id)->get()
+            'jobs' => Job::where('model_id', auth()->user()->model->id)->get()
         ]);
     }
    
@@ -50,7 +50,7 @@ class JobController extends Controller
             'price' => 'required'
         ]);
 
-        $validatedData['model_id'] = auth()->user()->id;
+        $validatedData['model_id'] = auth()->user()->model->id;
 
         Job::create($validatedData);
 
@@ -106,7 +106,7 @@ class JobController extends Controller
         ];
 
         $validatedData = $request->validate($rules);
-        $validatedData['model_id'] = auth()->user()->id;
+        $validatedData['model_id'] = auth()->user()->model->id;
 
         Job::where('id', $job->id)->update($validatedData);
 
