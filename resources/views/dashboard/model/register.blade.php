@@ -31,20 +31,12 @@
 					<div class="text-center text-sm-left mb-2 mb-sm-0">
 						<h4 class="pt-sm-2 pb-1 mb-0 text-nowrap">{{ auth()->user()->name }}</h4>
 						<p class="mb-0">{{ auth()->user()->username }}</p>
-						<div class="mt-2">
-							<button class="btn btn-dark" type="button" >
-								Change Profile Picture
-							</button>
-						</div>
 					</div>
 					<div class="text-center text-sm-right">
 						<span class="badge badge-secondary">administrator</span>
 					</div>
 					</div>
 				</div>
-				<ul class="nav nav-tabs">
-					<li class="nav-item"><a href="" class="active nav-link">Settings</a></li>
-				</ul>
 				<div class="tab-content pt-3">
 					<div class="tab-pane active">
 					<form class="form" method="POST" action="{{ route('dashboard.create.model')}}">
