@@ -51,7 +51,7 @@ class ModelController extends Controller
         ]);
 
         $new_role_id = 2;
-        $validatedData['image'] = auth()->user()->model->id;
+        $validatedData['image'] = auth()->user()->image;
         User::where('id',$request->user_id)->update(array('role_id'=> $new_role_id));
         ModelUser::create($validatedData);
         return redirect('dashboard')->with('message', 'Model Registration Success!');
