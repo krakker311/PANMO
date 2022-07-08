@@ -26,19 +26,21 @@
             <div class="container">
               @if(Auth::User())
                 @if(!is_null($myModel))
-                  @if($myModel->id != $model->id)             
-                  <div class="card-body p-4 text-black">
-                    <div class="col">
-                        <div class="btn-toolbar" style="margin-left:375px">
-                          <a href="/booking/{{ $model->id }}" class="btn btn-dark mb-3" style="width: 150px; margin-right: 10px"> Book now</a>
-                          <a href="javascript:void(0);" class="btn-chat1" data-id="{{ $model->user_id }}" data-user="{{ $model->user->name }}"  style="z-index: 1; margin-right: 10px; text-decoration:none; width: 150px;" id="chat-toggle">
-                          <div class="center">
-                          Ask Availability
-                          </div>
-                          </a>
-                          <favorite :model={{ $model->id }} :favorited={{ $model->favorited() ? 'true' : 'false' }}></favorite>
-                          </div>
-                    </div>
+                  @if($myModel->id != $model->id)
+                    @if(Auth::user()->role_id != 2)             
+                      <div class="card-body p-4 text-black">
+                        <div class="col">
+                            <div class="btn-toolbar" style="margin-left:375px">
+                              <a href="/booking/{{ $model->id }}" class="btn btn-dark mb-3" style="width: 150px; margin-right: 10px"> Book now</a>
+                              <a href="javascript:void(0);" class="btn-chat1" data-id="{{ $model->user_id }}" data-user="{{ $model->user->name }}"  style="z-index: 1; margin-right: 10px; text-decoration:none; width: 150px;" id="chat-toggle">
+                              <div class="center">
+                              Ask Availability
+                              </div>
+                              </a>
+                              <favorite :model={{ $model->id }} :favorited={{ $model->favorited() ? 'true' : 'false' }}></favorite>
+                              </div>
+                        </div>
+                      @endif
                     @endif
                   @else
                   <div class="card-body p-4 text-black">

@@ -16,11 +16,12 @@
             <a class="nav-link {{ $active === "posts" ? 'active' :'' }}" href="/posts">Browse</a>
           </li>
           @if (Auth::check())
+            @if(Auth::User()->role_id == 1)
             <li class="nav-item">
               <a class="nav-link {{ $active === "favorite" ? 'active' :'' }}" href="/favorites">Favorite List</a>
             </li>
-          @endif
-            
+            @endif
+          @endif           
         </ul>
         
         <ul class="navbar-nav ms-auto">
