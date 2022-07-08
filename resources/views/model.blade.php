@@ -56,7 +56,7 @@
                     @endif 
                 @endif
                 <div class="col text-center mt-5">
-                  <h4 style="font-weight: bold">About Me</h4>
+                  <h4 style="font-weight: bold;margin-bottom: 10px;">About Me</h4>
                       <h5>Height: {{ $model->height }} cm -
                       Weight: {{ $model->weight }} kg -
                       Hips: {{ $model->hips }} cm -
@@ -71,7 +71,7 @@
                 </div>
                   @forelse ($portfolios as $portfolio)
                       <!-- <img src="" alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2" style="width: 150px; z-index: 1"> -->
-                      <img class="myImg" id="myImg"src="{{ asset('storage/' . $portfolio->image) }}" alt="{{$portfolio->title}} <br>{{$portfolio->desc}}" width="350" height="200" style="margin-right: 10px; margin-bottom: 10px">
+                      <img class="myImg" id="myImg"src="{{ $portfolio->image }}" alt="{{$portfolio->title}} <br>{{$portfolio->desc}}" width="350" height="200" style="margin-right: 10px; margin-bottom: 10px">
                         <!-- The Modal -->
                         <div class="myModal" id="modal">
                           <span class="close">&times;</span>
