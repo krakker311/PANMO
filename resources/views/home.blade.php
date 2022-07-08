@@ -73,7 +73,7 @@
     </div>
   </div>
   
-<div style="margin-top: 7%" class="modelofthemonth text-center">
+<div style="margin-top: 7%" class="modelofthemonth text-center mb-4">
     <h1>Model of the month</h1>
 </div>
 <!-- Three columns of text below the carousel -->
