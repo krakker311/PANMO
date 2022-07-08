@@ -85,7 +85,7 @@ class ProfileController extends Controller
             $validatedDataUser['image'] = $image_url; 
         }
              
-        ModelUser::where('id', $request->user_id)->update($validatedData);
+        ModelUser::where('id', auth()->user()->model->id)->update($validatedData);
         User::where('id', $request->user_id)->update($validatedDataUser);
 
         return redirect('/dashboard')->with('message', 'Profile Successfully Updated!');
