@@ -128,7 +128,7 @@ class ModelController extends Controller
         return view('favlist', [
             "title" => 'Favorite',
             "active" => 'favorite',
-            "posts" => Auth::user()->favorites
+            "models" => Auth::user()->favorites
         ]);
     }
 }
