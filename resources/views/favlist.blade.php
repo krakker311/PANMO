@@ -11,7 +11,7 @@
                         <h5 class="card-title">{{ $post->name }}</h5>
                         <div style="max-height: 400px; overflow:hidden;">
                             @if($post->image)
-                                <img src="{{ asset('storage/' . $post->image) }}" class="img-fluid">
+                                <img src="{{ $post->image }}" class="img-fluid">
                             @else
                                 <img src="{{ asset('storage/profile/default.jpg') }}" class="img-fluid">
                             @endif
