@@ -59,7 +59,7 @@
         <div class="row">
             @foreach($jobs as $job)
             @if($job->model_id != $model_id)
-            <div class="col-md-4 mb-4">
+            <div class="col-md-4 mb-5 mr-2">
                 <div class="card">
                     <div class="card-body text-center">
                         <h5 class="card-title">{{ $job->model->name }}</h5>
