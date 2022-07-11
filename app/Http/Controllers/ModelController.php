@@ -40,12 +40,12 @@ class ModelController extends Controller
             'user_id' => 'required',
             'province_id' => 'required',
             'city_id' => 'required',
-            'height' => 'required',
-            'weight' => 'required',
+            'height' => 'required|int',
+            'weight' => 'required|int',
             'hair_color' => 'required',
-            'waist' => 'required',
-            'bust' => 'required',
-            'hips' => 'required',
+            'waist' => 'required|int',
+            'bust' => 'required|int',
+            'hips' => 'required|int',
             'description' => 'required',
             'jobs_done'=>'required'
         ]);

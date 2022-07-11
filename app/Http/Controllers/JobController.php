@@ -47,7 +47,7 @@ class JobController extends Controller
             'job_title' => 'required|max:100',
             'job_desc' => 'required|max:500',
             'category_id' => 'required',
-            'price' => 'required'
+            'price' => 'required|int'
         ]);
 
         $validatedData['model_id'] = auth()->user()->model->id;
