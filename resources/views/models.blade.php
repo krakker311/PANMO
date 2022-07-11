@@ -60,14 +60,14 @@
             @foreach($jobs as $job)
             @if($job->model_id != $model_id)
             <div class="col-md-4 mb-4">
-                <div class="card" style="border-radius: 10%;">
-                    <div class="card-body">
+                <div class="card">
+                    <div class="card-body text-center">
                         <h5 class="card-title">{{ $job->model->name }}</h5>
                         <div style="max-height: 400px; overflow:hidden;">
                             @if($job->model->image)
-                                <img src="{{ $job->model->image }}" class="img-fluid">
+                                <img src="{{ $job->model->image }}" class="img-fluid" style="width: 300px; height: 300px;">
                             @else
-                                <img src="{{ asset('storage/profile/default.jpg') }}" class="img-fluid">
+                                <img src="{{ asset('storage/profile/default.jpg') }}" class="img-fluid" class="img-fluid" style="width: 300px; height: 300px;">
                             @endif
                         </div>
                         <h6 style="margin-top:10px"> <span class="bi-geo-alt-fill"></span> {{ $job->model->province->name }} - {{ $job->model->city->name  }}</h6>
