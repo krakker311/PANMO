@@ -21,15 +21,15 @@
     </div>
     <hr style="color: black" size="4px">
     <div class="mb-5 mt-5" id="about">
-        <h5>1. Pilih model yang anda inginkan pada halaman browse, Kemudian klik read more untuk melihat info harga, foto hasil, rating & review dari client lain.</h5>
+        <h5>1. Select the model you want on the browse page, then click read more to see price info, photo results, ratings & reviews from other clients.</h5>
         <br>
-        <h5>2. Klik "Book Now" pada layanan yang kamu inginkan atau bisa klik "Ask for Availability" untuk menanyakan ketersediaan jadwal dari Beauty Artist yang bersangkutan.</h5>
+        <h5>2. Click "Book Now" on the service you want or you can click "Ask for Availability" to inquire about the availability of the schedule from the Beauty Artist concerned.</h5>
         <br>
-        <h5>3. Masukan detail pesanan anda dan selesaikan proses pemesanan.</h5>
+        <h5>3. Enter your order details and complete the ordering process.</h5>
         <br>
-        <h5>4. Tunggu konfirmasi dari model.</h5>
+        <h5>4. Wait for confirmation from the model.</h5>
         <br>
-        <h5>5. Model akan segera menghubungi kamu dan siap untuk melayani.</h5>
+        <h5>5. The model will contact you soon and ready to service.</h5>
     </div>
 </div>
     
